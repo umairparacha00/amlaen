@@ -30,13 +30,13 @@
                                 our power<br/>
                             </h3>
                             <h3 class="top-title-text">
-                                Our vision about web design<br/>
+                                Our vision about Web.<br/>
                             </h3>
                         </div>
                         <div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                commodo diam libero vitae</p>
+                            <p>Amlaen is an advertising platform that is highly concerned to win the trust of clients. Our Vision is to
+                                offer good deals of services including web development, social media marketing,
+                                search engine marketing, branding also much more and make a website for you that reflects your business.</p>
                         </div>
                         <div class="top-margin more">
                             <div>
@@ -49,91 +49,8 @@
                             <img alt=""
                                  class="image-radius"
                                  sizes="(max-width: 479px) 100vw, (max-width: 991px) 90vw, 43vw"
-                                 src="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf0e255c6b7392262182c0_b-2.jpg"
-                                 srcset="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf0e255c6b7392262182c0_b-2-p-500.jpeg 500w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf0e255c6b7392262182c0_b-2-p-800.jpeg 800w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf0e255c6b7392262182c0_b-2-p-1080.jpeg 1080w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf0e255c6b7392262182c0_b-2.jpg 1500w"
+                                 src="{{asset('assets/img/b-2.jpg')}}"
                             />
-                        </div>
-                    </div>
-                </div>
-                <div class="margin-page">
-                    <div>
-                        <div class="illustration-grid">
-                            <div>
-                                <img alt=""
-                                     sizes="(max-width: 479px) 100vw, (max-width: 991px) 90vw, 43vw"
-                                     src="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaeaac06c54ed36539a613a_illustration.jpg"
-                                     srcset="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaeaac06c54ed36539a613a_illustration-p-500.jpeg 500w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaeaac06c54ed36539a613a_illustration-p-800.jpeg 800w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaeaac06c54ed36539a613a_illustration-p-1080.jpeg 1080w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaeaac06c54ed36539a613a_illustration.jpg 1500w"/>
-                            </div>
-                            <div class="left-padding">
-                                <div class="top-title _2-column">
-                                    <h3 class="meta-sub">
-                                        what we do<br/>
-                                    </h3>
-                                    <h3 class="top-title-text">
-                                        We help to create<br/>
-                                        visual strategies<br/>
-                                    </h3>
-                                </div>
-                                <div>
-                                    <div class="toggle-wrapper" data-w-id="ff742f47-fd01-6dac-5f08-58df4fd4c97b">
-                                        <a class="toggle-header w-inline-block" href="#">
-                                            <div class="toogle-icon">
-                                                <div class="line-1"></div>
-                                                <div class="line-2"
-                                                     style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0)"></div>
-                                            </div>
-                                            <div>Pixel Perfect Design</div>
-                                        </a>
-                                        <div class="toggle-content" style="height:0PX">
-                                            <div class="toggle-space"
-                                                 style="-webkit-transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                                    varius enim in eros elementum tristique.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="toggle-wrapper" data-w-id="ff742f47-fd01-6dac-5f08-58df4fd4c986">
-                                        <a class="toggle-header w-inline-block" href="#">
-                                            <div class="toogle-icon">
-                                                <div class="line-1"></div>
-                                                <div class="line-2"
-                                                     style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0)"></div>
-                                            </div>
-                                            <div>User Experience</div>
-                                        </a>
-                                        <div class="toggle-content" style="height:0PX">
-                                            <div class="toggle-space"
-                                                 style="-webkit-transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
-                                                <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit. Suspendisse varius enim in eros elementum tristique.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="toggle-wrapper" data-w-id="ff742f47-fd01-6dac-5f08-58df4fd4c991">
-                                        <a class="toggle-header w-inline-block" href="#">
-                                            <div class="toogle-icon">
-                                                <div class="line-1"></div>
-                                                <div class="line-2"
-                                                     style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0)"></div>
-                                            </div>
-                                            <div>Mobile Application</div>
-                                        </a>
-                                        <div class="toggle-content" style="height:0PX">
-                                            <div class="toggle-space"
-                                                 style="-webkit-transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 5PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
-                                                <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit. Suspendisse varius enim in eros elementum tristique.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="top-margin more">
-                                    <div>
-                                        <a aria-current="page" class="button color w-button w--current" href="/about">learn
-                                            more</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -146,27 +63,16 @@
                     </div>
                     <div>
                         <div class="team-grid">
-                            <div class="team-wrapper" data-ix="show-social-team-on-hover">
+                            <div class="team-wrapper">
                                 <div class="team-image">
                                     <img alt=""
                                          class="member-image"
                                          sizes="(max-width: 767px) 81vw, (max-width: 991px) 54vw, 27vw"
-                                         src="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf0e8f153c284590666bf8_team-3.jpg"
-                                         srcset="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf0e8f153c284590666bf8_team-3-p-500.jpeg 500w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf0e8f153c284590666bf8_team-3-p-800.jpeg 800w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf0e8f153c284590666bf8_team-3.jpg 1000w"/>
+                                         src="{{ asset('assets/img/about-p-pic-3.jpg')}}"/>
                                 </div>
                                 <div class="team-content">
                                     <h4 class="heading-white">william lee</h4>
                                     <div class="top-small-title white smaller">CO Founder</div>
-                                    <div>
-                                        <div class="social-wrapper-team" data-ix="move-social-icon-on-team">
-                                            <a class="social-icon w-inline-block" href="https://www.facebook.com/"
-                                               target="_blank"></a>
-                                            <a class="social-icon twitter w-inline-block" href="https://twitter.com/"
-                                               target="_blank"></a>
-                                            <a class="social-icon insta w-inline-block" href="http://instagram.com/"
-                                               target="_blank"></a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="team-wrapper" data-ix="show-social-team-on-hover">
@@ -174,22 +80,11 @@
                                     <img alt=""
                                          class="member-image"
                                          sizes="(max-width: 767px) 81vw, (max-width: 991px) 54vw, 27vw"
-                                         src="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf089c6af9c8b0d2e2e510_tm2.jpg"
-                                         srcset="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf089c6af9c8b0d2e2e510_tm2-p-500.jpeg 500w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf089c6af9c8b0d2e2e510_tm2-p-800.jpeg 800w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eaf089c6af9c8b0d2e2e510_tm2.jpg 1000w"/>
+                                         src="{{ asset('assets/img/about_p_pic.jpg')}}"/>
                                 </div>
                                 <div class="team-content">
                                     <h4 class="heading-white">Laura William</h4>
                                     <div class="top-small-title white smaller">Senior Designer</div>
-                                    <div>
-                                        <div class="social-wrapper-team" data-ix="move-social-icon-on-team">
-                                            <a class="social-icon w-inline-block" href="https://www.facebook.com/"
-                                               target="_blank"></a>
-                                            <a class="social-icon twitter w-inline-block" href="https://twitter.com/"
-                                               target="_blank"></a>
-                                            <a class="social-icon insta w-inline-block" href="http://instagram.com/"
-                                               target="_blank"></a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="team-wrapper" data-ix="new-interaction">
@@ -197,22 +92,11 @@
                                     <img alt=""
                                          class="member-image"
                                          sizes="(max-width: 767px) 81vw, (max-width: 991px) 54vw, 27vw"
-                                         src="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5ea70fb1c50d892fbba7ec23_tm4.jpg"
-                                         srcset="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5ea70fb1c50d892fbba7ec23_tm4-p-500.jpeg 500w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5ea70fb1c50d892fbba7ec23_tm4-p-800.jpeg 800w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5ea70fb1c50d892fbba7ec23_tm4.jpg 1000w"/>
+                                         src="{{ asset('assets/img/about-p-pic-1.jpg')}}"/>
                                 </div>
                                 <div class="team-content">
                                     <h4 class="heading-white">John doe</h4>
                                     <div class="top-small-title white smaller">Developer</div>
-                                    <div>
-                                        <div class="social-wrapper-team">
-                                            <a class="social-icon w-inline-block" href="https://www.facebook.com/"
-                                               target="_blank"></a>
-                                            <a class="social-icon twitter w-inline-block" href="https://twitter.com/"
-                                               target="_blank"></a>
-                                            <a class="social-icon insta w-inline-block" href="http://instagram.com/"
-                                               target="_blank"></a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

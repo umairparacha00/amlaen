@@ -75,7 +75,10 @@
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.8);
 }
-
+.nav-menu .navlink .active {
+    color: #392396;
+    box-shadow: 0 2px 0 0 #392396;
+}
 .w-commerce-commercecartcontainerwrapper--cartType-modal {
     display: -webkit-box;
     display: -webkit-flex;
@@ -4453,19 +4456,19 @@ figure {
     margin-left: 2px;
     float: left;
     border-radius: 100%;
-    background-image: url("https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5ea70fb1c50d8993cca7eaf5_client-2.jpg");
+    background-image: url("/assets/img/client-2.jpg");
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .testimonials-photo.photo-2 {
-    background-image: url("https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5ea70fb1c50d891b97a7eb39_client-3.jpg");
+    background-image: url("/assets/img/client-3.jpg");
     background-size: cover;
 }
 
 .testimonials-photo.photo-3 {
-    background-image: url("https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5ea70fb1c50d893932a7eafb_client-5.jpg");
+    background-image: url("/assets/img/client-5.jpg");
     background-size: cover;
 }
 
@@ -4478,7 +4481,7 @@ figure {
     width: 40px;
     height: 40px;
     margin-right: 0px;
-    background-image: url("https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5ea70fb1c50d8954aba7eaa1_font-awesome_4-7-0_facebook_100_0_ffffff_none.png");
+    background-image: url("assets/img/facebook.png");
     background-position: 50% 50%;
     background-size: 16px;
     background-repeat: no-repeat;
@@ -4491,12 +4494,12 @@ figure {
 }
 
 .social-icon.insta {
-    background-image: url("https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5ea70fb1c50d893492a7ea8e_font-awesome_4-7-0_instagram_100_0_ffffff_none.png");
+    background-image: url("assets/img/instagram.png");
     background-size: 17px;
 }
 
 .social-icon.twitter {
-    background-image: url("https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5ea70fb1c50d898c40a7ea9e_font-awesome_4-7-0_twitter_100_0_ffffff_none.png");
+    background-image: url("assets/img/twitter.png");
 }
 
 .team-image {
@@ -6373,9 +6376,4 @@ figure {
         -ms-grid-column-span: 1;
         grid-column-end: span 1;
     }
-}
-#iuysidufgjhkgsajfgsadjf{
-    color: #523bb0;
-    background: -webkit-linear-gradient(118deg, #523baf, rgb(84 77 156 / 76%));
-    background: linear-gradient(118deg, #523baf, rgb(84 77 156 / 76%));
-}
+}                                                                                                                                                                                                             
