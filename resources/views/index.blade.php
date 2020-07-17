@@ -5,15 +5,15 @@
 @endsection
 @section('social')
     <div id="w-node-e5e60c18f38a-0c18f34f" class="social-content">
-        <a href="#" class="social-icon-2 w-inline-block">
+        <a href="#" class="social-icon-2 inline-block">
             <img src="{{ asset('assets/img/facebook.png')}}"
                  width="12" alt=""/>
         </a>
-        <a href="#" class="social-icon-2 twitter w-inline-block">
+        <a href="#" class="social-icon-2 twitter inline-block">
             <img src="{{ asset('assets/img/twitter.png')}}"
                  width="12" alt=""/>
         </a>
-        <a href="#" class="social-icon-2 insta w-inline-block">
+        <a href="#" class="social-icon-2 insta inline-block">
             <img src="{{ asset('assets/img/instagram.png')}}"
                  width="14" alt=""/>
         </a>
@@ -30,8 +30,8 @@
                     Design visually, create efficiently.<br/>
                 </h1>
                 <div class="top-margin big">
-                    <a href="{{ url('/contact') }}" class="button lighter add-margin w-button">Discus Project</a>
-                    <a href="{{ url('/about')}}" class="button color w-button">About Us</a>
+                    <a href="{{ url('/contact') }}" class="button lighter add-margin am-button">Discus Project</a>
+                    <a href="{{ url('/about')}}" class="button color am-button">About Us</a>
                 </div>
             </div>
             <div class="hero-photo">
@@ -175,7 +175,7 @@
                 </div>
                 <div class="top-margin">
                     <div class="align-center">
-                        <a href="/contact" class="button w-button">let &#x27;s talk</a>
+                        <a href="/contact" class="button am-button">let &#x27;s talk</a>
                     </div>
                 </div>
                 <div class="margin-page">
@@ -197,7 +197,7 @@
                             </div>
                             <div>
                                 <div data-w-id="a153dd51-d165-82ff-43ae-bfb88ac74986" class="toggle-wrapper">
-                                    <a href="#" class="toggle-header w-inline-block">
+                                    <a href="#" class="toggle-header inline-block">
                                         <div class="toogle-icon">
                                             <div class="line-1"></div>
                                             <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0)"
@@ -214,7 +214,7 @@
                                     </div>
                                 </div>
                                 <div data-w-id="a153dd51-d165-82ff-43ae-bfb88ac74991" class="toggle-wrapper">
-                                    <a href="#" class="toggle-header w-inline-block">
+                                    <a href="#" class="toggle-header inline-block">
                                         <div class="toogle-icon">
                                             <div class="line-1"></div>
                                             <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0)"
@@ -231,7 +231,7 @@
                                     </div>
                                 </div>
                                 <div data-w-id="a153dd51-d165-82ff-43ae-bfb88ac7499c" class="toggle-wrapper">
-                                    <a href="#" class="toggle-header w-inline-block">
+                                    <a href="#" class="toggle-header inline-block">
                                         <div class="toogle-icon">
                                             <div class="line-1"></div>
                                             <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90DEG) skew(0, 0)"
@@ -250,7 +250,7 @@
                             </div>
                             <div class="top-margin more">
                                 <div>
-                                    <a href="/about" class="button color w-button">learn more</a>
+                                    <a href="/about" class="button color am-button">learn more</a>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +272,7 @@
             </div>
             <div class="top-margin more">
                 <div class="align-center">
-                    <a href="{{ url('/contact') }}" class="button color w-button">Discus Project</a>
+                    <a href="{{ url('/contact') }}" class="button color am-button">Discus Project</a>
                 </div>
             </div>
         </div>
@@ -288,7 +288,7 @@
                                 elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
                         </div>
                         <div class="top-margin more">
-                            <div><a href="/about" class="button lighter w-button">work with us</a></div>
+                            <div><a href="/about" class="button lighter am-button">work with us</a></div>
                         </div>
                     </div>
                 </div>

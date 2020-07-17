@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 @section('meta-data')
-    <title>Amlaen Digital Marketing Agency | Amlaen.com</title>
+    <title>Contact Us | Amlaen.com</title>
     <meta content="Home" property="og:title"/>
 @endsection
 @section('header-feature')
@@ -88,9 +88,9 @@
                                         </div>
                                         <div class="top-margin"><input type="submit" value="Send Message"
                                                                        data-wait="Please wait..."
-                                                                       class="button color w-button"></div>
+                                                                       class="button color am-button"></div>
                                     </form>
-                                    <div class="success-message w-form-done">
+                                    <div class="success-message f-d-none">
                                         <div>Thank you! Your message has been received!</div>
                                     </div>
                                     <div class="error-message w-form-fail">

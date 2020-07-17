@@ -40,12 +40,12 @@
                         </div>
                         <div class="top-margin more">
                             <div>
-                                <a class="button w-button" href="/contact">learn more</a>
+                                <a class="button am-button" href="/contact">learn more</a>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <div class="lightbox-link w-inline-block w-lightbox" href="#">
+                        <div class="lightbox-link inline-block w-lightbox" href="#">
                             <img alt=""
                                  class="image-radius"
                                  sizes="(max-width: 479px) 100vw, (max-width: 991px) 90vw, 43vw"
@@ -192,12 +192,12 @@
                                                       placeholder="Enter your brief"></textarea>
                                         </div>
                                         <div class="top-margin">
-                                            <input class="button color w-button" data-wait="Please wait..."
+                                            <input class="button color am-button" data-wait="Please wait..."
                                                    type="submit"
                                                    value="Send Message"/>
                                         </div>
                                     </form>
-                                    <div class="success-message w-form-done">
+                                    <div class="success-message f-d-none">
                                         <div>Thank you! Your message has been received!</div>
                                     </div>
                                     <div class="error-message w-form-fail">
@@ -207,11 +207,11 @@
                             </div>
                         </div>
                     </div>
-                    <img alt=""
+                    <img alt="A person is sitting on a chair and working on a laptop."
                          class="main-image"
                          sizes="(max-width: 479px) 100vw, (max-width: 991px) 90vw, 43vw"
                          src="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eafba16cd11462b2180e692_b-3.jpg"
-                         srcset="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eafba16cd11462b2180e692_b-3-p-500.jpeg 500w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eafba16cd11462b2180e692_b-3-p-800.jpeg 800w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eafba16cd11462b2180e692_b-3-p-1080.jpeg 1080w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eafba16cd11462b2180e692_b-3.jpg 1500w"/>
+                    />
                 </div>
             </div>
         </div>
