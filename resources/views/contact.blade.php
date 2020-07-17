@@ -100,8 +100,7 @@
                             </div>
                         </div>
                     </div>
-                    <img src="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eafba16cd11462b2180e692_b-3.jpg"
-                         srcset="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eafba16cd11462b2180e692_b-3-p-500.jpeg 500w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eafba16cd11462b2180e692_b-3-p-800.jpeg 800w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eafba16cd11462b2180e692_b-3-p-1080.jpeg 1080w, https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eafba16cd11462b2180e692_b-3.jpg 1500w"
+                    <img src="{{asset('assets/img/b-3.webp')}}"
                          sizes="(max-width: 479px) 100vw, (max-width: 991px) 90vw, 42vw" alt="" class="main-image">
                 </div>
             </div>

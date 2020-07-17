@@ -49,7 +49,7 @@
                             <img alt=""
                                  class="image-radius"
                                  sizes="(max-width: 479px) 100vw, (max-width: 991px) 90vw, 43vw"
-                                 src="{{asset('assets/img/b-2.jpg')}}"
+                                 src="{{asset('assets/img/b-2.webp')}}"
                             />
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                                     <img alt=""
                                          class="member-image"
                                          sizes="(max-width: 767px) 81vw, (max-width: 991px) 54vw, 27vw"
-                                         src="{{ asset('assets/img/about-p-pic-3.jpg')}}"/>
+                                         src="{{ asset('assets/img/about-p-pic-3.webp')}}"/>
                                 </div>
                                 <div class="team-content">
                                     <h4 class="heading-white">william lee</h4>
@@ -80,7 +80,7 @@
                                     <img alt=""
                                          class="member-image"
                                          sizes="(max-width: 767px) 81vw, (max-width: 991px) 54vw, 27vw"
-                                         src="{{ asset('assets/img/about_p_pic.jpg')}}"/>
+                                         src="{{ asset('assets/img/about_p_pic.webp')}}"/>
                                 </div>
                                 <div class="team-content">
                                     <h4 class="heading-white">Laura William</h4>
@@ -92,7 +92,7 @@
                                     <img alt=""
                                          class="member-image"
                                          sizes="(max-width: 767px) 81vw, (max-width: 991px) 54vw, 27vw"
-                                         src="{{ asset('assets/img/about-p-pic-1.jpg')}}"/>
+                                         src="{{ asset('assets/img/about-p-pic-1.webp')}}"/>
                                 </div>
                                 <div class="team-content">
                                     <h4 class="heading-white">John doe</h4>
@@ -210,7 +210,7 @@
                     <img alt="A person is sitting on a chair and working on a laptop."
                          class="main-image"
                          sizes="(max-width: 479px) 100vw, (max-width: 991px) 90vw, 43vw"
-                         src="https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eafba16cd11462b2180e692_b-3.jpg"
+                         src="{{asset('assets/img/b-3.webp')}}"
                     />
                 </div>
             </div>

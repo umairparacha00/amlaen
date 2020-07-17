@@ -40,12 +40,12 @@
                     <div class="w-slider-mask">
                         <div class="slide w-slide">
                             <div class="relative-div">
-                                <img src="{{asset('assets/img/b-1.jpg')}}" alt=""
+                                <img src="{{asset('assets/img/b-1.webp')}}" alt=""
                                      class="main-image"/>
                             </div>
                         </div>
                         <div class="w-slide">
-                            <img src="{{asset('assets/img/b-2.jpg')}}" alt=""
+                            <img src="{{asset('assets/img/b-2.webp')}}" alt=""
                                  class="main-image"/>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                         <img src="{{asset('assets/img/code-lab.png')}}" width="135" alt=""/>
                     </div>
                     <div class="logo-client">
-                        <img src="{{asset('assets/img/circle.png')}}" width="125" alt=""/>
+                        <img src="{{asset('assets/img/circle.webp')}}" width="125" alt=""/>
                     </div>
                     <div class="logo-client">
                         <img src="{{asset('assets/img/kanba.png')}}" width="125" alt=""/>
@@ -181,7 +181,7 @@
                 <div class="margin-page">
                     <div class="illustration-grid">
                         <div>
-                            <img src="{{ asset('assets/img/illustration.jpg')}}"
+                            <img src="{{ asset('assets/img/illustration.webp')}}"
                                  sizes="(max-width: 479px) 100vw, (max-width: 991px) 90vw, 43vw"
                                  alt="Carton illustration"/>
                         </div>
@@ -326,7 +326,7 @@
             <div class="margin-page double">
                 <div class="illustration-grid">
                     <div id="EAE857621" class="mascout"><img
-                                src="{{asset('assets/img/illustration-2.jpg')}}"
+                                src="{{asset('assets/img/illustration-2.webp')}}"
                                 sizes="(max-width: 479px) 100vw, (max-width: 991px) 77vw, 36vw" alt=""
                                 class="illustration"></div>
                     <div class="left-padding">
