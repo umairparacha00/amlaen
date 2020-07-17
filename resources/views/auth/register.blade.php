@@ -64,11 +64,6 @@
             background: var(--secondary-color) none;
         }
 
-        .loading {
-            overflow: hidden;
-            height: 100vh
-        }
-
         .spinner-wrapper {
             width: 100%;
             height: 100%;
@@ -259,7 +254,7 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
-<body class="loading">
+<body>
 <!-- Header -->
 <div class="main">
     <div class="container-fluid register-page">
