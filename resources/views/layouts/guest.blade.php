@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<!-- This site was created in Webflow. http://www.webflow.com -->
-<!-- Last Published: Tue Jun 16 2020 12:42:15 GMT+0000 (Coordinated Universal Time) -->
 <html data-page="e145" data-io-a="1">
 <head>
     <meta charset="utf-8"/>
     @yield('meta-data')
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <link href="{{ asset('assets/css/guest_main.css') }}" rel="stylesheet" type="text/css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css"/>
+{{--    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>--}}
     <script type="text/javascript">
         WebFont.load({
             google: {
@@ -167,6 +165,7 @@
         <div class="scroll-text">Scroll to top</div>
     </a>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.12/purify.min.js" integrity="sha512-Pkzp1f+T81Q7K8Dhj8Sc6SPhl+4D5JEe9TTjJLy7xbv+EdxStU9uRXEVzYOqjP+s6+lDAXo3nZ04szSG71ArhA==" crossorigin="anonymous"></script>
 {{--<script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js?site=5ea70fb1c50d893eeda7ea48" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="{{ asset('assets/js/guest_main.js') }}" type="text/javascript"></script>

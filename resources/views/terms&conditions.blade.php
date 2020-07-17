@@ -17,63 +17,99 @@
     <div class="section gray with-shape make-white">
         <div class="container for-sub w-container">
             <div class="legal-wrapper"><p>Last updated: 10/02/2020</p>
-                <h1>This is a h1, perfect's for titles.<br></h1>
-                <div class="top-margin more"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                        varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                        interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id
-                        rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p></div>
-                <div class="top-margin more"><p>Cras id dui. Class aptent taciti sociosqu ad litora torquent per conubia
-                        nostra, per inceptos hymenaeos. Vivamus laoreet. Praesent turpis. Nunc nulla.Praesent nec nisl a
-                        purus blandit viverra. Nullam dictum felis eu pede mollis pretium. Curabitur vestibulum aliquam
-                        leo. Sed libero. Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus.</p></div>
-                <div class="top-margin more"><p>Vestibulum ullamcorper mauris at ligula. Phasellus consectetuer
-                        vestibulum elit. Sed a libero. Vivamus consectetuer hendrerit lacus. Quisque ut nisi.Cum sociis
-                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse enim
-                        turpis, dictum sed, iaculis a, condimentum nec, nisi. Cras varius. Ut leo. Sed
-                        hendrerit.Curabitur a felis in nunc fringilla tristique. Donec vitae sapien ut libero venenatis
-                        faucibus. In turpis. In consectetuer turpis ut velit. Quisque id mi.</p></div>
-                <div class="top-margin more">
-                    <ul role="list" class="w-list-unstyled">
-                        <li class="list-item">
-                            <div class="circle-list"></div>
-                            <p class="paragraph-no-margin">More than 100+ components</p></li>
-                        <li class="list-item">
-                            <div class="circle-list"></div>
-                            <p class="paragraph-no-margin">Five ready demos</p></li>
-                        <li class="list-item">
-                            <div class="circle-list"></div>
-                            <p class="paragraph-no-margin">Coming Soon page</p></li>
-                        <li class="list-item">
-                            <div class="circle-list"></div>
-                            <p class="paragraph-no-margin">List with check left icon</p></li>
-                        <li class="list-item">
-                            <div class="circle-list"></div>
-                            <p class="paragraph-no-margin">And much more...</p></li>
-                    </ul>
+                <h2>Terms & Conditions<br></h2>
+                <div class="top-margin more"><p>These Terms and Conditions are intended to detail our obligations to you
+                        regarding our site as well as inform you of the rules and regulations of Amlaen. By using this
+                        site (amlaen.com), you agree to these Terms and Conditions, and as such we strongly encourage
+                        our
+                        visitors to read through this content regularly to stay informed of this disclaimer and any
+                        change to our Terms and Conditions. In the following Terms and Conditions, “we, us, and site”
+                        are used to refer to Amlaen.
+                    </p>
                 </div>
-                <div class="top-margin more"><p>Praesent ac sem eget est egestas volutpat. Aenean tellus metus, bibendum
-                        sed, posuere ac, mattis non, nunc. Curabitur suscipit suscipit tellus. Nam quam nunc, blandit
-                        vel, luctus pulvinar, hendrerit id, lorem. Etiam rhoncus.Sed magna purus, fermentum eu,
-                        tincidunt eu, varius ut, felis. Pellentesque egestas, neque sit amet convallis pulvinar, justo
-                        nulla eleifend augue, ac auctor orci leo non est. Vestibulum purus quam, scelerisque ut, mollis
-                        sed, nonummy id, metus. Phasellus accumsan cursus velit. Suspendisse faucibus, nunc et
-                        pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor.Ut leo.
-                        Nam commodo suscipit quam. Suspendisse non nisl sit amet velit hendrerit rutrum. Cras ultricies
-                        mi eu turpis hendrerit fringilla. Nulla porta dolor.Praesent egestas tristique nibh. Integer
-                        ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Nunc nec neque. Praesent
-                        vestibulum dapibus nibh. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet
-                        sapien, quis venenatis ante odio sit amet eros.</p></div>
-                <div class="top-margin more"><h3>This is a h3, perfect's for sub titles.<br></h3></div>
-                <div class="top-margin more"><p>Vestibulum ullamcorper mauris at ligula. Phasellus consectetuer
-                        vestibulum elit. Sed a libero. Vivamus consectetuer hendrerit lacus. Quisque ut nisi.Cum sociis
-                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse enim
-                        turpis, dictum sed, iaculis a, condimentum nec, nisi. Cras varius. Ut leo. Sed
-                        hendrerit.Curabitur a felis in nunc fringilla tristique. Donec vitae sapien ut libero venenatis
-                        faucibus. In turpis. In consectetuer turpis ut velit. Quisque id mi.</p></div>
-                <div class="top-margin more"><p>Cras id dui. Class aptent taciti sociosqu ad litora torquent per conubia
-                        nostra, per inceptos hymenaeos. Vivamus laoreet. Praesent turpis. Nunc nulla.Praesent nec nisl a
-                        purus blandit viverra. Nullam dictum felis eu pede mollis pretium. Curabitur vestibulum aliquam
-                        leo. Sed libero. Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus.</p></div>
+                <h2>Use of Our Website<br></h2>
+                <div class="top-margin more">
+                    <p>You are permitted to use this site for your own purposes to print,
+                        download, and share material provided. You do not modify any content without our explicit
+                        consent. Material on this website may not be republished online or offline without our
+                        permission. The copyright and all intellectual property rights of the material on this site are
+                        owned by Amlaen and may not be reproduced without our prior consent.
+                    </p>
+                    <p>
+                        The information contained in this website is for general information purposes only. While we
+                        endeavor to keep the information up-to-date and correct, we make no representations or
+                        warranties of any kind, express or implied, about the completeness, accuracy, reliability,
+                        suitability or availability with respect to the website or the information, products, services,
+                        or related graphics contained on the website for any purpose. Any reliance you place on such
+                        information is strictly at your own risk.
+                    </p>
+                </div>
+                <h2>Visitor Conduct<br></h2>
+                <div class="top-margin more">
+                    <p>With the exception of personal information (the use of which is covered under our Privacy
+                        Policy), any material you send or post to this write shall be considered non-proprietary and not
+                        confidential. Unless you advise to the contrary, we remain free to copy, disclose, distribute,
+                        incorporate and otherwise use such material for any and all purposes.
+                    </p>
+                    <p>
+                        When using the site, please do not post or send any material for which you have not obtained all
+                        necessary consents or that which is discriminatory, obscene, pornographic, defamatory, liable to
+                        incite racial hatred, in breach of confidentiality or privacy to or from this site, which may
+                        cause annoyance or inconvenience to others, which encourages or constitutes conduct that would
+                        be deemed a criminal offence, give rise to a civil liability, or otherwise is contrary to the
+                        law.
+                    </p>
+                </div>
+                <h2>Site Activity<br></h2>
+                <div class="top-margin more">
+                    <p>
+                        We take the utmost care to ensure that this site is available 24/7, 365 days per year. However,
+                        websites do sometimes encounter downtime due to server or technical issues. We are not be liable
+                        if this website is unavailable at any time.
+                    </p>
+                </div>
+                <h2>Reverse Transaction<br></h2>
+                <div class="top-margin more">
+                    <p>
+                        The Company always takes care about all the transactions made through our site to avoid any
+                        inconvenience. When a user made a transaction it is irreversible (Only Pins can be reversed on
+                        payment of prescribed fee). However, if a user account is debited wrongly, the company has right
+                        to recover the extra amount transferred to user account.
+                    </p>
+                </div>
+                <h2>Links to and from other Websites<br></h2>
+                <div class="top-margin more">
+                    <p>
+                        In order to provide additional information or services, Amlaen may include links to external
+                        websites. Clicking on such a link will navigate you away from Amlaen’s site. The inclusion of
+                        links does not necessarily imply a recommendation, nor does it in any way endorse the views
+                        expressed within them. Other site’s Terms and Conditions may differ from our own. When clicking
+                        off the Amlaen site, we strongly encourage you to visit the other site’s Terms and Conditions to
+                        ensure it meets the standards of your own personal preferences.
+                    </p>
+                </div>
+                <h2>Exclusion of Liability<br></h2>
+                <div class="top-margin more">
+                    <p>
+                        In no event will Amlaen be held liable for any loss or damage of information including but not
+                        limited to indirect or consequential loss or damage, loss or damage of data, or profits arising
+                        out of or in connection with the use of this website. Amlaen may not be held liable or
+                        responsible in any way for loss or damage that may result to you or a third party as a result of
+                        your use of our website.
+                    </p>
+                    <p>
+                        We take the utmost measures to ensure that the information provided on this site is correct,
+                        however; we do not make any guarantees regarding that information. This exclusion shall include
+                        servicing or repair costs and, without limitation, any other direct, indirect or consequential
+                        loss.
+                        Governing Law
+                    </p>
+                    <p>
+                        These legal Terms and Conditions apply for all issues regarding this website shall be governed
+                        by the laws of the country or the appropriate defending country
+                    </p>
+                </div>
+
             </div>
         </div>
     </div>

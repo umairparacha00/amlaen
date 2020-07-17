@@ -49,10 +49,10 @@
                                  class="main-image"/>
                         </div>
                     </div>
-                    <div data-w-id="a153dd51-d165-82ff-43ae-bfb88ac7490f" class="left-arrow w-slider-arrow-left">
+                    <div data-u-id="EAE479875-jah-78872" class="left-arrow w-slider-arrow-left">
                         <img src="{{asset('assets/img/left.png')}}" width="22" alt=""/>
                     </div>
-                    <div data-w-id="a153dd51-d165-82ff-43ae-bfb88ac74911" class="right-arrow w-slider-arrow-right">
+                    <div data-u-id="5779113b-ed25-4a12-b2bd-12fba999f6ce" class="right-arrow w-slider-arrow-right">
                         <img src="{{asset('assets/img/right.png')}}" width="22" alt=""/>
                     </div>
                     <div class="slide-nav w-slider-nav w-round"></div>
@@ -196,7 +196,7 @@
                                 </h3>
                             </div>
                             <div>
-                                <div data-w-id="a153dd51-d165-82ff-43ae-bfb88ac74986" class="toggle-wrapper">
+                                <div data-u-id="EAE47987" class="toggle-wrapper">
                                     <a href="#" class="toggle-header inline-block">
                                         <div class="toogle-icon">
                                             <div class="line-1"></div>
@@ -213,7 +213,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div data-w-id="a153dd51-d165-82ff-43ae-bfb88ac74991" class="toggle-wrapper">
+                                <div data-u-id="EAE47987543" class="toggle-wrapper">
                                     <a href="#" class="toggle-header inline-block">
                                         <div class="toogle-icon">
                                             <div class="line-1"></div>
@@ -230,7 +230,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div data-w-id="a153dd51-d165-82ff-43ae-bfb88ac7499c" class="toggle-wrapper">
+                                <div data-u-id="EAE479875-jah" class="toggle-wrapper">
                                     <a href="#" class="toggle-header inline-block">
                                         <div class="toogle-icon">
                                             <div class="line-1"></div>
@@ -259,7 +259,7 @@
             </div>
         </div>
     </div>
-    <div data-w-id="a153dd51-d165-82ff-43ae-bfb88ac74a03" class="section blue">
+    <div data-u-id="EAE479875-jah-7864" class="section blue">
         <div class="shape-1 move"></div>
         <div class="shape-1 _4"></div>
         <div class="shape-1 _2 move"></div>
@@ -325,7 +325,7 @@
             </div>
             <div class="margin-page double">
                 <div class="illustration-grid">
-                    <div id="w-node-e744d1ca0aef-bba7ea4a" class="mascout"><img
+                    <div id="EAE857621" class="mascout"><img
                                 src="{{asset('assets/img/illustration-2.jpg')}}"
                                 sizes="(max-width: 479px) 100vw, (max-width: 991px) 77vw, 36vw" alt=""
                                 class="illustration"></div>
@@ -334,10 +334,10 @@
                             <h3 class="top-title-text">What people think about Amlaen<br></h3></div>
                         <div>
                             <div data-animation="outin" data-duration="500" data-infinite="1"
-                                 class="slider-testimonials w-clearfix w-slider">
+                                 class="slider-testimonials clearfix w-slider">
                                 <div class="w-slider-mask">
                                     <div class="w-slide" style="transform: translateX(0px); opacity: 1; z-index: 3;">
-                                        <div class="w-clearfix">
+                                        <div class="clearfix">
                                             <div class="testimonials-photo"></div>
                                             <div class="testimonials-content"><p>"Lorem ipsum dolor sit amet,
                                                     consectetur adipiscing elit. Suspendisse varius enim in eros
@@ -349,7 +349,7 @@
                                     </div>
                                     <div class="w-slide"
                                          style="transform: translateX(0px); opacity: 1; z-index: 1; visibility: hidden;">
-                                        <div class="w-clearfix">
+                                        <div class="clearfix">
                                             <div class="testimonials-photo photo-2"></div>
                                             <div class="testimonials-content"><p>"Lorem ipsum dolor sit amet,
                                                     consectetur adipiscing elit. Suspendisse varius enim in eros
@@ -361,7 +361,7 @@
                                     </div>
                                     <div class="w-slide"
                                          style="transform: translateX(0px); opacity: 1; z-index: 2; visibility: hidden;">
-                                        <div class="w-clearfix">
+                                        <div class="clearfix">
                                             <div class="testimonials-photo photo-3"></div>
                                             <div class="testimonials-content"><p>"Lorem ipsum dolor sit amet,
                                                     consectetur adipiscing elit. Suspendisse varius enim in eros
