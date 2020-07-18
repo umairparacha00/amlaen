@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Point;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\UserMembership;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -49,11 +51,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+		return Validator::make($data, [
+			'username' => ['required', 'string', 'max:255', 'unique:users', 'alpha_dash'],
+			'name' => ['required', 'string', 'max:255'],
+			'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+			'sponsor' => ['required','numeric'],
+			'password' => ['required', 'string', 'min:8', 'confirmed'],
+		]);
     }
 
     /**
@@ -64,10 +68,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+		$user = User::create([
+			'account_id' => mt_rand(100000000000000, 9999999999999999),
+			'username' => $data['username'],
+			'name' => $data['name'],
+			'email' => $data['email'],
+			'sponsor' => $data['sponsor'],
+			'password' => Hash::make($data['password']),
+		]);
+		Point::create([
+			'user_id' => $user->id,
+			'main_points' => 0,
+			'group_points' => 0,
+			'mall_points'  =>0,
+			'gold_pack' => 0,
+			'silver_pack' => 0,
+		]);
+		UserMembership::create([
+			'user_id' => $user->id,
+			'membership_id' => 1,
+		]);
+		return $user;
     }
 }

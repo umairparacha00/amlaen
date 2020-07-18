@@ -24,8 +24,8 @@
             ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
         }(window, document);
     </script>
-    <link href="{{ asset('assets/img/fav2.jpg')}}" rel="shortcut icon" type="image/x-icon"/>
-    <link href="{{ asset('assets/img/fav.jpg')}}" rel="apple-touch-icon"/>
+    <link href="{{ asset('assets/images/fav2.jpg')}}" rel="shortcut icon" type="image/x-icon"/>
+    <link href="{{ asset('assets/images/fav.jpg')}}" rel="apple-touch-icon"/>
     <style>
         .page-content {
             -webkit-font-smoothing: antialiased;

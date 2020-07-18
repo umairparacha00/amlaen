@@ -6,15 +6,15 @@
 @section('social')
     <div id="w-node-e5e60c18f38a-0c18f34f" class="social-content">
         <a href="#" class="social-icon-2 inline-block">
-            <img src="{{ asset('assets/img/facebook.png')}}"
+            <img src="{{ asset('assets/images/facebook.png')}}"
                  width="12" alt=""/>
         </a>
         <a href="#" class="social-icon-2 twitter inline-block">
-            <img src="{{ asset('assets/img/twitter.png')}}"
+            <img src="{{ asset('assets/images/twitter.png')}}"
                  width="12" alt=""/>
         </a>
         <a href="#" class="social-icon-2 insta inline-block">
-            <img src="{{ asset('assets/img/instagram.png')}}"
+            <img src="{{ asset('assets/images/instagram.png')}}"
                  width="14" alt=""/>
         </a>
     </div>
@@ -40,20 +40,20 @@
                     <div class="w-slider-mask">
                         <div class="slide w-slide">
                             <div class="relative-div">
-                                <img src="{{asset('assets/img/b-1.webp')}}" alt=""
+                                <img src="{{asset('assets/images/b-1.webp')}}" alt=""
                                      class="main-image"/>
                             </div>
                         </div>
                         <div class="w-slide">
-                            <img src="{{asset('assets/img/b-2.webp')}}" alt=""
+                            <img src="{{asset('assets/images/b-2.webp')}}" alt=""
                                  class="main-image"/>
                         </div>
                     </div>
                     <div data-u-id="EAE479875-jah-78872" class="left-arrow w-slider-arrow-left">
-                        <img src="{{asset('assets/img/left.png')}}" width="22" alt=""/>
+                        <img src="{{asset('assets/images/left.png')}}" width="22" alt=""/>
                     </div>
                     <div data-u-id="5779113b-ed25-4a12-b2bd-12fba999f6ce" class="right-arrow w-slider-arrow-right">
-                        <img src="{{asset('assets/img/right.png')}}" width="22" alt=""/>
+                        <img src="{{asset('assets/images/right.png')}}" width="22" alt=""/>
                     </div>
                     <div class="slide-nav w-slider-nav w-round"></div>
                 </div>
@@ -72,19 +72,19 @@
             <div class="logo-wrapper">
                 <div class="logo-client-wrapper">
                     <div class="logo-client">
-                        <img src="{{asset('assets/img/ideaa.png')}}" width="120" alt=""/>
+                        <img src="{{asset('assets/images/ideaa.png')}}" width="120" alt=""/>
                     </div>
                     <div class="logo-client">
-                        <img src="{{asset('assets/img/zoo-tv.png')}}" width="130" alt=""/>
+                        <img src="{{asset('assets/images/zoo-tv.png')}}" width="130" alt=""/>
                     </div>
                     <div class="logo-client">
-                        <img src="{{asset('assets/img/code-lab.png')}}" width="135" alt=""/>
+                        <img src="{{asset('assets/images/code-lab.png')}}" width="135" alt=""/>
                     </div>
                     <div class="logo-client">
-                        <img src="{{asset('assets/img/circle.webp')}}" width="125" alt=""/>
+                        <img src="{{asset('assets/images/circle.png')}}" width="125" alt=""/>
                     </div>
                     <div class="logo-client">
-                        <img src="{{asset('assets/img/kanba.png')}}" width="125" alt=""/>
+                        <img src="{{asset('assets/images/kanba.png')}}" width="125" alt=""/>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                     <div class="features-content">
                         <div class="features-icon">
                             <div class="big-shape in-features"></div>
-                            <img src="{{ asset('assets/img/search-512.png') }}" width="60" alt=""
+                            <img src="{{ asset('assets/images/search-512.png') }}" width="60" alt=""
                                  class="features-real-icon"/>
 
                         </div>
@@ -114,7 +114,7 @@
                     <div class="features-content">
                         <div class="features-icon">
                             <div class="big-shape in-features"></div>
-                            <img src="{{ asset('assets/img/laptop-coding-500.png')}}"
+                            <img src="{{ asset('assets/images/laptop-coding-500.png')}}"
                                  width="60" alt="" class="features-real-icon"/>
                         </div>
                         <h2 class="features-title">Development</h2>
@@ -125,7 +125,7 @@
                     <div class="features-content">
                         <div class="features-icon">
                             <div class="big-shape in-features"></div>
-                            <img src="{{ asset('assets/img/marketing-100.png') }}" width="55" alt=""
+                            <img src="{{ asset('assets/images/marketing-100.png') }}" width="55" alt=""
                                  class="features-real-icon"/>
                         </div>
                         <h2 class="features-title">Social Media Marketing</h2>
@@ -137,7 +137,7 @@
                     <div class="features-content">
                         <div class="features-icon">
                             <div class="big-shape in-features"></div>
-                            <img src="{{ asset('assets/img/web-design-100.png') }}" width="55" alt=""
+                            <img src="{{ asset('assets/images/web-design-100.png') }}" width="55" alt=""
                                  class="features-real-icon"/>
                         </div>
                         <h2 class="features-title">UI/UX</h2>
@@ -149,7 +149,7 @@
                     <div class="features-content">
                         <div class="features-icon">
                             <div class="big-shape in-features"></div>
-                            <img src="{{ asset('assets/img/web-analytics-100.png') }}" width="55" alt=""
+                            <img src="{{ asset('assets/images/web-analytics-100.png') }}" width="55" alt=""
                                  class="features-real-icon"/>
                         </div>
                         <h2 class="features-title">
@@ -163,7 +163,7 @@
                     <div class="features-content">
                         <div class="features-icon">
                             <div class="big-shape in-features"></div>
-                            <img src="{{ asset('assets/img/camera-identification-100.png') }}" width="55" alt=""
+                            <img src="{{ asset('assets/images/camera-identification-100.png') }}" width="55" alt=""
                                  class="features-real-icon"/>
                         </div>
                         <h2 class="features-title">Branding</h2>
@@ -181,7 +181,7 @@
                 <div class="margin-page">
                     <div class="illustration-grid">
                         <div>
-                            <img src="{{ asset('assets/img/illustration.webp')}}"
+                            <img src="{{ asset('assets/images/illustration.webp')}}"
                                  sizes="(max-width: 479px) 100vw, (max-width: 991px) 90vw, 43vw"
                                  alt="Carton illustration"/>
                         </div>
@@ -295,13 +295,13 @@
                 <div id="w-node-299421646669-bba7ea4a" class="fun-facts-grid">
                     <div>
                         <div class="fun-facts-content"><img
-                                    src="{{asset('assets/img/user-male-500%20(1).png')}}"
+                                    src="{{asset('assets/images/user-male-500%20(1).png')}}"
                                     width="60" alt="" class="fun-icon">
                             <h3 class="fun-title">10+</h3>
                             <div class="category">Team member</div>
                         </div>
                         <div class="fun-facts-content _0-bottom"><img
-                                    src="{{asset('assets/img/facebook-like-500%20(1).png')}}"
+                                    src="{{asset('assets/images/facebook-like-500%20(1).png')}}"
                                     width="50" alt="" class="fun-icon">
                             <h3 class="fun-title">99%<br></h3>
                             <div class="category">Positive feedback</div>
@@ -309,13 +309,13 @@
                     </div>
                     <div class="top-margin more">
                         <div class="fun-facts-content"><img
-                                    src="{{asset('assets/img/alarm-clock-500%20(1).png')}}"
+                                    src="{{asset('assets/images/alarm-clock-500%20(1).webp')}}"
                                     width="50" alt="" class="fun-icon">
                             <h3 class="fun-title">105</h3>
                             <div class="category">Sleepless Hours<br></div>
                         </div>
                         <div class="fun-facts-content"><img
-                                    src="{{asset('assets/img/cafe-500%20(1).png')}}"
+                                    src="{{asset('assets/images/cafe-500%20(1).png')}}"
                                     width="60" alt="" class="fun-icon">
                             <h3 class="fun-title">700+<br></h3>
                             <div class="category">Cups of Coffee<br></div>
@@ -326,7 +326,7 @@
             <div class="margin-page double">
                 <div class="illustration-grid">
                     <div id="EAE857621" class="mascout"><img
-                                src="{{asset('assets/img/illustration-2.webp')}}"
+                                src="{{asset('assets/images/illustration-2.webp')}}"
                                 sizes="(max-width: 479px) 100vw, (max-width: 991px) 77vw, 36vw" alt=""
                                 class="illustration"></div>
                     <div class="left-padding">

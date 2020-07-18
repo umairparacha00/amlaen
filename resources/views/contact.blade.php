@@ -100,7 +100,7 @@
                             </div>
                         </div>
                     </div>
-                    <img src="{{asset('assets/img/b-3.webp')}}"
+                    <img src="{{asset('assets/images/b-3.webp')}}"
                          sizes="(max-width: 479px) 100vw, (max-width: 991px) 90vw, 42vw" alt="" class="main-image">
                 </div>
             </div>

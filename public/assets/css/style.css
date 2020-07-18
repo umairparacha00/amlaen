@@ -1032,7 +1032,7 @@ img {
 .section.gray.with-shape {
     z-index: 0;
     padding-bottom: 310px;
-    background-image: url(https://assets.website-files.com/5ea70fb1c50d893eeda7ea48/5eb0149db8d39c4dd17e7667_background-shape.svg);
+    background-image: url(/assets/images/background-shape.svg);
     background-position: 50% 100%;
     background-repeat: no-repeat
 }
@@ -2064,16 +2064,16 @@ img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-image: url(/assets/img/client-2.jpg);
+    background-image: url(/assets/images/client-2.webp);
 }
 
 .testimonials-photo.photo-2 {
-    background-image: url(/assets/img/client-3.webp);
+    background-image: url(/assets/images/client-3.webp);
     background-size: cover
 }
 
 .testimonials-photo.photo-3 {
-    background-image: url(/assets/img/client-5.webp);
+    background-image: url(/assets/images/client-5.webp);
     background-size: cover
 }
 
