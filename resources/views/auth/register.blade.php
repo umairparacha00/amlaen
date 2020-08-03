@@ -10,33 +10,6 @@
     <meta name="Keywords"
           content="Amlaen register, Amlaen registration page, Amlaen Sign up, Amlaen.com, Digital Marketing, Amlaen Digital Marketing Agency"/>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"/>
-    <!-- Facebook Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '262177634869634');
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-                   src="https://www.facebook.com/tr?id=262177634869634&ev=PageView&noscript=1"
-                   alt=""/></noscript>
-    <!-- End Facebook Pixel Code -->
     <style>
         @import url("https://fonts.googleapis.com/css?family=Lato|Proza+Libre:400,700i&display=swap");
 
@@ -236,6 +209,7 @@
             font-size: 1rem;
             padding: .9em 5.31em;
             font-weight: 700;
+            color: white;
             border-radius: 0;
             text-transform: uppercase;
             border: 1px solid var(--secondary-color)
@@ -263,7 +237,7 @@
                 <div class="main-title">
                     <h1>Registration</h1>
                 </div>
-                <form action="{{ route('register') }}" autocomplete="off" method="POST">
+                <form autocomplete="off" action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="row inner-form-container">
                         @error('username')
@@ -335,7 +309,7 @@
                                    id="sponsor"
                                    name="sponsor"
                                    placeholder="Your Sponsor Id"
-                                   {{--                                   value="@if($referral){{ $referral }}@elseif(!$referral){{ 100000000000 }}@else{{ old('sponsor') }}@endif"--}}
+                                   value="@if($referral){{ $referral }}@elseif(!$referral){{ 100000000000 }}@else{{ old('sponsor') }}@endif"
                                    required class="form-control"/>
                         </div>
                         <div class="form-group col-xl-6 col-lg-6 col-md-6 password">
@@ -368,7 +342,7 @@
                             </div>
                         </div>
                         <div class="register-button text-center col-xl-12">
-                            <button type="submit" class="btn btn-md btn-primary">
+                            <button type="submit" class="btn btn-md">
                                 Signup
                             </button>
                         </div>
@@ -384,15 +358,7 @@
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(window).on("load", function () {
-        $(".spinner-wrapper").fadeOut(1200, function () {
-            $('body').removeClass('loading');
-        });
-    });
-</script>
-<script src="{{ asset('assets/scripts/bootstrap.min.js') }}"></script>
-@include('sweetalert::alert')
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
 

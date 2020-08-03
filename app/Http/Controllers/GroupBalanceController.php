@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\GroupBalance;
 use Illuminate\Http\Request;
 
-class PinsController extends Controller
+class GroupBalanceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +24,7 @@ class PinsController extends Controller
      */
     public function create()
     {
-        return view('pins.create');
+        //
     }
 
     /**
@@ -40,10 +41,10 @@ class PinsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\GroupBalance  $groupBalance
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(GroupBalance $groupBalance)
     {
         //
     }
@@ -51,10 +52,10 @@ class PinsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\GroupBalance  $groupBalance
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(GroupBalance $groupBalance)
     {
         //
     }
@@ -63,10 +64,10 @@ class PinsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\GroupBalance  $groupBalance
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, GroupBalance $groupBalance)
     {
         //
     }
@@ -74,10 +75,10 @@ class PinsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\GroupBalance  $groupBalance
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(GroupBalance $groupBalance)
     {
         //
     }

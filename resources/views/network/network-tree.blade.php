@@ -322,8 +322,8 @@
 @endsection
 @section ('page-script')
 <script>
-    var c = document.getElementById("item").lastElementChild;
-    var icon = document.querySelector("#umaoie");
+    let c = document.getElementById("item").lastElementChild;
+    let icon = document.querySelector("#umaoie");
     icon.onclick = function() {
         if (icon.classList.contains("open")) {
             icon.classList.remove("open");
@@ -331,7 +331,7 @@
         } else {
             icon.classList.remove("close");
             icon.classList.add("open");
-        };
+        }
         if (c.classList.contains("d-block")) {
             c.classList.remove("d-block");
             c.classList.add("d-none");

@@ -53,9 +53,9 @@ class RegisterController extends Controller
     {
 		return Validator::make($data, [
 			'username' => ['required', 'string', 'max:255', 'unique:users', 'alpha_dash'],
-			'name' => ['required', 'string', 'max:255'],
+			'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9\s]+$/'],
 			'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-			'sponsor' => ['required','numeric'],
+			'sponsor' => ['required', 'numeric', 'regex:/^[a-zA-Z0-9\s]+$/'],
 			'password' => ['required', 'string', 'min:8', 'confirmed'],
 		]);
     }
@@ -69,7 +69,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 		$user = User::create([
-			'account_id' => mt_rand(100000000000000, 9999999999999999),
+			'account_id' => mt_rand(100000000000001, 9999999999999999),
 			'username' => $data['username'],
 			'name' => $data['name'],
 			'email' => $data['email'],

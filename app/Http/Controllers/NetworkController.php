@@ -4,6 +4,7 @@
 
 	use App\User;
 	use Illuminate\Http\Request;
+	use RealRashid\SweetAlert\Facades\Alert;
 
 	class NetworkController extends Controller
 	{

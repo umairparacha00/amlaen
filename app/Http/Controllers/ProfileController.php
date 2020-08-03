@@ -108,6 +108,7 @@
 
 	use App\User;
 	use Illuminate\Http\Request;
+	use RealRashid\SweetAlert\Facades\Alert;
 
 	class ProfileController extends Controller
 	{
@@ -154,17 +155,17 @@
 				'address' => ['required', 'string'],
 			]);
 			if ($request['cnic'] && current_user()->cnic !== null) {
-				return back()->withErrors('Cannot Update CNIC');
-			} else {
+				return back()->with('errors', 'Cannot Update CNIC');
+			} elseif ($request['cnic'] && current_user()->cnic === null) {
 				$data['cnic'];
 			}
 			if ($request['date_of_birth'] && current_user()->date_of_birth !== null) {
-				return back()->withErrors('Cannot Update Birth Date');
-			} else {
+				return back()->with('errors', 'Cannot Update Birth Date');
+			} elseif ($request['date_of_birth']) {
 				$data['date_of_birth'];
 			}
-
 			$user->update($data);
+
 			return redirect('/profile/edit')->withToastSuccess('Updated Successfully!');
 
 		}

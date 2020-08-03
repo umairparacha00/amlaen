@@ -1069,6 +1069,11 @@ img {
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 1px;
+    border: 0;
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
     text-transform: uppercase
 }
 
@@ -1080,7 +1085,28 @@ img {
 .button.lighter {
     background-color: #523baf
 }
-
+.utility-page-wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100vw;
+    height: 90vh;
+    max-height: 100%;
+    max-width: 100%;
+    padding-right: 5%;
+    padding-bottom: 50px;
+    padding-left: 5%;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #fff;
+}
 .button.lighter:hover {
     background-color: #6e58c5
 }
@@ -2707,13 +2733,40 @@ img {
     border-radius: 100%;
     background-color: #1877f2
 }
-
+.logo-text.dark {
+    margin-right: 0px;
+    padding-right: 0px;
+    color: #000;
+}
+.w-nav-brand {
+    position: relative;
+    float: left;
+    text-decoration: none;
+    color: #333333;
+}
 .social-icon-2.twitter {
     background-color: #1da1f2
 }
 
 .social-icon-2.insta {
     background-color: #f46f30
+}
+.utility-page-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 350px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
 }
 
 @media screen and (max-width: 991px) {
@@ -2723,9 +2776,14 @@ img {
         padding-bottom: 15px;
         text-align: left
     }
-
+    .utility-page-wrap {
+        height: 700px;
+        padding-bottom: 6px;
+    }
     .page-content {
-        padding-left: 0
+        padding-left: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale
     }
 
     .container {
