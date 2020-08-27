@@ -34,7 +34,7 @@ class PinsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

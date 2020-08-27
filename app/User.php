@@ -46,6 +46,22 @@
 		{
 			return $this->hasOne(Point::class);
 		}
+		public function mainPoints()
+		{
+			return $this->hasOne(MainBalance::class);
+		}
+		public function mallPoints()
+		{
+			return $this->hasOne(MallBalance::class);
+		}
+		public function groupPoints()
+		{
+			return $this->hasOne(GroupBalance::class);
+		}
+		public function adPowerBalance()
+		{
+			return $this->hasOne(AdPowerBalance::class);
+		}
 		public function membershipId()
 		{
 			return $this->hasOne(UserMembership::class);

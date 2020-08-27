@@ -2,6 +2,7 @@
 
 	namespace App\Http\Controllers;
 
+	use App\Events\AdPackPurchased;
 	use Illuminate\Http\Request;
 
 	class PurchaseController extends Controller
@@ -31,9 +32,9 @@
 		 * @param  \Illuminate\Http\Request  $request
 		 * @return \Illuminate\Http\Response
 		 */
-		public function store(Request $request)
+		public function adPackStore(Request $request)
 		{
-			//
+			event(new AdPackPurchased($request));
 		}
 
 		/**

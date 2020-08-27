@@ -30,12 +30,11 @@
 				$table->string('cnic')->unique()->nullable();
 				$table->date('date_of_birth')->nullable();
 				$table->bigInteger('phone')->nullable();
-				$table->bigInteger('postalcode')->nullable();
-				$table->string('country')->nullable();
-				$table->string('state')->nullable();
-				$table->string('city')->nullable();
-				$table->string('address')->nullable();
 				$table->string('gender')->nullable();
+				$table->string('postalcode')->nullable();
+				$table->string('city')->nullable();
+				$table->string('state')->nullable();
+				$table->string('country')->nullable();
 				$table->string('user_file')->nullable();
 				$table->string('cnic_file')->nullable();
 				$table->string('bank_file')->nullable();

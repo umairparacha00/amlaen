@@ -6,7 +6,6 @@
     @yield('meta-data')
     <style>
         @import url("https://fonts.googleapis.com/css?family=Lato|Proza+Libre:400,700i&display=swap");
-
         :root {
             --main-color: #000000;
             --secondary-color: #392396;
@@ -33,10 +32,6 @@
             box-sizing: border-box
         }
 
-        header {
-            display: block !important
-        }
-
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700 !important;
             margin: 0 0 20px !important
@@ -54,10 +49,6 @@
 
         button:focus {
             outline: 0 !important
-        }
-
-        img, svg {
-            vertical-align: middle
         }
 
         .login-page {
@@ -97,6 +88,7 @@
             margin-bottom: 15px
         }
 
+
         .fuh_674_hjkf .form-control {
             border: 1px solid #d1d1d1;
             padding: 14px 27px 14px 13px;
@@ -112,94 +104,12 @@
             background-repeat: no-repeat;
             background-position: center right 13px
         }
-        .login-button {
-            clear: both;
-            margin-bottom: 15px;
-            -webkit-box-shadow: 2px 5px 14px 1px #ccc;
-            box-shadow: 2px 5px 14px 1px #ccc;
-        }
-        .login-button .btn {
-            background-color: var(--secondary-color);
-            border: 1px solid var(--secondary-color);
-            padding: 10px 40px;
-            border-radius: 0;
-            color: #fff;
-            font-size: 15px;
-            font-weight: 700;
-        }
-        .login-button .btn:hover{
-            box-shadow: 0 8px 25px -8px var(--secondary-color2);
-            color: white;
-        }
         .fuh_674_hjkf .form-group.kl23_3rte3 input {
             background-image: url({{ asset('assets/images/icons/password-icon.png')}});
             background-repeat: no-repeat;
             background-position: center right 13px
         }
-
-        .buttons {
-            display: inline
-        }
-
-        .plk_09nkj34 {
-            float: left
-        }
-
-        .re-button {
-            float: right
-        }
-
-        .plk_09nkj34 .btn {
-            background: #392396;
-            padding: 10px 40px;
-            border-radius: 0;
-            border: none;
-            color: #fff;
-            font-size: 15px;
-            font-weight: 700
-        }
-
-        .plk_09nkj34:hover .btn {
-            box-shadow: 0 8px 25px -8px #7367f0
-        }
-
-        .re-button .btn {
-            border: 1px solid var(--secondary-color);
-            padding: 9px 35px;
-            border-radius: 0;
-            color: var(--secondary-color);
-            font-size: 15px;
-            font-weight: 700
-        }
-
-        .re-button:hover .btn {
-            background: #392396;
-            color: #fff;
-            border: 1px solid transparent
-        }
-
-        .plk_08w03 {
-            padding-bottom: 2em
-        }
-
-        .login-form .plk_08w03 .plk_08w009 {
-            float: left;
-            min-width: 50%
-        }
-
-        .plk_08w009 a, .plk_08w009 span {
-            color: var(--secondary-color2)
-        }
-
-        .plk_09820b {
-            float: right;
-            min-width: 50%
-        }
-
-        .plk_08w03 .plk_09820b, .plk_08w03 .plk_09820b a {
-            color: #555
-        }
-
+        @yield('style')
         .loading {
             overflow: hidden;
             height: 100vh

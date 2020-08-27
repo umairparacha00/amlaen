@@ -57,6 +57,30 @@
             content="Amlaen password reset, Amlaen.com, Digital Marketing, Amlaen Digital Marketing Agency"
     />
 @endsection
+@section('style')
+    .login-button {
+    clear: both;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 2px 5px 14px 1px #ccc;
+    box-shadow: 2px 5px 14px 1px #ccc;
+    }
+    .login-button .btn {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    padding: 10px 40px;
+    border-radius: 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    }
+    .login-button .btn:hover{
+    box-shadow: 0 8px 25px -8px var(--secondary-color2);
+    color: white;
+    }
+    .plk_08w009 a, .plk_08w009 span {
+    color: var(--secondary-color2)
+    }
+@endsection
 @section('form')
     <form method="POST" class="login-form"  action="{{ route('password.email') }}">
         @csrf

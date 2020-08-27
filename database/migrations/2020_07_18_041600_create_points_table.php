@@ -16,11 +16,7 @@
 			Schema::create('points', function (Blueprint $table) {
 				$table->id();
 				$table->foreignId('user_id');
-				$table->integer('main_points')->default(0);;
-				$table->integer('group_points')->default(0);;
-				$table->integer('mall_points')->default(0);;
-				$table->integer('gold_pack')->default(0);;
-				$table->integer('silver_pack')->default(0);;
+				$table->integer('silver_pack')->default(0);
 				$table->timestamps();
 
 				$table->foreign('user_id')

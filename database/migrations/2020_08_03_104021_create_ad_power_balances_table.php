@@ -16,9 +16,8 @@ class CreateAdPowerBalancesTable extends Migration
         Schema::create('ad_power_balances', function (Blueprint $table) {
 			$table->id();
 			$table->foreignId('user_id');
-			$table->integer('gold_pack')->default(0);
+			$table->bigInteger('gold_pack')->default(0);
 			$table->timestamps();
-			$table->timestamp('expires_at')->nullable();
 
 			$table->foreign('user_id')
 				->references('id')

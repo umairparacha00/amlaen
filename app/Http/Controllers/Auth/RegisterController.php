@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\AdPowerBalance;
+use App\GroupBalance;
 use App\Http\Controllers\Controller;
+use App\MainBalance;
+use App\MallBalance;
 use App\Point;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -78,11 +82,23 @@ class RegisterController extends Controller
 		]);
 		Point::create([
 			'user_id' => $user->id,
-			'main_points' => 0,
-			'group_points' => 0,
-			'mall_points'  =>0,
-			'gold_pack' => 0,
 			'silver_pack' => 0,
+		]);
+		AdPowerBalance::create([
+			'user_id' => $user->id,
+			'gold_pack' => 0
+		]);
+		MainBalance::create([
+			'user_id' => $user->id,
+			'main_points' => 0
+		]);
+		GroupBalance::create([
+			'user_id' => $user->id,
+			'group_points' => 0
+		]);
+		MallBalance::create([
+			'user_id' => $user->id,
+			'mall_points' => 0
 		]);
 		UserMembership::create([
 			'user_id' => $user->id,

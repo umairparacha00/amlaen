@@ -1,4 +1,4 @@
-@extends ('layouts.userdash')
+@extends ('layouts.app')
 @section('style')
 <style type="text/css">
     .nav.nav-tabs {
@@ -194,7 +194,7 @@
         <div class="new-form-container">
             <div class="amount-heading">
                 <h2 class="purchase-pin-title">Create able Pin Balance: </h2>
-                <h2 class="purchase-pin-ammount"> {{ current_user()->points->main_points }} </h2>
+                <h2 class="purchase-pin-ammount"> {{ current_user()->mainPoints->main_points }} </h2>
             </div>
             <ul role="tablist" class="nav nav-tabs">
                 <li class="nav-item">

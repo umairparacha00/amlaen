@@ -59,7 +59,7 @@
   body {
     margin: 0;
     font-family: Montserrat,Helvetica,Arial,serif;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.5;
     color: #565656;
     text-align: left;
@@ -67,6 +67,9 @@
   }
   [tabindex="-1"]:focus {
     outline: 0 !important;
+  }
+  .turbolinks-progress-bar {
+    visibility: hidden;
   }
   hr {
     box-sizing: content-box;

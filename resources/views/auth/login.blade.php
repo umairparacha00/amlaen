@@ -10,6 +10,77 @@
             content="Amlaen login, Amlaen.com, Digital Marketing, Amlaen Digital Marketing Agency"
     />
 @endsection
+@section('style')
+    .fuh_674_hjkf .form-group.kl23_3rte3 input {
+    background-image: url(http://localhost:8000/assets/images/icons/password-icon.png);
+    background-repeat: no-repeat;
+    background-position: center right 13px
+    }
+
+    .buttons {
+    display: inline
+    }
+
+    .plk_09nkj34 {
+    float: left
+    }
+
+    .re-button {
+    float: right
+    }
+
+    .plk_09nkj34 .btn {
+    background: #392396;
+    padding: 10px 40px;
+    border-radius: 0;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700
+    }
+
+    .plk_09nkj34:hover .btn {
+    box-shadow: 0 8px 25px -8px #7367f0;
+    color: #ffffff;
+    }
+
+    .re-button .btn {
+    border: 1px solid var(--secondary-color);
+    padding: 9px 35px;
+    border-radius: 0;
+    color: var(--secondary-color);
+    font-size: 15px;
+    font-weight: 700
+    }
+
+    .re-button:hover .btn {
+    background: #392396;
+    color: #fff;
+    border: 1px solid transparent
+    }
+    .plk_08w03 {
+    padding-bottom: 2em
+    }
+
+    .login-form .plk_08w03 .plk_08w009 {
+    float: left;
+    min-width: 50%
+    }
+
+    .plk_08w009 a, .plk_08w009 span {
+    color: var(--secondary-color2)
+    }
+
+    .plk_09820b {
+    float: right;
+    min-width: 50%
+    }
+
+    .plk_08w03 .plk_09820b, .plk_08w03 .plk_09820b a {
+    color: #555
+    }
+
+@endsection
 @section('form')
     <form autocomplete="off" method="POST" class="login-form" action="{{ route('login') }}">
         @csrf

@@ -1,0 +1,1 @@
+<a  href="{{ route('logout') }}" wire:click="logout" tabindex="1" class="dropdown-item">{{ __('Logout') }}</a>
