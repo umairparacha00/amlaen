@@ -43,17 +43,17 @@
 		Route::get('/purchase/ad-pack', 'PurchaseController@ad_create')->name('purchase.adPackShow');
 		Route::get('/purchase/membership', 'PurchaseController@membership_create');
 		Route::post('/purchase/membership', 'PurchaseController@adPackStore')->name('purchase.adPack');
-//		Route::get('/network/direct-referrals', 'NetworkController@directReferralsIndex');
-//		Route::get('/network/referral-link', 'NetworkController@referralLinkShow');
+		Route::get('/network/direct-referrals', 'NetworkController@directReferralsIndex');
+		Route::get('/network/referral-link', 'NetworkController@referralLinkShow');
 		Route::patch('/profile/{user}', 'ProfileController@update');
 		Route::patch('/profile/{user}/files', 'ProfileController@filesupdate');
-		Route::livewire('/pin/create', 'pins.create');
-		Route::livewire('/network/referral-link', 'network.referral-link');
-		Route::livewire('/network/direct-referrals', 'network.direct-referrals');
-		Route::livewire('setting/privacy', 'setting.privacy');
-		Route::livewire('settings', 'setting.settings');
-		Route::livewire('setting/change-password', 'setting.change-password');
-		Route::livewire('setting/change-pin', 'setting.change-pin');
+//		Route::livewire('/pin/create', 'pins.create');
+//		Route::livewire('/network/referral-link', 'network.referral-link');
+//		Route::livewire('/network/direct-referrals', 'network.direct-referrals');
+//		Route::livewire('setting/privacy', 'setting.privacy');
+//		Route::livewire('settings', 'setting.settings');
+//		Route::livewire('setting/change-password', 'setting.change-password');
+//		Route::livewire('setting/change-pin', 'setting.change-pin');
 		Route::any('{query}',
 			function () {
 				return redirect('/dashboard');

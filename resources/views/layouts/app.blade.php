@@ -11,12 +11,10 @@
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="">
     <link href="{{ asset ('assets/css/main.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset ('assets/css/all.min.css') }}">
+    <link href="{{ asset ('assets/css/all.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@1,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
     @yield('style')
-    <livewire:styles />
-    <livewire:scripts />
 </head>
 
 <body>
@@ -308,7 +306,6 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/main.js')}}"></script>
 <script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 @yield('page-script')
