@@ -243,10 +243,10 @@
                         </div>
                         <div class="form-group col-xl-6 col-lg-6 col-md-6 full-name">
                             <input type="text"
-                                   id="full_name"
-                                   name="full_name"
+                                   id="name"
+                                   name="name"
                                    placeholder="Full Name"
-                                   value="{{ old('full_name') }}"
+                                   value="{{ old('name') }}"
                                    required class="form-control"/>
                         </div>
                         <div class="form-group col-xl-6 col-lg-6 col-md-6 email">
