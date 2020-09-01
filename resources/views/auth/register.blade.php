@@ -38,54 +38,6 @@
             background: var(--secondary-color) none;
         }
 
-        .spinner-wrapper {
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-            display: flex;
-            overflow: hidden;
-            align-items: center;
-            justify-content: center
-        }
-
-        .spinner {
-            position: relative;
-            width: 4rem;
-            height: 4rem;
-            border-radius: 50%
-        }
-
-        .spinner::after, .spinner::before {
-            content: "";
-            position: absolute;
-            border-radius: 50%
-        }
-
-        .spinner:before {
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(90deg, #10163a 0, #645bd3 100%);
-            animation: spin .5s infinite linear
-        }
-
-        .spinner:after {
-            width: 90%;
-            height: 90%;
-            background-color: #fff;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg)
-            }
-        }
 
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700 !important;
@@ -360,7 +312,7 @@
     </div>
 </div>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
-{{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>--}}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
 
