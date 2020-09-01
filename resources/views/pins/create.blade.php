@@ -1,4 +1,4 @@
-@extends ('layouts.userdash')
+@extends ('layouts.app')
 @section('style')
 <style type="text/css">
     .nav.nav-tabs {
@@ -194,7 +194,7 @@
         <div class="new-form-container">
             <div class="amount-heading">
                 <h2 class="purchase-pin-title">Create able Pin Balance: </h2>
-                <h2 class="purchase-pin-ammount"> {{ current_user()->points->main_points }} </h2>
+                <h2 class="purchase-pin-ammount"> {{ current_user()->balance->main_balance }} </h2>
             </div>
             <ul role="tablist" class="nav nav-tabs">
                 <li class="nav-item">
@@ -234,54 +234,23 @@
                                     <th scope="col">Pin</th>
                                     <th scope="col">Original Was</th>
                                     <th scope="col">Remaining Amount</th>
-                                    <th scope="col">Latest Status</th>
                                     <th scope="col">Created Date</th>
                                     <th scope="col">Refund</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td scope="row">259830</td>
-                                    <td>EAE341785131319896</td>
-                                    <td> 5</td>
-                                    <td> 0 </td>
-                                    <td>Nasreen Banu</td>
-                                    <td> 2020-01-26 09:13:20</td>
-                                    <td>
-                                        <a class="btn btn-primary" data-toggle="modal" data-target="#myModalRefund">Refund</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">52046</td>
-                                    <td>EAE009263095535360</td>
-                                    <td> 50</td>
-                                    <td> 0 </td>
-                                    <td>Nasreen Banu</td>
-                                    <td> 2019-05-13 23:40:21</td>
-                                    <td>
-                                        <a class="btn btn-primary" data-toggle="modal" data-target="#myModalRefund">Refund</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">49966</td>
-                                    <td>EAE176217283657189</td>
-                                    <td> 50</td>
-                                    <td> 0 </td>
-                                    <td>Nasreen Banu</td>
-                                    <td> 2019-05-09 15:19:45</td>
-                                    <td><a class="btn btn-primary" data-toggle="modal" data-target="#myModalRefund">Refund</a></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">49960</td>
-                                    <td>EAE431981323895679</td>
-                                    <td> 50</td>
-                                    <td> 0 </td>
-                                    <td>Nasreen Banu</td>
-                                    <td> 2019-05-09 15:16:55</td>
-                                    <td>
-                                        <a class="btn btn-primary" data-toggle="modal" data-target="#myModalRefund">Refund</a>
-                                    </td>
-                                </tr>
+                                @foreach ($userPinsData as $pinData)
+                                    <tr>
+                                        <td scope="row">{{ $pinData->id }}</td>
+                                        <td>{{ $pinData->pin }}</td>
+                                        <td>{{ $pinData->pin_value }}</td>
+                                        <td>{{ $pinData->pin_remaining_value }}</td>
+                                        <td> {{ $pinData->created_at }}</td>
+                                        <td>
+                                            <a class="btn btn-primary" data-toggle="modal" data-target="#myModalRefund">Refund</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

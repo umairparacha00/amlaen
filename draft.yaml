@@ -1,0 +1,8 @@
+models:
+    Pin:
+      user_id: id
+      pin: string
+      pin_value: integer
+      pin_remaining_value: integer
+
+

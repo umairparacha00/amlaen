@@ -1,4 +1,4 @@
-@extends ('layouts.userdash')
+@extends ('layouts.app')
 @section('style')
     <style>
         /* Section  */
@@ -267,7 +267,7 @@
                     <div class="c-wraper">
                         <h2>
                             <span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
-                            {{ current_user()->points->main_points }}
+                            {{ current_user()->balance->main_balance }}
                         </h2>
                         <p>Main Points</p>
                     </div>
@@ -277,7 +277,7 @@
                 <div class="card">
                     <div class="c-wraper">
                         <h2><span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
-                            {{ current_user()->points->group_points }}</h2>
+                            {{ current_user()->balance->group_balance }}</h2>
                         <p>Group Points</p>
                     </div>
                 </div>
@@ -288,7 +288,7 @@
                 <div class="card">
                     <div class="c-wraper">
                         <h2><span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
-                            {{ current_user()->points->mall_points }}</h2>
+                            {{ current_user()->balance->mall_balance }}</h2>
                         <p>Mall Points</p>
                     </div>
                 </div>
@@ -297,7 +297,7 @@
                 <div class="card">
                     <div class="c-wraper">
                         <h2><span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
-                            {{ current_user()->points->gold_pack }}</h2>
+                            {{ current_user()->balance->ad_power_balance }}</h2>
                         <p>Silver Pack</p>
                     </div>
                 </div>
@@ -306,7 +306,7 @@
                 <div class="card">
                     <div class="c-wraper">
                         <h2><span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
-                            {{ current_user()->points->silver_pack }}</h2>
+                            0</h2>
                         <p>Gold Pack</p>
                     </div>
                 </div>

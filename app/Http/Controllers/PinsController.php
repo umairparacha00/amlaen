@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Pin;
+use App\User;
 use Illuminate\Http\Request;
 
 class PinsController extends Controller
@@ -16,14 +18,16 @@ class PinsController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @param User $user
+	 * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+	 */
     public function create()
     {
-        //
+    	$userPinsData = Pin::where('user_id' , current_user()->id)->get();
+        return view('pins.create', compact('userPinsData'));
     }
 
     /**

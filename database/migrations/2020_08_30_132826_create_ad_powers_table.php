@@ -4,7 +4,7 @@
 	use Illuminate\Database\Schema\Blueprint;
 	use Illuminate\Support\Facades\Schema;
 
-	class CreatePinsTable extends Migration
+	class CreateAdPowersTable extends Migration
 	{
 		/**
 		 * Run the migrations.
@@ -13,12 +13,12 @@
 		 */
 		public function up()
 		{
-			Schema::create('pins', function (Blueprint $table) {
+			Schema::create('ad_powers', function (Blueprint $table) {
 				$table->id();
 				$table->foreignId('user_id');
-				$table->string('pin');
-				$table->bigInteger('pin_value');
-				$table->bigInteger('pin_remaining_value');
+				$table->string('name');
+				$table->timestamp('expires_at');
+				$table->integer('amount');
 				$table->timestamps();
 
 				$table->foreign('user_id')
@@ -35,6 +35,6 @@
 		 */
 		public function down()
 		{
-			Schema::dropIfExists('pins');
+			Schema::dropIfExists('ad_powers');
 		}
 	}

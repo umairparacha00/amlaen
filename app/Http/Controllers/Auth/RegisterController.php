@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Balance;
 use App\Http\Controllers\Controller;
-use App\Point;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\UserMembership;
@@ -76,13 +76,8 @@ class RegisterController extends Controller
 			'sponsor' => $data['sponsor'],
 			'password' => Hash::make($data['password']),
 		]);
-		Point::create([
+		Balance::create([
 			'user_id' => $user->id,
-			'main_points' => 0,
-			'group_points' => 0,
-			'mall_points'  =>0,
-			'gold_pack' => 0,
-			'silver_pack' => 0,
 		]);
 		UserMembership::create([
 			'user_id' => $user->id,

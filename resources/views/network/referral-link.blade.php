@@ -1,4 +1,4 @@
-@extends ('layouts.userdash')
+@extends ('layouts.app')
 @section('style')
 <style type="text/css">
     .new-form-container {

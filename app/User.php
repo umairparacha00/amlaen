@@ -6,7 +6,7 @@
 	use Illuminate\Foundation\Auth\User as Authenticatable;
 	use Illuminate\Notifications\Notifiable;
 
-	class User extends Authenticatable
+	class User extends Authenticatable implements MustVerifyEmail
 	{
 		use Notifiable;
 
@@ -42,9 +42,9 @@
 		/**
 		 * @var mixed
 		 */
-		public function points()
+		public function balance()
 		{
-			return $this->hasOne(Point::class);
+			return $this->hasOne(Balance::class);
 		}
 		public function membershipId()
 		{

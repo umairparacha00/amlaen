@@ -6,20 +6,21 @@
 
 	class IndexController extends Controller
 	{
-		public function appIndex()
+		public function index()
 		{
 			return view('index');
 		}
-		public function services()
-		{
-			return view('services');
-		}
 		public function contact_us()
 		{
-			return view('contact_us');
+			return view('contact');
 		}
 		public function about_us()
 		{
-			return view('about_us');
+			return view('about');
+		}
+
+		public function terms_and_conditions()
+		{
+			return view('terms&conditions');
 		}
 	}

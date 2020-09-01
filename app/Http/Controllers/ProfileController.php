@@ -108,6 +108,7 @@
 
 	use App\User;
 	use Illuminate\Http\Request;
+	use RealRashid\SweetAlert\Facades\Alert;
 
 	class ProfileController extends Controller
 	{
@@ -131,6 +132,12 @@
 				'user' => $user,
 			]);
 		}
+		public function DocumentsShow(User $user)
+		{
+			return view('profile.documents', [
+				'user' => $user,
+			]);
+		}
 
 		public function edit(User $user)
 		{
@@ -139,8 +146,12 @@
 
 		public function update(Request $request, User $user)
 		{
-			if ($request['cnic'] === null && $request['phone'] === null && $request['date_of_birth'] === null && $request['gender'] === null && $request['postalcode'] === null && $request['country'] === null && $request['state'] === null && $request['city'] === null && $request['address'] === null) {
-				return back()->withErrors('Nothing To Update');
+			if ($request['cnic'] == null && $request['phone'] == null && $request['date_of_birth'] == null && $request['gender'] == null && $request['postalcode'] == null && $request['country'] == null && $request['state'] == null && $request['city'] == null && $request['address'] == null) {
+				return back()->withErrors('Cannot Update CNIC');
+			}
+			if ($request['phone'] == $user['phone'] && $request['gender'] == $user['gender'] && $request['postalcode'] == $user['postalcode'] && $request['country'] == $user['country'] && $request['state'] == $user['state'] && $request['city'] == $user['city'] && $request['address'] == $user['address']) {
+				return back()->withErrors('Nothing to update');
+
 			}
 			$data = $request->validate([
 				'cnic' => ['unique:users', 'regex:/^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$/'],
@@ -155,16 +166,16 @@
 			]);
 			if ($request['cnic'] && current_user()->cnic !== null) {
 				return back()->withErrors('Cannot Update CNIC');
-			} else {
+			} elseif ($request['cnic'] && current_user()->cnic === null) {
 				$data['cnic'];
 			}
 			if ($request['date_of_birth'] && current_user()->date_of_birth !== null) {
 				return back()->withErrors('Cannot Update Birth Date');
-			} else {
+			} elseif ($request['date_of_birth']) {
 				$data['date_of_birth'];
 			}
-
 			$user->update($data);
+
 			return redirect('/profile/edit')->withToastSuccess('Updated Successfully!');
 
 		}
@@ -197,6 +208,10 @@
 				return back()->withErrors('Bank statement file is already is approved');
 			}
 			$user->update($data);
+			$user->update([
+				'cnic_file_status' => 'pending',
+				'bank_file_status' => 'pending'
+			]);
 			return back()->withToastSuccess('Uploaded Successfully!');
 		}
 
