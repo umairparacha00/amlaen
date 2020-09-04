@@ -25,7 +25,7 @@
 		Route::get('/profile', 'ProfileController@show')->name('profile');
 		Route::get('/profile/edit', 'ProfileController@create')->name('profile.edit');
 		Route::get('/profile/documents', 'ProfileController@DocumentsShow')->name('profile.documents');
-		Route::get('/pin/create', 'PinsController@create');
+		Route::get('/pin/create', 'PinsController@show')->name('pin.create');
 		Route::get('/transactions', 'TransactionsController@index')->name('transactions');
 		Route::get('/send-balance', 'BalanceController@create')->name('transactions');
 		Route::get('/transfer-balance', 'BalanceController@transfer_create')->name('transactions');
@@ -38,6 +38,8 @@
 		Route::get('summary', function () {
 			return view('summary');
 		});
+		Route::post('/getpinfee', 'PinsController@getpinfee');
+		Route::post('/create-pin/{user}', 'PinsController@store');
 		Route::patch('/profile/{user}', 'ProfileController@update');
 		Route::patch('/profile/{user}/files', 'ProfileController@filesupdate');
 		Route::any('{query}',
@@ -49,3 +51,5 @@
 	Route::get('/404', function () {
 		return view('404');
 	});
+
+

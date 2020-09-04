@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "realrashid/sweet-alert": "^3.1",
-        "renatomarinho/laravel-page-speed": "^1.8"
+        "renatomarinho/laravel-page-speed": "^1.8",
+        "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

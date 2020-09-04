@@ -9,7 +9,7 @@
           content="Amlaen is one of the top advertisers which provides numerous options to boots and enhance your Viewership and Brading."/>
     <meta name="Keywords"
           content="Amlaen register, Amlaen registration page, Amlaen Sign up, Amlaen.com, Digital Marketing, Amlaen Digital Marketing Agency"/>
-{{--    <link rel="stylesheet" href="{{ asset('css/app.css') }}"/>--}}
+    {{--    <link rel="stylesheet" href="{{ asset('css/app.css') }}"/>--}}
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}"/>
     <style>
         @import url("https://fonts.googleapis.com/css?family=Lato|Proza+Libre:400,700i&display=swap");

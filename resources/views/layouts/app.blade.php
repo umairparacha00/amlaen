@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     @yield('title')
     <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
     <meta name="description" content="">
     <link href="{{ asset ('assets/css/main.css') }}" rel="stylesheet">
     <link href="{{ asset ('assets/css/all.min.css') }}" rel="stylesheet">
@@ -70,19 +70,25 @@
                             </div>
                             <div class="widget-content-left ml-3">
                                 <div class="btn-group">
-                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn d-flex align-items-center">
-                                        <img width="42" height="42" class="rounded-circle" src="@if(current_user()->user_file){{ asset('storage/'.current_user()->user_file) }}@else{{ asset('assets/images/avatars/blank-profile.png') }} @endif"
+                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                       class="p-0 btn d-flex align-items-center">
+                                        <img width="42" height="42" class="rounded-circle"
+                                             src="@if(current_user()->user_file){{ asset('storage/'.current_user()->user_file) }}@else{{ asset('assets/images/avatars/blank-profile.png') }} @endif"
                                              alt="">
                                         <i class="fal fa-angle-down ml-2 fa-2x"></i>
                                     </a>
                                     <div tabindex="-1" role="menu" aria-hidden="true"
                                          class="dropdown-menu dropdown-menu-right">
-                                        <a href="{{ url('/profile') }}" type="button" tabindex="0" class="dropdown-item">Profile</a>
-                                        <a  href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        <a href="{{ url('/profile') }}" type="button" tabindex="0"
+                                           class="dropdown-item">Profile
+                                        </a>
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
-                                            tabindex="1"
-                                            class="dropdown-item">{{ __('Logout') }}</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                           tabindex="1"
+                                           class="dropdown-item">{{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
                                             @csrf
                                         </form>
                                     </div>
@@ -134,7 +140,8 @@
                 <div class="app-sidebar__inner">
                     <ul class="vertical-nav-menu">
                         <li>
-                            <a href="{{ url('/dashboard') }}" class="{{ Request::path() === 'dashboard' ? 'mm-active' : '' }}">
+                            <a href="{{ url('/dashboard') }}"
+                               class="{{ Request::path() === 'dashboard' ? 'mm-active' : '' }}">
                                 <i class="metismenu-icon fal fa-tachometer-alt-average"></i>
                                 Dashboard
                             </a>
@@ -147,13 +154,15 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="{{ url('/profile/edit') }}" class="mb-0 {{ Request::path() === 'profile/edit' ? 'mm-active' : '' }}">
+                                    <a href="{{ url('/profile/edit') }}"
+                                       class="mb-0 {{ Request::path() === 'profile/edit' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6">
                                         </i>Profile Info
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/profile/documents') }}" class="mb-0 {{ Request::path() === 'profile/documents' ? 'mm-active' : '' }}">
+                                    <a href="{{ url('/profile/documents') }}"
+                                       class="mb-0 {{ Request::path() === 'profile/documents' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6">
                                         </i>Documents
                                     </a>
@@ -168,7 +177,8 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="{{ url('/pin/create') }}" class="mb-0 {{ Request::path() === 'pin/create' ? 'mm-active' : '' }}">
+                                    <a href="{{ url('/pin/create') }}"
+                                       class="mb-0 {{ Request::path() === 'pin/create' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6">
                                         </i>Create Pin
                                     </a>
@@ -183,13 +193,15 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="{{ url('/purchase/ad-pack') }}" class="{{ Request::path() === 'purchase/ad-pack' ? 'mm-active' : '' }}">
+                                    <a href="{{ url('/purchase/ad-pack') }}"
+                                       class="{{ Request::path() === 'purchase/ad-pack' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>
                                         Ad Pack
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/purchase/membership') }}" class="mb-0 {{ Request::path() === 'purchase/membership' ? 'mm-active' : '' }}">
+                                    <a href="{{ url('/purchase/membership') }}"
+                                       class="mb-0 {{ Request::path() === 'purchase/membership' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6">
                                         </i>Membership
                                     </a>
@@ -204,40 +216,47 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="{{ url('/transactions') }}" class="{{ Request::path() === 'transactions' ? 'mm-active' : '' }}">
+                                    <a href="{{ url('/transactions') }}"
+                                       class="{{ Request::path() === 'transactions' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Transactions
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/send-balance')}}" class="{{ Request::path() === 'send-balance' ? 'mm-active' : '' }}">
+                                    <a href="{{ url('/send-balance')}}"
+                                       class="{{ Request::path() === 'send-balance' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Send Balance
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/transfer-balance')}}" class="{{ Request::path() === 'transfer-balance' ? 'mm-active' : '' }}">
+                                    <a href="{{url('/transfer-balance')}}"
+                                       class="{{ Request::path() === 'transfer-balance' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Transfer Balance
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/withdraw-balance')}}" class="{{ Request::path() === 'withdraw-balance' ? 'mm-active' : '' }}">
+                                    <a href="{{url('/withdraw-balance')}}"
+                                       class="{{ Request::path() === 'withdraw-balance' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Withdraw Balance
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/payment-gateways')}}" class="mb-0 {{ Request::path() === 'payment-gateways' ? 'mm-active' : '' }}">
+                                    <a href="{{url('/payment-gateways')}}"
+                                       class="mb-0 {{ Request::path() === 'payment-gateways' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Payment Gateway
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="{{url('/summary')}}" class="{{ Request::path() === 'summary' ? 'mm-active' : '' }}">
+                            <a href="{{url('/summary')}}"
+                               class="{{ Request::path() === 'summary' ? 'mm-active' : '' }}">
                                 <i class="metismenu-icon fal fa-clipboard-list"></i>
                                 Summary
                             </a>
                         </li>
                         <li>
-                            <a href="{{url('/achievements')}}" class="{{ Request::path() === 'achievements' ? 'mm-active' : '' }}">
+                            <a href="{{url('/achievements')}}"
+                               class="{{ Request::path() === 'achievements' ? 'mm-active' : '' }}">
                                 <i class="metismenu-icon fal fa-badge-check">
                                 </i>Achievements
                             </a>
@@ -250,17 +269,20 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="{{url('/network/direct-referrals')}}" class="{{ Request::path() === 'network/direct-referrals' ? 'mm-active' : '' }}">
+                                    <a href="{{url('/network/direct-referrals')}}"
+                                       class="{{ Request::path() === 'network/direct-referrals' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Direct Referrals
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/network/network-tree')}}" class="{{ Request::path() === 'network/network-tree' ? 'mm-active' : '' }}">
+                                    <a href="{{url('/network/network-tree')}}"
+                                       class="{{ Request::path() === 'network/network-tree' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Network Tree
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{('/network/referral-link')}}" class="mb-0 {{ Request::path() === 'network/referral-link' ? 'mm-active' : '' }}">
+                                    <a href="{{('/network/referral-link')}}"
+                                       class="mb-0 {{ Request::path() === 'network/referral-link' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Referral Link
                                     </a>
                                 </li>
@@ -268,8 +290,7 @@
                         </li>
                         <li class="{{ Route::currentRouteNamed( 'user-setting' ) ?  'mm-active' : '' }}">
                             <a href="#">
-                                <i class="metismenu-icon fal fa-cog"></i>
-                                </i>Settings
+                                <i class="metismenu-icon fal fa-cog"></i>Settings
                                 <i class="metismenu-state-icon fal fa-angle-right"></i>
                             </a>
                             <ul>
@@ -284,12 +305,14 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/change-password" class="{{ Request::path() === 'change-password' ? 'mm-active' : '' }}">
+                                    <a href="/change-password"
+                                       class="{{ Request::path() === 'change-password' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Change Password
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/change-pin" class="{{ Request::path() === 'change-pin' ? 'mm-active' : '' }}">
+                                    <a href="/change-pin"
+                                       class="{{ Request::path() === 'change-pin' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Change Pin
                                     </a>
                                 </li>
@@ -305,8 +328,10 @@
             </div>
         </div>
     </div>
+    @yield('modals')
 </div>
 <script type="text/javascript" src="{{ asset('assets/js/main.js')}}"></script>
+<script type="text/javascript" src="{{ asset('js/app.js')}}"></script>
 <script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 @yield('page-script')
 @include('sweetalert::alert')

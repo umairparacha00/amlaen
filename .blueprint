@@ -1,7 +1,9 @@
 created:
-    - database/migrations/2020_08_31_031046_create_pins_table.php
-    - app/Pin.php
-    - database/factories/PinFactory.php
+    - app/Http/Controllers/PinsController.php
+    - app/Http/Requests/PinGetpinfeeRequest.php
+    - tests/Feature/Http/Controllers/PinsControllerTest.php
+updated:
+    - routes/web.php
 models:
     Balance: { user_account_id: 'id:user', main_balance: 'integer default:0', group_balance: 'integer default:0', mall_balance: 'integer default:0', ad_power_balance: 'integer default:0' }
     Transaction: { user_account_id: id, balance_type: string, credit_debit: string, amount: integer, old_balance: integer, new_balance: integer, transactions_details: longtext }

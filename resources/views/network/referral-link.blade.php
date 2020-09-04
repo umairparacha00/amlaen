@@ -220,7 +220,22 @@
         $temp.val($("#referral_link").text()).select();
         document.execCommand("copy");
         $temp.remove();
-        Swal.fire("Copied!", "","success");
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+    
+        Toast.fire({
+            icon: 'success',
+            title: 'Copied successfully'
+        })
     })
 </script>
 @endsection

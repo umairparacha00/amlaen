@@ -1,8 +1,9 @@
-models:
-    Pin:
-      user_id: id
-      pin: string
-      pin_value: integer
-      pin_remaining_value: integer
+controllers:
+  Pins:
+    create:
+      query: all
+      render: pins.create with:user
 
+    getpinfee:
+      validate: amount
 
