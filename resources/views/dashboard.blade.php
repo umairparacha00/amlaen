@@ -267,7 +267,7 @@
                     <div class="c-wraper">
                         <h2>
                             <span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
-                            {{ current_user()->balance->main_balance }}
+                            {{ number_format(current_user()->balance->main_balance, 2, '.', ',')}}
                         </h2>
                         <p>Main Points</p>
                     </div>
@@ -277,7 +277,7 @@
                 <div class="card">
                     <div class="c-wraper">
                         <h2><span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
-                            {{ current_user()->balance->group_balance }}</h2>
+                            {{ number_format(current_user()->balance->group_balance, 2 , '.', ',') }}</h2>
                         <p>Group Points</p>
                     </div>
                 </div>
@@ -288,7 +288,7 @@
                 <div class="card">
                     <div class="c-wraper">
                         <h2><span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
-                            {{ current_user()->balance->mall_balance }}</h2>
+                            {{ number_format(current_user()->balance->mall_balance, 2, '.', ',') }}</h2>
                         <p>Mall Points</p>
                     </div>
                 </div>
@@ -297,7 +297,7 @@
                 <div class="card">
                     <div class="c-wraper">
                         <h2><span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
-                            {{ current_user()->balance->ad_power_balance }}</h2>
+                            {{ number_format(current_user()->balance->ad_power_balance, 2, '.', ',') }}</h2>
                         <p>Silver Pack</p>
                     </div>
                 </div>

@@ -13,7 +13,7 @@
 	|
 	*/
 
-	Auth::routes(['verify' => true]);
+	Auth::routes();
 	Route::middleware('guest')->group(function (){
 		Route::get('/', 'IndexController@index');
 		Route::get('/about', 'IndexController@index_us');

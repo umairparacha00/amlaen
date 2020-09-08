@@ -194,7 +194,7 @@
         <div class="new-form-container">
             <div class="amount-heading">
                 <h2 class="purchase-pin-title">Create able Pin Balance: </h2>
-                <h2 class="purchase-pin-ammount"> {{ current_user()->balance->main_balance }} </h2>
+                <h2 class="purchase-pin-ammount">  {{ number_format(current_user()->balance->main_balance, 2, '.', ',')}} </h2>
             </div>
             <ul role="tablist" class="nav nav-tabs">
                 <li class="nav-item">
@@ -296,7 +296,7 @@
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
-                    showConfirmButton: true,
+                    showConfirmButton: false,
                     timer: 3000,
                     timerProgressBar: false,
                     onOpen: (toast) => {

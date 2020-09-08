@@ -29,6 +29,10 @@
 			'user_account_id' => 'integer',
 		];
 
+		public function currentMainBalance()
+		{
+			return current_user()->balance->main_balance;
+		}
 
 		public function user()
 		{

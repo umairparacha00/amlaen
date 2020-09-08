@@ -1,54 +1,6 @@
 @extends ('layouts.app')
 @section('style')
 <style type="text/css">
-    .nav.nav-tabs {
-        border: none;
-        margin-bottom: 1rem;
-        border-radius: 0;
-    }
-
-    .nav.nav-tabs,
-    .nav.nav-tabs .nav-item {
-        position: relative;
-    }
-
-    .nav.nav-tabs .nav-item .nav-link {
-        color: #626262;
-        font-size: .95rem;
-        border: none;
-        min-width: auto;
-        font-weight: 450;
-        padding: .61rem .635rem;
-        border-radius: 0;
-    }
-
-    .nav.nav-tabs .nav-item .nav-link.active {
-        border: none;
-        position: relative;
-        color: #7367F0;
-        -webkit-transition: all .2s ease;
-        transition: all .2s ease;
-        background-color: transparent;
-    }
-
-    .nav.nav-tabs .nav-item .nav-link.active:after {
-        content: attr(data-before);
-        height: 2px;
-        width: 100%;
-        left: 0;
-        position: absolute;
-        bottom: 0;
-        top: 100%;
-        background: -webkit-linear-gradient(60deg, #7367F0, rgba(115, 103, 240, .5)) !important;
-        background: linear-gradient(30deg, #7367F0, rgba(115, 103, 240, .5)) !important;
-        box-shadow: 0 0 8px 0 rgba(115, 103, 240, .5) !important;
-        -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-        transform: translateY(0);
-        -webkit-transition: all .2s linear;
-        transition: all .2s linear;
-    }
-
     .new-form-container .tab-content form .form-control {
         height: 36px;
         font-size: 13px;
@@ -65,11 +17,6 @@
         margin-bottom: 1.5rem;
     }
 
-    .content-area {
-        min-height: 450px;
-        padding: 40px 0;
-    }
-
     .new-form-container .tab-content {
         padding: 36px 30px;
     }
@@ -78,10 +25,6 @@
         background-color: #ffffff;
         -webkit-box-shadow: 8px 5px 17px -7px #ccc;
         box-shadow: 8px 5px 17px -7px #ccc;
-    }
-
-    .new-form-container .nav-tabs.nav {
-        padding: 1.5em 1.5em 0 1.5em;
     }
 
     .new-form-container h1 {
@@ -173,67 +116,9 @@
 <div class="new-form-container row">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 pr-0 pl-0">
         <h1>Transactions</h1>
-        <ul role="tablist" class="nav nav-tabs">
-            <li class="nav-item">
-                <a href="#transactions_area" role="tab" data-toggle="tab" class="nav-link active" aria-selected="false"><i class="fal fa-usd-circle mr-2"></i>Transactions</a>
-            </li>
-        </ul>
         <div class="tab-content">
-            <div role="tabpanel" id="transactions_area" class="tab-pane fade show active">
+            <div>
                 <!---->
-                <div class="row">
-                    <div class="col-12 mb-5">
-                        <form method="POST">
-                            <div class="row">
-                                <div class="col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <label>By Types</label>
-                                        <select class="custom-select">
-                                            <option selected disabled>-- Select Option --</option>
-                                            <option>Received</option>
-                                            <option>Transferred</option>
-                                            <option>Main Balance</option>
-                                            <option>Share Balance</option>
-                                            <option>Investment Balance</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <label>By Days</label>
-                                        <select class="custom-select">
-                                            <option selected disabled>-- Select Option --</option>
-                                            <option>Today</option>
-                                            <option>This Week</option>
-                                            <option>This Month</option>
-                                            <option>Last Three Months</option>
-                                            <option>Last Six Months</option>
-                                            <option>This Year</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-lg-3">
-                                    <label for="transaction_id">By Transaction
-                                        ID</label>
-                                    <input type="number" placeholder="e.g. 9150" id="transaction_id" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 col-lg-3">
-                                    <label for="from_date">From</label>
-                                    <input type="date" id="from_date" class="form-control ranges">
-                                </div>
-                                <div class="col-md-4 col-lg-3">
-                                    <label for="to_date">To</label>
-                                    <input type="date" id="to_date" class="form-control ranges">
-                                </div>
-                                <div class="col-sm-6 col-md-4 col-lg-3 select-top-spacing">
-                                    <input type="submit" value="Go" class="btn btn-default btn-block">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
                 <div class="table-responsive">
                     <table class="table table-bordered t_t1">
                         <thead>
@@ -311,7 +196,6 @@
                     </nav>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 @endsection

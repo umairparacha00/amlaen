@@ -6,7 +6,7 @@
 	use Illuminate\Foundation\Auth\User as Authenticatable;
 	use Illuminate\Notifications\Notifiable;
 
-	class User extends Authenticatable implements MustVerifyEmail
+	class User extends Authenticatable
 	{
 		use Notifiable;
 
@@ -46,6 +46,15 @@
 		{
 			return $this->hasOne(Balance::class);
 		}
+
+		public function updateMainBalance($user = null, $balance)
+		{
+			$this->balance()->update([
+				'user_id' => $user ?? current_user()->id,
+				'main_balance' => $balance,
+			]);
+		}
+
 		public function membershipId()
 		{
 			return $this->hasOne(UserMembership::class);
@@ -60,6 +69,25 @@
 		public function pins()
 		{
 			return $this->hasMany(Pin::class);
+		}
+
+		public function transactions()
+		{
+			return $this->hasMany(Transaction::class);
+		}
+
+		public function addTransaction($balanceField, $creditOrDebit, $amount, $oldBalance, $newBalance, $transactionsDetails, $actionedBy = null)
+		{
+			$this->transactions()->create([
+				'user_id' => $actionedBy ?? current_user()->id,
+				'balance_field' => $balanceField,
+				'credit_debit' => $creditOrDebit,
+				'transaction_amount' => $amount,
+				'old_balance' => $oldBalance,
+				'new_balance' => $newBalance,
+				'transactions_details' => $transactionsDetails,
+				'trans_date_time' => now(),
+			]);
 		}
 
 	}

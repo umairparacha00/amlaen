@@ -13,12 +13,13 @@
 		 */
 		protected $fillable = [
 			'user_id',
-			'balance_type',
+			'balance_field',
 			'credit_debit',
-			'amount',
+			'transaction_amount',
 			'old_balance',
 			'new_balance',
 			'transactions_details',
+			'trans_date_time'
 		];
 
 		/**
@@ -32,8 +33,8 @@
 		];
 
 
-		public function userAccount()
+		public function user()
 		{
-			return $this->belongsTo(\App\UserAccount::class);
+			return $this->belongsTo(User::class);
 		}
 	}
