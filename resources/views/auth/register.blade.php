@@ -74,6 +74,7 @@
             max-width: 740px;
             color: #000;
             margin: 0 auto;
+            position: relative;
             background: #fff;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
@@ -107,7 +108,24 @@
             border: 1px solid #d1d1d1;
             color: #212529
         }
-
+        .loader{
+            display:flex;
+            position: absolute;
+            left: 0%;
+            top: 0%;
+            right: 0%;
+            bottom: 0%;
+            z-index: 9999;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-color: rgba(0,0,0,.5);
+        }
         .form-container .inner-form-container .form-control {
             border: 1px solid #d1d1d1;
             padding: 14px 27px 14px 13px;
@@ -190,49 +208,16 @@
                 <div class="main-title">
                     <h1>Registration</h1>
                 </div>
-                <form autocomplete="off" action="{{ route('register') }}" method="POST">
+                <form class="registration-form" action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="row inner-form-container">
-                        @error('username')
-                        <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">
-                            {{ $message }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @enderror
-                        @error('name')
-                        <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">
-                            {{ $message }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @enderror
-                        @error('email')
-                        <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">
-                            {{ $message }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @enderror
-                        @error('sponsor')
-                        <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">
-                            {{ $message }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @enderror
-                        @error('password')
-                        <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">
-                            {{ $message }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @enderror
+                        @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger w-100 show" role="alert">
+                                    {{ $error }}
+                                </div>
+                            @endforeach
+                        @endif
                         <div class="form-group col-xl-6 col-lg-6 col-md-6 username">
                             <input type="text"
                                    id="username"
@@ -262,7 +247,7 @@
                                    id="sponsor"
                                    name="sponsor"
                                    placeholder="Your Sponsor Id"
-                                   value="@if($sponsor){{ $sponsor }}@elseif(!$sponsor){{ 100000000000 }}@else{{ old('sponsor') }}@endif"
+                                   value="@if($sponsor ?? '' ?? ''){{ $sponsor ?? '' ?? '' }}@elseif(!$sponsor ?? '' ?? ''){{ 100000000000 }}@else{{ old('sponsor') }}@endif"
                                    required class="form-control"/>
                         </div>
                         <div class="form-group col-xl-6 col-lg-6 col-md-6 password">
@@ -307,12 +292,26 @@
                         </div>
                     </div>
                 </form>
+                <div class="loader-wrapper">
+                    <div id="loader" class="loader">
+                        <img src="{{ asset('assets/images/svg/loader.svg') }}"
+                             width="75" alt="" class="loading-image"
+                             style="opacity: 1;"
+                        >
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    $(window).on("load", function () {
+        $(".loader-wrapper").fadeOut(200, function () {
+            $('#loader').removeClass('loader');
+        });
+    });
+</script>
 </body>
 </html>
 

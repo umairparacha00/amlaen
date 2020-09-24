@@ -9,10 +9,15 @@
 	{
 		public function directReferralsIndex(User $user)
 		{
-			return view('network.direct-referrals', compact('user'));
+			$directReferrals = $user->directReferrals();
+			return view('network.direct-referrals', compact('directReferrals'));
 		}
 		public function referralLinkShow(User $user)
 		{
 			return view('network.referral-link', compact('user'));
+		}
+		public function treeShow(User $user)
+		{
+			return view('network.tree', compact('user'));
 		}
 	}

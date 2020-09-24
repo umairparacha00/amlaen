@@ -191,10 +191,6 @@
             integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
             crossorigin="anonymous"></script>
     <script>
-        //redirect to specific tab
-        $(document).ready(function () {
-            $('#tabMenu a[href="#{{ old('tab') }}"]').tab('show')
-        });
         $(document).ready(function () {
             $('#u-pic').change(function (e) {
                 var fileName = e.target.files[0].name;

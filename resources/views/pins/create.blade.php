@@ -214,8 +214,8 @@
                             <div class="col-sm-12 col-md-4 col-lg-4 col-4-xl">
                                 <div class="form-group">
                                     <label for="amount">Amount</label>
-                                    <input type="number" name="amount" min="5" max="1000000" id="amount"
-                                           class="form-control inp-shadow">
+                                    <input type="number" name="amount" min="1" id="amount"
+                                           class="form-control inp-shadow" required>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
@@ -234,18 +234,18 @@
                         <table class="table pincreate-history pin-his-tab">
                             <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Pin</th>
-                                <th scope="col">Original Was</th>
-                                <th scope="col">Remaining Amount</th>
-                                <th scope="col">Created Date</th>
-                                <th scope="col">Refund</th>
+                                <th>#</th>
+                                <th>Pin</th>
+                                <th>Original Was</th>
+                                <th>Remaining Amount</th>
+                                <th>Created Date</th>
+                                <th>Refund</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($userPinsData as $pinData)
                                     <tr>
-                                        <td scope="row">{{ $pinData->id }}</td>
+                                        <td>{{ $pinData->id }}</td>
                                         <td>{{ $pinData->pin }}</td>
                                         <td>{{ $pinData->pin_value }}</td>
                                         <td>{{ $pinData->pin_remaining_value }}</td>
@@ -266,28 +266,69 @@
 @endsection
 @section ('page-script')
     <script>
-        $("#modal-btn").on('click', function (){
-            // const token = document.head.querySelector('meta[name="csrf-token"]');
-            // window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+        $("#purchase-pin-form").on('keydown', (e) => {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                axios.post('/getpinfee', {
+                    "amount": $("#amount").val(),
+                }).then(function (response) {
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: 'Are you sure you want to proceed to create pin of $' + response.data.amount + ' and fee ' + response.data.fee + '!',
+                        position: "top",
+                        showCancelButton: true,
+                        confirmButtonColor: '#218838',
+                        cancelButtonColor: '#c82333',
+                        confirmButtonText: 'Proceed!'
+                    }).then((result) => {
+                        if (result.value) {
+                            $("#purchase-pin-form").submit()
+                            console.log('submitted')
+                        }
+                    })
+                }).catch((error) => {
+                    const errors = error.response.data.errors
+                    const firstItem = Object.keys(errors)[0];
+                    const firstErrorMessage = errors[firstItem][0]
+                
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: false,
+                        onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    });
+                    Toast.fire({
+                        icon: 'error',
+                        title: firstErrorMessage
+                    });
+                });
+            }
+        })
+        $("#modal-btn").on('click', function () {
             axios.post('/getpinfee', {
                 "amount": $("#amount").val(),
             })
-            .then(function (response) {
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: 'Are you sure you want to proceed to create pin of $' + response.data.amount +' and fee ' + response.data.fee + '!' ,
-                    position: "top",
-                    showCancelButton: true,
-                    confirmButtonColor: '#218838',
-                    cancelButtonColor: '#c82333',
-                    confirmButtonText: 'Proceed!'
-                }).then((result) => {
-                    if (result.value) {
-                        $("#purchase-pin-form").submit()
-                        console.log('submitted')
-                    }
-                })
-            })
+                    .then(function (response) {
+                        Swal.fire({
+                            title: 'Are you sure?',
+                            text: 'Are you sure you want to proceed to create pin of $' + response.data.amount + ' and fee ' + response.data.fee + '!',
+                            position: "top",
+                            showCancelButton: true,
+                            confirmButtonColor: '#218838',
+                            cancelButtonColor: '#c82333',
+                            confirmButtonText: 'Proceed!'
+                        }).then((result) => {
+                            if (result.value) {
+                                $("#purchase-pin-form").submit()
+                                console.log('submitted')
+                            }
+                        })
+                    })
             .catch((error) => {
                 const errors = error.response.data.errors
                 const firstItem = Object.keys(errors)[0];
@@ -310,26 +351,6 @@
                 });
             });
         })
+
     </script>
-@endsection
-@section('modals')
-{{--    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-hidden="true">--}}
-{{--        <div class="modal-dialog" role="document">--}}
-{{--            <div class="modal-content">--}}
-{{--                <div class="modal-header">--}}
-{{--                    <h5 class="modal-title"></h5>--}}
-{{--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--                        <span aria-hidden="true">&times;</span>--}}
-{{--                    </button>--}}
-{{--                </div>--}}
-{{--                <div class="modal-body">--}}
-{{--                    Are you sure you want to proceed to create pin @{{ array.amount }} of  and fee ?--}}
-{{--                </div>--}}
-{{--                <div class="modal-footer">--}}
-{{--                    <button type="button" class="btn btn-success" onclick="$('#create-pin').submit();">Proceed</button>--}}
-{{--                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 @endsection

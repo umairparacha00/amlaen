@@ -113,7 +113,7 @@
 
         .user-profile-right-info .user-profile-upper-name {
             text-align: center;
-            color: #00408f;
+            color: #10163a;
             padding-top: 15px
         }
 
@@ -204,7 +204,7 @@
     <div class="user-profile-upper">
         <div class="row">
             <div class="col-xl-2 col-md-4 col-sm-12 user-profile-upper-image">
-                <div class="user-image-inner"><img src="@if(current_user()->user_file){{ asset('storage/'.current_user()->user_file) }}@else{{ asset('assets/images/avatars/blank-profile.png') }} @endif" class="inherit"></div>
+                <div class="user-image-inner"><img src="@if(current_user()->user_file){{ asset('storage/'.current_user()->user_file) }}@else{{ 'https://ui-avatars.com/api/?size=512&background=0D8ABC&color=fff&name=' .  current_user()->name }} @endif" class="inherit"></div>
             </div>
             <div class="col-xl-10 col-md-8 col-sm-12 user-profile-right-info ">
                 <div class="row">

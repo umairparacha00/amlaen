@@ -17,12 +17,11 @@ class PinsController extends Controller
 		return view('pins.create', compact('userPinsData'));
 	}
 
-	/** @noinspection PhpParamsInspection */
 	public function store(Request $request, Pin $pin, User $user, Balance $balance, $pinFeePercentage = 0.25 )
 	{
 		// Pin input Validations
 		$data = $request->validate([
-			'amount' => ['required', 'integer','max:1000'],
+			'amount' => ['required', 'numeric', 'max:1000'],
 		]);
 
 		//Pin Errors
@@ -30,21 +29,39 @@ class PinsController extends Controller
 		if ($data['amount'] < 5) {
 			return back()->with('toast_error', 'Cannot make a pin less then 5 points');
 		}
-		$totalForPinCreation = $data['amount'] + $pinFee + 1;
-		if ($totalForPinCreation > current_user()->balance->main_balance) {
+
+		if ($request['amount'] > current_user()->balance->main_balance) {
 			return back()->with('toast_error', 'Your entered amount exceeded then your balance!');
 		}
+
+		$totalForPinCreation = $data['amount'] + $pinFee + 1;
+		if ($totalForPinCreation > current_user()->balance->main_balance) {
+			return back()->with('toast_error', 'You Should have $1 in the main balance reserved as per company rule!');
+		}
+
 		// Creating pin
 		$actualPin = $this->createPinString();
 
 		// Transaction for pin debit
 
-		$user->addTransaction('main_balance','debit', $data['amount'], $balance->currentMainBalance(), $this->remainingBalanceAfterPin($data['amount']), 'Pin Created by (' . current_user()->id . ')', current_user()->id );
+		$user->addTransaction('main_balance',
+			'debit',
+			$data['amount'],
+			$balance->currentMainBalance(),
+			$this->remainingBalanceAfterPin($data['amount']),
+			'Pin Created by (' . current_user()->id . ')',
+			current_user()->id);
 		$user->updateMainBalance(current_user()->id, $this->remainingBalanceAfterPin($data['amount']));
 
 		// Transaction for created pin fee
 
-		$user->addTransaction('main_balance','debit', $pinFee, $balance->currentMainBalance(), $this->remainingBalanceAfterPinFee($pinFee), 'Pin Fee by ('. current_user()->id. ')');
+		$user->addTransaction('main_balance',
+			'debit',
+			$pinFee,
+			$balance->currentMainBalance(),
+			$this->remainingBalanceAfterPinFee($pinFee),
+			'Pin Fee by (' . current_user()->id . ')',
+			current_user()->id);
 		$user->updateMainBalance(current_user()->id, $this->remainingBalanceAfterPinFee($pinFee));
 
 		$pin->createPin($data, $actualPin);
@@ -62,15 +79,14 @@ class PinsController extends Controller
 	protected function remainingBalanceAfterPin($pinAmount)
 	{
 		$currentMainBalance = current_user()->balance->main_balance;
-		$remainingMainBalance = $currentMainBalance - $pinAmount;
-		return $remainingMainBalance;
+		return $currentMainBalance - $pinAmount;
 	}
 
 	protected function remainingBalanceAfterPinFee($pinFee)
 	{
-		$currentMainBalance = current_user()->balance->main_balance;
-		$remainingMainBalance = $currentMainBalance - $pinFee;
-		return $remainingMainBalance;
+		$currentMainBalance = current_user()->balance->fresh();
+		$currentMainBalanceFresh = $currentMainBalance->main_balance;
+		return $currentMainBalanceFresh - $pinFee;
 	}
 
 	/**
@@ -81,7 +97,7 @@ class PinsController extends Controller
 	public function getpinfee(Request $request, $feePercentage = 0.25)
 	{
 		$value = $request->validate([
-			'amount' => ['required', 'integer', 'max:1000'],
+			'amount' => ['required', 'numeric', 'max:1000'],
 		]);
 		$amount = $value['amount'];
 		$fee = $amount * $feePercentage / 100;

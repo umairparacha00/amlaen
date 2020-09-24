@@ -16,7 +16,7 @@
 	Auth::routes();
 	Route::middleware('guest')->group(function (){
 		Route::get('/', 'IndexController@index');
-		Route::get('/about', 'IndexController@index_us');
+		Route::get('/about', 'IndexController@about_us');
 		Route::get('/contact', 'IndexController@contact_us');
 		Route::get('/terms_and_conditions', 'IndexController@terms_and_conditions');
 	});
@@ -27,19 +27,24 @@
 		Route::get('/profile/documents', 'ProfileController@DocumentsShow')->name('profile.documents');
 		Route::get('/pin/create', 'PinsController@show')->name('pin.create');
 		Route::get('/transactions', 'TransactionsController@index')->name('transactions');
-		Route::get('/send-balance', 'BalanceController@create')->name('transactions');
-		Route::get('/transfer-balance', 'BalanceController@transfer_create')->name('transactions');
+		Route::get('/share-balance', 'SendBalanceController@create')->name('transactions');
+		Route::get('/transfer-balance', 'TransferGroupBalanceController@create')->name('transactions');
 		Route::get('/withdraw-balance', 'TransactionsController@withdrawBalanceShow')->name('transactions');
 		Route::get('/payment-gateways', 'TransactionsController@paymentGatewaysShow')->name('transactions');
 		Route::get('/purchase/ad-pack', 'PurchaseController@ad_create');
 		Route::get('/purchase/membership', 'PurchaseController@membership_create');
 		Route::get('/network/direct-referrals', 'NetworkController@directReferralsIndex');
 		Route::get('/network/referral-link', 'NetworkController@referralLinkShow');
+		Route::get('/network/tree', 'NetworkController@treeShow');
 		Route::get('summary', function () {
 			return view('summary');
 		});
 		Route::post('/getpinfee', 'PinsController@getpinfee');
+		Route::post('/getShareBalanceFee', 'SendBalanceController@getShareBalanceFee');
+		Route::post('/getGroupBalanceFee', 'TransferGroupBalanceController@getGroupBalanceFee');
 		Route::post('/create-pin/{user}', 'PinsController@store');
+		Route::post('/send-balance/{user}', 'SendBalanceController@store');
+		Route::post('/transfer-group-balance/{user}', 'TransferGroupBalanceController@store');
 		Route::patch('/profile/{user}', 'ProfileController@update');
 		Route::patch('/profile/{user}/files', 'ProfileController@filesupdate');
 		Route::any('{query}',

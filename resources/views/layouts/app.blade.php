@@ -73,7 +73,7 @@
                                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                        class="p-0 btn d-flex align-items-center">
                                         <img width="42" height="42" class="rounded-circle"
-                                             src="@if(current_user()->user_file){{ asset('storage/'.current_user()->user_file) }}@else{{ asset('assets/images/avatars/blank-profile.png') }} @endif"
+                                             src="@if(current_user()->user_file){{ asset('storage/'.current_user()->user_file) }}@else{{ 'https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=' . current_user()->name }} @endif"
                                              alt="">
                                         <i class="fal fa-angle-down ml-2 fa-2x"></i>
                                     </a>
@@ -222,8 +222,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/send-balance')}}"
-                                       class="{{ Request::path() === 'send-balance' ? 'mm-active' : '' }}">
+                                    <a href="{{ url('/share-balance')}}"
+                                       class="{{ Request::path() === 'share-balance' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Send Balance
                                     </a>
                                 </li>
@@ -233,18 +233,18 @@
                                         <i class="fal fa-circle mr-3 fx-6"></i>Transfer Balance
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="{{url('/withdraw-balance')}}"
-                                       class="{{ Request::path() === 'withdraw-balance' ? 'mm-active' : '' }}">
-                                        <i class="fal fa-circle mr-3 fx-6"></i>Withdraw Balance
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/payment-gateways')}}"
-                                       class="mb-0 {{ Request::path() === 'payment-gateways' ? 'mm-active' : '' }}">
-                                        <i class="fal fa-circle mr-3 fx-6"></i>Payment Gateway
-                                    </a>
-                                </li>
+{{--                                <li>--}}
+{{--                                    <a href="{{url('/withdraw-balance')}}"--}}
+{{--                                       class="{{ Request::path() === 'withdraw-balance' ? 'mm-active' : '' }}">--}}
+{{--                                        <i class="fal fa-circle mr-3 fx-6"></i>Withdraw Balance--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="{{url('/payment-gateways')}}"--}}
+{{--                                       class="mb-0 {{ Request::path() === 'payment-gateways' ? 'mm-active' : '' }}">--}}
+{{--                                        <i class="fal fa-circle mr-3 fx-6"></i>Payment Gateway--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
                             </ul>
                         </li>
                         <li>
@@ -275,8 +275,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/network/network-tree')}}"
-                                       class="{{ Request::path() === 'network/network-tree' ? 'mm-active' : '' }}">
+                                    <a href="{{url('/network/tree')}}"
+                                       class="{{ Request::path() === 'network/tree' ? 'mm-active' : '' }}">
                                         <i class="fal fa-circle mr-3 fx-6"></i>Network Tree
                                     </a>
                                 </li>

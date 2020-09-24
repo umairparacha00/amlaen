@@ -30,9 +30,9 @@
                         <!-- users edit media object start -->
                         <div class="media mb-4 d-flex align-items-center">
                             <a class="mr-3" href="#">
-                                <img src="@if(current_user()->user_file){{ asset('storage/'.current_user()->user_file) }}@else{{ asset('assets/images/avatars/blank-profile.png') }}@endif"
+                                <img src="@if(current_user()->user_file){{ asset('storage/'.current_user()->user_file) }}@else{{ 'https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=' .  current_user()->name }}@endif"
                                      alt="users avatar"
-                                     class="users-avatar-shadow rounded" height="90" width="90">
+                                     class="users-avatar-shadow rounded-circle" height="90" width="90">
                             </a>
                             <div class="media-body mt-50">
                                 <h4 class="media-heading">{{ current_user()->name }}</h4>
@@ -43,22 +43,21 @@
                         <form method="POST" action="{{ '/profile/' . current_user()->id }}">
                             @csrf
                             @method('PATCH')
+                           
                             <div class="row mt-1">
+                                @if($errors->any())
+                                    @foreach ($errors->all() as $error)
+                                        <div class="alert alert-danger w-100 fade show" role="alert">
+                                            {{ $error }}
+                                        </div>
+                                    @endforeach
+                                @endif
                                 <div class="col-12 col-sm-6">
                                     <h3 class="mb-4"><i class="fal fa-address-card"></i>
                                         Personal Information</h3>
                                     <div class="form-group">
                                         <div class="forms-control">
                                             <label>CNIC/DR/Passport</label>
-                                            @error('cnic')
-                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                <span>{{ $message }}</span>
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            @enderror
                                             <input type="text"
                                                    class="form-control"
                                                    name="cnic"
@@ -72,15 +71,6 @@
                                     <div class="form-group">
                                         <div class="forms-control">
                                             <label>Birth date</label>
-                                            @error('date_of_birth')
-                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                <span>{{ $message }}</span>
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            @enderror
                                             <input type="date"
                                                    class="form-control"
                                                    name="date_of_birth"
@@ -94,15 +84,6 @@
                                     <div class="form-group">
                                         <div class="forms-control">
                                             <label>Mobile</label>
-                                            @error('phone')
-                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                <span>{{ $message }}</span>
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            @enderror
                                             <input type="text"
                                                    class="form-control"
                                                    name="phone"
@@ -116,15 +97,6 @@
 
                                     <div class="form-group">
                                         <label>Select Gender</label>
-                                        @error('cnic')
-                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                            <span>{{ $message }}</span>
-                                            <button type="button" class="close" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        @enderror
                                         <ul class="list-unstyled mb-0">
                                             <li class="d-inline-block mr-2">
                                                 <fieldset>
@@ -191,15 +163,6 @@
                                     <div class="form-group">
                                         <div class="forms-control">
                                             <label>Address</label>
-                                            @error('address')
-                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                <span>{{ $message }}</span>
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            @enderror
                                             <input type="text"
                                                    class="form-control"
                                                    name="address"
@@ -213,15 +176,6 @@
                                     <div class="form-group">
                                         <div class="forms-control">
                                             <label>City</label>
-                                            @error('city')
-                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                <span>{{ $message }}</span>
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            @enderror
                                             <input type="text"
                                                    class="form-control"
                                                    name="city"
@@ -235,15 +189,6 @@
                                     <div class="form-group">
                                         <div class="forms-control">
                                             <label>Postal code</label>
-                                            @error('postalcode')
-                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                <span>{{ $message }}</span>
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            @enderror
                                             <input type="text"
                                                    class="form-control"
                                                    name="postalcode"
@@ -257,15 +202,6 @@
                                     <div class="form-group">
                                         <div class="forms-control">
                                             <label>State</label>
-                                            @error('state')
-                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                <span>{{ $message }}</span>
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            @enderror
                                             <input type="text"
                                                    class="form-control"
                                                    name="state"
@@ -279,15 +215,6 @@
                                     <div class="form-group">
                                         <div class="forms-control">
                                             <label>Country</label>
-                                            @error('country')
-                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                <span>{{ $message }}</span>
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            @enderror
                                             <input type="text"
                                                    class="form-control"
                                                    name="country"

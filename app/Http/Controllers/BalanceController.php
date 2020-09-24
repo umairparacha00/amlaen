@@ -12,10 +12,6 @@
 			//
 		}
 
-		public function create(User $user)
-		{
-			return view('transactions.send-balance', compact('user'));
-		}
 
 		public function store(Request $request)
 		{

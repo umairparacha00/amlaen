@@ -18,7 +18,7 @@ trait RegistersUsers
      */
     public function showRegistrationForm()
     {
-    	$sponsor  = request('referral');
+    	$sponsor = request('referral');
         return view('auth.register', compact('sponsor'));
     }
 

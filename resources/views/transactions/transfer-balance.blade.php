@@ -194,83 +194,164 @@
 </style>
 @endsection
 @section ('content')
-<div class="scrollbar-container">
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="new-form-container">
-            <div class="amount-heading">
-                <h2 class="purchase-pin-title">Transferable Balance:</h2>
-                <h2 class="purchase-pin-ammount"> 14.48 </h2>
-            </div>
-            <ul role="tablist" class="nav nav-tabs">
-                <li class="nav-item">
-                    <a href="#transfer-balance" role="tab" data-toggle="tab" class="nav-link active" aria-selected="true">
-                        <i class="fal fa-share-square mr-2"></i>
-                        Transfer Balance
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#history" role="tab" data-toggle="tab" class="nav-link" aria-selected="false">
-                        <i class="fal fa-history mr-2"></i>History
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div role="tabpanel" id="transfer-balance" class="tab-pane fade in active show">
-                    <div class="alert alert-info">
-                        <button type="button" data-dismiss="alert" aria-label="Close" class="close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                        <span>Transfer your Group Points to Main Points
-                            and use them for purchases, sharing and withdrawal.</span>
-                    </div>
-                    <form autocomplete="off" method="post">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="total_amount">Amount:</label>
-                                    <input type="number" min="1" step="1" id="total_amount" class="form-control"></div>
-                            </div>
-                        </div>
-                        <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default">
-                            Transfer Balance</button>
-                    </form>
+    <div class="scrollbar-container">
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="new-form-container">
+                <div class="amount-heading">
+                    <h2 class="purchase-pin-title">Transferable Balance:</h2>
+                    <h2 class="purchase-pin-ammount"> {{ number_format(current_user()->balance->group_balance, 2, '.', ',') }} </h2>
                 </div>
-                <div role="tabpanel" id="history" class="tab-pane fade">
-                    <div class="table-responsive">
-                        <table class="table tb-90">
-                            <thead>
+                <ul role="tablist" class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="#transfer-balance" role="tab" data-toggle="tab" class="nav-link active"
+                           aria-selected="true">
+                            <i class="fal fa-share-square mr-2"></i>
+                            Transfer Balance
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#history" role="tab" data-toggle="tab" class="nav-link" aria-selected="false">
+                            <i class="fal fa-history mr-2"></i>History
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" id="transfer-balance" class="tab-pane fade in active show">
+                        <div class="alert alert-info">
+                            <button type="button" data-dismiss="alert" aria-label="Close" class="close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <span>Transfer your Group Points to Main Points
+                            and use them for purchases, sharing and withdrawal.</span>
+                        </div>
+                        <form method="POST" action="{{ '/transfer-group-balance/'. current_user()->id }}"
+                              id="transfer-group-balance-form">
+                            @csrf
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="amount">Amount:</label>
+                                        <input type="number" id="amount" name="amount" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" id="modal-btn" class="btn btn-default">
+                                Transfer Balance
+                            </button>
+                        </form>
+                    </div>
+                    <div role="tabpanel" id="history" class="tab-pane fade">
+                        <div class="table-responsive">
+                            <table class="table tb-90">
+                                <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Amount</th>
                                     <th>Date</th>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>233963</td>
-                                    <td>$3.4</td>
-                                    <td>2020-01-28 11:56:36</td>
-                                </tr>
-                                <tr>
-                                    <td>306905</td>
-                                    <td>$2.57</td>
-                                    <td>2020-03-11 13:58:27</td>
-                                </tr>
-                                <tr>
-                                    <td>391228</td>
-                                    <td>$3.64</td>
-                                    <td>2020-04-14 17:12:12</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                @foreach ($transactions as $transaction)
+                                    <tr>
+                                        <td>{{ $transaction->id }}</td>
+                                        <td>{{ $transaction->transaction_amount }}</td>
+                                        <td>{{ $transaction->trans_date_time }}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 @section ('page-script')
+    <script>
+        $("#transfer-group-balance-form").on('keydown', (e) => {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                axios.post('/getGroupBalanceFee', {
+                    "amount": $("#amount").val(),
+                }).then(function (response) {
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: 'Are you sure you want to Transfer $' + response.data.amount + ' the Main Balance with fee $' + response.data.fee + '!',
+                        position: "top",
+                        showCancelButton: true,
+                        confirmButtonColor: '#218838',
+                        cancelButtonColor: '#c82333',
+                        confirmButtonText: 'Proceed!'
+                    }).then((result) => {
+                        if (result.value) {
+                            $("#transfer-group-balance-form").submit()
+                        }
+                    })
+                }).catch((error) => {
+                    const errors = error.response.data.errors
+                    const firstItem = Object.keys(errors)[0];
+                    const firstErrorMessage = errors[firstItem][0]
+                    
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: false,
+                        onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    });
+                    Toast.fire({
+                        icon: 'error',
+                        title: firstErrorMessage
+                    });
+                });
+            }
+        })
+        $("#modal-btn").on('click', function () {
+            axios.post('/getGroupBalanceFee', {
+                "amount": $("#amount").val(),
+            }).then(function (response) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: 'Are you sure you want to Transfer $' + response.data.amount + ' the Main Balance with fee $' + response.data.fee + '!',
+                    position: "top",
+                    showCancelButton: true,
+                    confirmButtonColor: '#218838',
+                    cancelButtonColor: '#c82333',
+                    confirmButtonText: 'Proceed!'
+                }).then((result) => {
+                    if (result.value) {
+                        $("#transfer-group-balance-form").submit()
+                    }
+                })
+            }).catch((error) => {
+                const errors = error.response.data.errors
+                const firstItem = Object.keys(errors)[0];
+                const firstErrorMessage = errors[firstItem][0]
+                
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: false,
+                    onOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                });
+                Toast.fire({
+                    icon: 'error',
+                    title: firstErrorMessage
+                });
+            });
+        })
+    
+    </script>
 @endsection

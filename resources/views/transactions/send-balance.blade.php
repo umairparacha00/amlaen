@@ -14,7 +14,7 @@
 
         .nav.nav-tabs .nav-item .nav-link {
             color: #626262;
-            font-size: 1.1rem;
+            font-size: .95rem;
             border: none;
             min-width: auto;
             font-weight: 450;
@@ -182,181 +182,171 @@
             }
         }
     </style>
-    <style type="text/css">
-        .modal-header .close {
-            font-weight: 700;
-            font-size: 2rem;
-            padding: 12px 12px 6px
-        }
-
-        .share-popup .modal-header {
-            border-bottom: none
-        }
-
-        .share-popup .modal-body {
-            padding-top: 0;
-            text-align: center;
-            padding-bottom: 0
-        }
-
-        .share-popup .popup-section-user-name {
-            font-size: 2rem;
-            font-weight: 500;
-            color: #7367F0
-        }
-
-        .share-popup .popup-section-user-number {
-            font-size: 1.3rem;
-            color: inherit;
-            padding-bottom: 26px;
-            position: relative
-        }
-
-        .share-popup .popup-section-user-number:after {
-            position: absolute;
-            display: block;
-            content: "";
-            background: #dbdbdb;
-            height: 5px;
-            width: 80px;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            bottom: 0
-        }
-
-        .popup-section-user-sharing {
-            padding-top: 25px;
-            font-size: 1.2rem;
-            color: #00408f
-        }
-
-        .share-popup .modal-footer {
-            border-top: none;
-            text-align: center
-        }
-
-        .share-popup .modal-footer .btn {
-            font-size: 18px;
-        }
-
-        .share-popup .modal-footer .btn.btn-success {
-            margin: 0 5px 0 auto;
-            background: #6bc334;
-            border: 1px solid #6bc334
-        }
-
-        .share-popup .modal-footer .btn.btn-danger {
-            margin: 0 auto 0 5px;
-            background: #de0404;
-            border: 1px solid #de0404
-        }
-
-        .share-popup .modal-footer {
-            padding-bottom: 25px
-        }
-
-        .share-popup .modal-dialog {
-            max-width: 350px !important
-        }
-    </style>
 @endsection
 @section ('content')
-<div class="scrollbar-container">
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="new-form-container">
-            <div class="amount-heading">
-                <h2 class="purchase-pin-title">Send Able Total Balance: </h2>
-                <h2 class="purchase-pin-ammount"> 14.48 </h2>
-            </div>
-            <ul role="tablist" class="nav nav-tabs">
-                <li class="nav-item">
-                    <a href="#eran" role="tab" data-toggle="tab" class="nav-link active" aria-selected="true">
-                        <i class="fal fa-share-square mr-2"></i>Send Balance</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#history" role="tab" data-toggle="tab" class="nav-link" aria-selected="false">
-                        <i class="fal fa-history mr-2"></i>History</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div role="tabpanel" id="eran" class="tab-pane fade in active show">
-                    <form autocomplete="off" method="post">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="form-group">
-                                    <label for="amount">Amount</label>
-                                    <input type="number" min="1" id="amount" class="form-control inp-shadow">
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="form-group">
-                                    <label for="next_account">Next Person (Account Number) or
-                                        (Username):</label>
-                                    <input type="text" min="1" id="next_account" class="form-control inp-shadow">
-                                </div>
-                            </div>
-                            <div class="col-xl-12 col-sm-12">
-                                <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default">Send Balance</button>
-                            </div>
-                        </div>
-                    </form>
-                    <!---->
+    <div class="scrollbar-container">
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="new-form-container">
+                <div class="amount-heading">
+                    <h2 class="purchase-pin-title">Send Able Total Balance: </h2>
+                    <h2 class="purchase-pin-ammount">{{ number_format(current_user()->balance->main_balance, 2, '.', ',') }}</h2>
                 </div>
-                <div role="tabpanel" id="history" class="tab-pane fade">
-                    <div role="tabpanel" id="history" class="tab-pane fade active show">
-                        <div class="table-responsive">
-                            <table class="table ui_jk">
-                                <thead>
+                <ul role="tablist" class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="#eran" role="tab" data-toggle="tab" class="nav-link active" aria-selected="true">
+                            <i class="fal fa-share-square mr-2"></i>Send Balance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#history" role="tab" data-toggle="tab" class="nav-link" aria-selected="false">
+                            <i class="fal fa-history mr-2"></i>History</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" id="eran" class="tab-pane fade in active show">
+                        <form id="share_balance-form" method="POST" action="{{ '/send-balance/' . current_user()->id }}">
+                            @csrf
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="form-group">
+                                        <label for="amount">Amount</label>
+                                        <input type="number" min="1" id="amount" name="amount" class="form-control inp-shadow">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="form-group">
+                                        <label for="username">Next Person (Username):</label>
+                                        <input type="text" min="1" id="username" name="username" class="form-control inp-shadow">
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-sm-12">
+                                    <button type="button" id="modal-btn" class="btn btn-default">
+                                        Send Balance
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!---->
+                    </div>
+                    <div role="tabpanel" id="history" class="tab-pane fade">
+                        <div role="tabpanel" id="history" class="tab-pane fade active show">
+                            <div class="table-responsive">
+                                <table class="table ui_jk">
+                                    <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Username</th>
                                         <th>Amount</th>
                                         <th>Date</th>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>356285</td>
-                                        <td>ayesha0000</td>
-                                        <td>$5</td>
-                                        <td>2019-11-21 16:14:33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1021145</td>
-                                        <td>Abid786</td>
-                                        <td>$122</td>
-                                        <td>2020-05-15 12:14:56</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1046209</td>
-                                        <td>Ashfaqahmad</td>
-                                        <td>$98</td>
-                                        <td>2020-05-21 09:10:27</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1055297</td>
-                                        <td>Ashfaqahmad</td>
-                                        <td>$23</td>
-                                        <td>2020-05-22 13:16:37</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1108839</td>
-                                        <td>Ashfaqahmad</td>
-                                        <td>$123</td>
-                                        <td>2020-05-29 13:01:18</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($transactions as $transaction)
+                                        <tr>
+                                            <td>{{ $transaction->id }}</td>
+                                            <td>{{ Str::between($transaction->transactions_details, 'to ', 'By ') }}</td>
+                                            <td>{{ '$'.number_format($transaction->transaction_amount, 0, '.', ',') }}</td>
+                                            <td>{{ $transaction->trans_date_time }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 @section ('page-script')
+    <script>
+        $("#share_balance-form").on('keydown', (e) => {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                axios.post('/getShareBalanceFee', {
+                    "amount": $("#amount").val(),
+                    "username": $("#username").val()
+                }).then(function (response) {
+                    Swal.fire({
+                        title: response.data.fullName,
+                        text: 'You are sharing $' + response.data.amount + ' with fee $' + response.data.fee + '!',
+                        position: "top",
+                        showCancelButton: true,
+                        confirmButtonColor: '#218838',
+                        cancelButtonColor: '#c82333',
+                        confirmButtonText: 'Proceed!'
+                    }).then((result) => {
+                        if (result.value) {
+                            $("#share_balance-form").submit()
+                            console.log('submitted')
+                        }
+                    })
+                }).catch((error) => {
+                    const errors = error.response.data.errors
+                    const firstItem = Object.keys(errors)[0];
+                    const firstErrorMessage = errors[firstItem][0]
+                    
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: false,
+                        onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    });
+                    Toast.fire({
+                        icon: 'error',
+                        title: firstErrorMessage
+                    });
+                });
+            }
+        })
+        $("#modal-btn").on('click', function () {
+            axios.post('/getShareBalanceFee', {
+                "amount": $("#amount").val(),
+                "username": $("#username").val()
+            }).then(function (response) {
+                Swal.fire({
+                    title: response.data.fullName,
+                    text: 'You are sharing $' + response.data.amount + ' with fee $' + response.data.fee + '!',
+                    position: "top",
+                    showCancelButton: true,
+                    confirmButtonColor: '#218838',
+                    cancelButtonColor: '#c82333',
+                    confirmButtonText: 'Proceed!'
+                }).then((result) => {
+                    if (result.value) {
+                        $("#share_balance-form").submit()
+                        console.log('submitted')
+                    }
+                })
+            }).catch((error) => {
+                const errors = error.response.data.errors
+                const firstItem = Object.keys(errors)[0];
+                const firstErrorMessage = errors[firstItem][0]
+                
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: false,
+                    onOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                });
+                Toast.fire({
+                    icon: 'error',
+                    title: firstErrorMessage
+                });
+            });
+        })
+    
+    </script>
 @endsection
