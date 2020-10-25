@@ -52,25 +52,25 @@
 		public function update(Request $request, User $user)
 		{
 			if ($request['cnic'] == null && $request['phone'] == null && $request['date_of_birth'] == null && $request['gender'] == null && $request['postalcode'] == null && $request['country'] == null && $request['state'] == null && $request['city'] == null && $request['address'] == null) {
-				return back()->withErrors('Cannot Update CNIC');
+				return back()->with('toast_error', 'Cannot Update CNIC');
 			}
 
 			if ($request['phone'] == $user['phone'] && $request['gender'] == $user['gender'] && $request['postalcode'] == $user['postalcode'] && $request['country'] == $user['country'] && $request['state'] == $user['state'] && $request['city'] == $user['city'] && $request['address'] == $user['address']) {
-				return back()->withErrors('Nothing to update');
+				return back()->with('toast_error', 'Nothing to update');
 
 			}
 
 			$data = $this->validator($request->all())->validate();
 
 			if ($request['cnic'] && current_user()->cnic !== null) {
-				return back()->withErrors('Cannot Update CNIC');
+				return back()->with('toast_error', 'Cannot Update CNIC');
 			} elseif ($request['cnic'] && current_user()->cnic === null) {
 				$data['cnic'];
 			}
 
 
 			if ($request['date_of_birth'] && current_user()->date_of_birth !== null) {
-				return back()->withErrors('Cannot Update Birth Date');
+				return back()->with('toast_error', 'Cannot Update Birth Date');
 			} elseif ($request['date_of_birth']) {
 				$data['date_of_birth'];
 			}
@@ -89,7 +89,7 @@
 				'bank_file' => ['file', 'image'],
 			]);
 			if ($request['cnic_file'] === null && $request['user_file'] === null && $request['bank_file'] === null) {
-				return back()->withErrors('Nothing To Update');
+				return back()->with('toast_error', 'Nothing To Update');
 			}
 			if ($request->has('user_file')) {
 				$data['user_file'] = $request['user_file']->store('profile');
@@ -97,16 +97,16 @@
 			if ($request->has('cnic_file') && current_user()->cnic_file_status === null || $request->has('cnic_file') && current_user()->cnic_file_status === 'rejected') {
 				$data['cnic_file'] = $request['cnic_file']->store('cnic');
 			} elseif ($request->has('cnic_file') && current_user()->cnic_file_status === 'pending') {
-				return back()->withErrors('CNIC file is already in pending');
+				return back()->with('toast_error', 'CNIC file is already in pending');
 			} elseif ($request->has('cnic_file') && current_user()->cnic_file_status === 'approved') {
-				return back()->withErrors('CNIC file is already is approved');
+				return back()->with('toast_error', 'CNIC file is already is approved');
 			}
 			if ($request->has('bank_file') && current_user()->bank_file_status === null || $request->has('bank_file') && current_user()->bank_file_status === 'rejected') {
 				$data['bank_file'] = $request['bank_file']->store('bank');
 			} elseif ($request->has('bank_file') && current_user()->bank_file_status === 'pending') {
-				return back()->withErrors('Bank statement file is already in pending');
+				return back()->with('toast_error', 'Bank statement file is already in pending');
 			} elseif ($request->has('bank_file') && current_user()->bank_file_status === 'approved') {
-				return back()->withErrors('Bank statement file is already is approved');
+				return back()->with('toast_error', 'Bank statement file is already is approved');
 			}
 			$user->update($data);
 			$user->update([
