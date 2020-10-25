@@ -3,34 +3,26 @@
 	namespace App\Http\Controllers;
 
 	use Illuminate\Http\Request;
+	use Illuminate\Support\Facades\Validator;
 
-	class PurchaseController extends Controller
+	class AdPowerPurchaseController extends Controller
 	{
-		/**
-		 * Display a listing of the resource.
-		 *
-		 * @return \Illuminate\Http\Response
-		 */
-		public function index()
-		{
-			//
-		}
 
-		public function ad_create()
+
+		public function create()
 		{
 			return view('purchase.ad-pack');
 		}
 
-		public function membership_create()
-		{
-			return view('purchase.membership');
+		protected function validator(array $data){
+			$message = [
+				'username.regex' => 'Username should only contain alphabets,numbers and underscores',
+			];
+			return Validator::make($data, [
+				'username' => ['required', 'string', 'max:255', 'unique:users','regex:/^([A-Za-z0-9\_]+)$/'],
+				'name' => ['required', 'string', 'max:255' ,'regex:/^[a-zA-Z0-9 ]*$/'],
+			], $message);
 		}
-		/**
-		 * Store a newly created resource in storage.
-		 *
-		 * @param  \Illuminate\Http\Request  $request
-		 * @return \Illuminate\Http\Response
-		 */
 		public function store(Request $request)
 		{
 			//

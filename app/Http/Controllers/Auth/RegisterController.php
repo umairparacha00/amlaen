@@ -51,13 +51,16 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+    	$message = [
+			'username.regex' => 'Username should only contain alphabets,numbers and underscores',
+		];
 		return Validator::make($data, [
-			'username' => ['required', 'string', 'max:255', 'unique:users', 'alpha_dash'],
-			'name' => ['required', 'string', 'max:255'],
+			'username' => ['required', 'string', 'max:255', 'unique:users','regex:/^([A-Za-z0-9\_]+)$/'],
+			'name' => ['required', 'string', 'max:255' ,'regex:/^[a-zA-Z0-9 ]*$/'],
 			'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
 			'sponsor' => ['required','numeric'],
 			'password' => ['required', 'string', 'min:8', 'confirmed'],
-		]);
+		], $message);
     }
 
     /**

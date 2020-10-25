@@ -7,9 +7,10 @@
 
 	class NetworkController extends Controller
 	{
-		public function directReferralsIndex(User $user)
+		public function directReferralsIndex()
 		{
-			return view('network.direct-referrals', compact('user'));
+			$directReferrals = User::where('sponsor', current_user()->account_id)->get();
+			return view('network.direct-referrals', compact('directReferrals'));
 		}
 		public function referralLinkShow(User $user)
 		{

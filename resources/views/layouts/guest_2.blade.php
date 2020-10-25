@@ -151,17 +151,20 @@
                     </div>
                     @yield('form')
                     <div class="loader-wrapper">
-                        <div id="loader" class="loader"><img src="{{ asset('assets/images/svg/loader.svg') }}"
-                                                             width="75" alt="" class="loading-image"
-                                                             style="opacity: 1;"></div>
+                        <div id="loader" class="loader">
+                            <img src="{{ asset('assets/images/svg/loader.svg') }}"
+                                 width="75" alt="" class="loading-image"
+                                 style="opacity: 1;"
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="{{ asset('assets/js/jquery.js') }}"></script>
+<script src="{{ asset('js/app.js') }}" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
 <script>
     $(window).on("load", function () {
         $(".loader-wrapper").fadeOut(200, function () {

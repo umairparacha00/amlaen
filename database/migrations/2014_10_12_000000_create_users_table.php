@@ -13,11 +13,6 @@
 		 */
 		public function up()
 		{
-			Schema::create('memberships', function (Blueprint $table) {
-				$table->id();
-				$table->string('name');
-				$table->timestamps();
-			});
 			Schema::create('users', function (Blueprint $table) {
 				$table->id();
 				$table->unsignedBigInteger('account_id')->unique();

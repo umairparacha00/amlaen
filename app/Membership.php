@@ -10,4 +10,7 @@
 		{
 			return $this->belongsTo(User::class);
 		}
+
+
 	}
+

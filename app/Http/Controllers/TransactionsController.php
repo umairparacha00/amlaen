@@ -2,15 +2,18 @@
 
 	namespace App\Http\Controllers;
 
-	use App\User;
+	use App\Transaction;
 	use Illuminate\Http\Request;
 
 	class TransactionsController extends Controller
 	{
 
-		public function index(User $user)
+		public function index()
 		{
-			return view('transactions.transactions', compact('user'));
+			$transactions = Transaction::where('user_id' , current_user()->id)
+				->orderBy('id', 'desc')
+				->paginate(8);
+			return view('transactions.transactions', compact('transactions'));
 		}
 
 		public function withdrawBalanceShow()

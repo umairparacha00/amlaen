@@ -42,4 +42,16 @@ class Pin extends Model
 	{
 		return $this->belongsTo(User::class);
 	}
+
+	public function checkPin($pinString)
+	{
+		return Pin::where(['pin' => $pinString])->firstOrFail();
+	}
+
+	public function updatePinRemainingValue($id, $pinRemainingValue)
+	{
+		Pin::where('id', $id)->update([
+			'pin_remaining_value' => $pinRemainingValue
+		]);
+	}
 }

@@ -37,4 +37,18 @@
 		{
 			return $this->belongsTo(User::class);
 		}
+
+		public function createTransaction($actionedBy, $creditOrDebit, $amount, $newBalance, $oldBalance, $transactionsDetails, $balanceField )
+		{
+			Transaction::create([
+				'user_id' => $actionedBy,
+				'balance_field' => $balanceField,
+				'credit_debit' => $creditOrDebit,
+				'transaction_amount' => $amount,
+				'old_balance' => $oldBalance,
+				'new_balance' => $newBalance,
+				'transactions_details' => $transactionsDetails,
+				'trans_date_time' => now(),
+			]);
+		}
 	}

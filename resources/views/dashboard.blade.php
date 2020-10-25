@@ -240,7 +240,7 @@
                     <div class="user-inner">
                         <div class="row-cols-3 pt-4 pb-4">
                             <div class="col-12">
-                                <a href="{{ route('profile') }}" class="btn btn-success btn-block mb-3">
+                                <a href="{{ route('profile.edit') }}" class="btn btn-success btn-block mb-3">
                                     Edit Profile
                                 </a>
                             </div>
@@ -250,7 +250,7 @@
                                 </a>
                             </div>
                             <div class="col-12">
-                                <a href="{{ url('/referral-link') }}" class="btn btn-primary btn-block">
+                                <a href="{{ url('/network/referral-link') }}" class="btn btn-primary btn-block">
                                     RefBanner
                                 </a> <br class="db-sm-none">
                             </div>

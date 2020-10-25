@@ -76,8 +76,8 @@
                         <li class="d-inline-block mr-2">
                             <fieldset>
                                 <div class="vs-radio-con">
-                                    <input class="custom-checkbox" type="radio" name="vueradio" checked="" value="false">
-                                    None
+                                    <input type="radio" name="vueradio" value="false">
+                                    Send Email
                                 </div>
                             </fieldset>
                         </li>
@@ -89,15 +89,6 @@
                                 </div>
                             </fieldset>
                         </li>
-                        <li class="d-inline-block mr-2">
-                            <fieldset>
-                                <div class="vs-radio-con">
-                                    <input type="radio" name="vueradio" value="false">
-                                    Send Email
-                                </div>
-                            </fieldset>
-                        </li>
-
                     </ul>
                 </div>
                 <div class="form-group">
@@ -106,8 +97,8 @@
                         <li class="d-inline-block mr-2">
                             <fieldset>
                                 <div class="vs-radio-con">
-                                    <input class="custom-checkbox" type="radio" name="vueradio" checked="" value="false">
-                                    None
+                                    <input type="radio" name="vueradio" value="false">
+                                    Send Email
                                 </div>
                             </fieldset>
                         </li>
@@ -116,14 +107,6 @@
                                 <div class="vs-radio-con">
                                     <input type="radio" name="vueradio" value="false">
                                     Personal Pin
-                                </div>
-                            </fieldset>
-                        </li>
-                        <li class="d-inline-block mr-2">
-                            <fieldset>
-                                <div class="vs-radio-con">
-                                    <input type="radio" name="vueradio" value="false">
-                                    Send Email
                                 </div>
                             </fieldset>
                         </li>

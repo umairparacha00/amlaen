@@ -31,11 +31,40 @@
 
 		public function currentMainBalance()
 		{
-			return current_user()->balance->main_balance;
+			$freshBalance = current_user()->balance->fresh();
+			return $freshBalance->main_balance;
+		}
+
+		public function currentGroupBalance()
+		{
+			$freshBalance = current_user()->balance->fresh();
+			return $freshBalance->group_balance;
+		}
+
+		public function currentMallBalance()
+		{
+			$freshBalance = current_user()->balance->fresh();
+			return $freshBalance->mall_balance;
+		}
+
+		public function updateGroupBalance($id, $amount)
+		{
+			Balance::where('user_id', $id)->update([
+				'balance_balance' => $amount
+			]);
+		}
+
+		public function updateMainBalance($id, $amount)
+		{
+			Balance::where('user_id', $id)->update([
+				'main_balance' => $amount
+			]);
 		}
 
 		public function user()
 		{
 			$this->belongsTo(User::class);
 		}
+
+
 	}

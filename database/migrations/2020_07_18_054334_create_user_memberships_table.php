@@ -13,6 +13,12 @@
 		 */
 		public function up()
 		{
+			Schema::create('memberships', function (Blueprint $table) {
+				$table->id();
+				$table->string('name');
+				$table->bigInteger('price');
+				$table->timestamps();
+			});
 			Schema::create('user_memberships', function (Blueprint $table) {
 				$table->id();
 				$table->foreignId('user_id');

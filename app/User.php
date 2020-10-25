@@ -2,13 +2,14 @@
 
 	namespace App;
 
+	use Spatie\Permission\Traits\HasRoles;
+	use Illuminate\Notifications\Notifiable;
 	use Illuminate\Contracts\Auth\MustVerifyEmail;
 	use Illuminate\Foundation\Auth\User as Authenticatable;
-	use Illuminate\Notifications\Notifiable;
 
 	class User extends Authenticatable
 	{
-		use Notifiable;
+		use Notifiable, HasRoles;
 
 		/**
 		 * The attributes that are mass assignable.
@@ -39,19 +40,17 @@
 		protected $casts = [
 			'email_verified_at' => 'datetime',
 		];
-		/**
-		 * @var mixed
-		 */
+
+
 		public function balance()
 		{
 			return $this->hasOne(Balance::class);
 		}
 
-		public function updateMainBalance($user = null, $balance)
+		public function updateMainBalance($user, $balance)
 		{
-			$this->balance()->update([
-				'user_id' => $user ?? current_user()->id,
-				'main_balance' => $balance,
+			$this->balance()->where('user_id', $user)->update([
+				'main_balance' => $balance
 			]);
 		}
 
@@ -76,10 +75,10 @@
 			return $this->hasMany(Transaction::class);
 		}
 
-		public function addTransaction($balanceField, $creditOrDebit, $amount, $oldBalance, $newBalance, $transactionsDetails, $actionedBy = null)
+		public function addTransaction($balanceField, $creditOrDebit, $amount, $oldBalance, $newBalance, $transactionsDetails, $actionedBy)
 		{
 			$this->transactions()->create([
-				'user_id' => $actionedBy ?? current_user()->id,
+				'user_id' => $actionedBy,
 				'balance_field' => $balanceField,
 				'credit_debit' => $creditOrDebit,
 				'transaction_amount' => $amount,
@@ -87,6 +86,20 @@
 				'new_balance' => $newBalance,
 				'transactions_details' => $transactionsDetails,
 				'trans_date_time' => now(),
+			]);
+		}
+
+		public function updateGroupBalance($id, $balance)
+		{
+			$this->balance()->where('user_id', $id)->update([
+				'group_balance' => $balance
+			]);
+		}
+
+		public function updateMallBalance($id, $balance)
+		{
+			$this->balance()->where('user_id', $id)->update([
+				'mall_balance' => $balance
 			]);
 		}
 
