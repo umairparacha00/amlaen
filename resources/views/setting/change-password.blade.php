@@ -76,18 +76,35 @@
         <div class="new-form-container">
             <h1>Change Password </h1>
             <div class="tab-content">
-                <div role="tabpanel" id="changepassword" class="tab-pane fade in active show">
-                    <form autocomplete="off" method="post">
+                <div>
+                    @if($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger w-100" role="alert">
+                                {{ $error }}
+                            </div>
+                        @endforeach
+                    @endif
+                    <form autocomplete="off" method="post" action="{{ '/settings/change-password' }}">
+                        @csrf
                         <div class="col">
                             <div class="row">
-                                <div class="form-group col-xl-6 col-sm-6"><label for="password">New Password</label>
-                                    <input id="password" placeholder="New Password" type="password" class="form-control">
+                                <div class="form-group col-sm-4 col-lg-4 col-xl-4">
+                                    <label for="personal_pin">
+                                        Enter Personal Pin
+                                    </label>
+                                    <input id="personal_pin" name="personal_pin" placeholder="Enter Personal Pin" type="password" class="form-control">
                                 </div>
-                                <div class="form-group col-xl-6 col-sm-6">
+                                <div class="form-group col-sm-4 col-lg-4 col-xl-4">
+                                    <label for="password">
+                                        New Password
+                                    </label>
+                                    <input id="password" name="password" placeholder="New Password" type="password" class="form-control">
+                                </div>
+                                <div class="form-group col-sm-4 col-lg-4 col-xl-4">
                                     <label for="password_confirmation">
                                         Confirm Password
                                     </label>
-                                    <input id="password_confirmation" placeholder="Confirm new password" type="password" class="form-control">
+                                    <input id="password_confirmation" name="password_confirmation" placeholder="Confirm new password" type="password" class="form-control">
                                 </div>
                             </div>
                         </div>

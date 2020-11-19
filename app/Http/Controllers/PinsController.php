@@ -3,6 +3,7 @@
 	namespace App\Http\Controllers;
 
 	use App\Balance;
+	use App\Fee;
 	use App\Mail\PinCreated;
 	use App\Pin;
 	use App\User;
@@ -23,8 +24,12 @@
 			// Pin input Validations
 			$data = $request->validate([
 				'amount' => ['required', 'numeric'],
+				'pl_pin' => ['required', 'numeric']
 			]);
 
+			if ($data['pl_pin'] !== $user['pl_pin']){
+				return back()->with('toast_error', 'Personal pin does not match');
+			}
 			//Pin Errors
 			$pinFee = $data['amount'] * $pinFeePercentage / 100;
 			if ($data['amount'] < 5) {
@@ -76,7 +81,7 @@
 		protected function createPinString()
 		{
 			$startingString = 'AML';
-			$randomNumber = rand(10000000000, 9999999999999);
+			$randomNumber = rand(100000000000, 9999999999999);
 			return $actualPin = $startingString . $randomNumber;
 		}
 
@@ -95,16 +100,16 @@
 
 		/**
 		 * @param Request $request
-		 * @param float $feePercentage
+		 * @param Fee $fee
 		 * @return \Illuminate\Http\JsonResponse
 		 */
-		public function getpinfee(Request $request, $feePercentage = 0.25)
+		public function getpinfee(Request $request, Fee $fee)
 		{
 			$value = $this->validator($request->all())->validate();
-
+			$pinFeePrice = $fee->where('fee_name', 'pin_creation')->first();
 			$amount = $value['amount'];
-			$fee = $amount * $feePercentage / 100;
-			$array = ['amount' => $amount, 'fee' => $fee];
+			$pinfee = $amount * $pinFeePrice['fee'] / 100;
+			$array = ['amount' => $amount, 'fee' => $pinfee];
 			return response()->json($array);
 		}
 
@@ -113,7 +118,8 @@
 		protected function validator(array $data)
 		{
 			return Validator::make($data, [
-				'amount' => [ 'numeric', 'required']
+				'amount' => ['required', 'numeric'],
+				'pl_pin' => ['required', 'numeric']
 			]);
 		}
 	}

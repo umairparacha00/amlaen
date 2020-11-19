@@ -84,30 +84,40 @@
     <form autocomplete="off" method="POST" class="login-form" action="{{ route('login') }}">
         @csrf
         <h1 class="h3 text-uppercase">Login to Your Account</h1>
-        @error('password')
-        <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">
-            {{ $message }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        @enderror
-        @error('username')
-        <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">
-            {{ $message }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        @enderror
-        @error('email')
-        <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">
-            {{ $message }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        @enderror
+        @if($errors->any())
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">
+                    {{ $error }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endforeach
+        @endif
+{{--        @error('password')--}}
+{{--        <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">--}}
+{{--            {{ $message }}--}}
+{{--            <button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
+{{--                <span aria-hidden="true">&times;</span>--}}
+{{--            </button>--}}
+{{--        </div>--}}
+{{--        @enderror--}}
+{{--        @error('username')--}}
+{{--        <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">--}}
+{{--            {{ $message }}--}}
+{{--            <button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
+{{--                <span aria-hidden="true">&times;</span>--}}
+{{--            </button>--}}
+{{--        </div>--}}
+{{--        @enderror--}}
+{{--        @error('email')--}}
+{{--        <div class="alert alert-danger w-100 alert-dismissible fade show" role="alert">--}}
+{{--            {{ $message }}--}}
+{{--            <button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
+{{--                <span aria-hidden="true">&times;</span>--}}
+{{--            </button>--}}
+{{--        </div>--}}
+{{--        @enderror--}}
         <div class="form-group emi_j4gk">
             <input
                     type="text"

@@ -14,4 +14,9 @@ class UserMembership extends Model
 			'membership_id' => $membershipId
 		]);
 	}
+
+	public function user()
+	{
+		return $this->belongsTo(User::class);
+	}
 }

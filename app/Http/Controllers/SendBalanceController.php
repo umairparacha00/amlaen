@@ -8,6 +8,7 @@
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Facades\Validator;
 	use Illuminate\Validation\ValidationException;
+	use function GuzzleHttp\Promise\all;
 
 	class SendBalanceController extends Controller
 	{
@@ -24,10 +25,16 @@
 
 		public function store(Request $request, User $user, Balance $balance, Transaction $transactions, $sharingBalanceFeePercentage = 2.6)
 		{
+			$this->validator($request->all())->validate();
+
 			//Sharing Balance Errors
 			$sharingBalanceFee = $request['amount'] * $sharingBalanceFeePercentage / 100;
 			if ($request['amount'] < 5) {
 				return back()->with('toast_error', 'Cannot share balance less then $5');
+			}
+
+			if ($request['amount'] > current_user()->balance->main_balance) {
+				return back()->with('toast_error', 'Your entered amount exceeded then your balance!');
 			}
 
 			if ($request['amount'] > current_user()->balance->main_balance) {
@@ -118,11 +125,18 @@
 				throw ValidationException::withMessages([
 					'username' => 'Username dose not exists'
 				]);
-			} else {
+			}
+			if ($value['pl_pin'] !== current_user()->pl_pin){
+				throw ValidationException::withMessages([
+					'pl_pin' => 'Personal pin does not match.'
+				]);
+			}
+			else {
 				$name = $userInfo->name;
+				$ReceiverUsername = $userInfo->username;
 				$amount = $value['amount'];
 				$fee = $amount * $feePercentage / 100;
-				$array = ['fullName' => $name, 'amount' => $amount, 'fee' => $fee];
+				$array = ['fullName' => $name, 'amount' => $amount, 'fee' => $fee, 'ReceiverUsername' => $ReceiverUsername];
 				return response()->json($array);
 			}
 		}
@@ -133,10 +147,13 @@
 		{
 			$message = [
 				'username.regex' => 'Username should only contain alphabets,numbers and underscores',
+				'pl_pin.required' => 'Personal pin field is required.',
+				'pl_pin.numeric' => 'Personal pin should be number.'
 			];
 			return Validator::make($data, [
 				'amount' => ['required', 'numeric', 'max:1000'],
-				'username' => ['required', 'regex:/^([A-Za-z0-9\_]+)$/']
+				'username' => ['required', 'regex:/^([A-Za-z0-9\_]+)$/'],
+				'pl_pin' => ['required', 'numeric', 'min:6'],
 			], $message);
 		}
 	}

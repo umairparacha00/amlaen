@@ -62,7 +62,7 @@
 						<div class="widget-content-wrapper">
 							<div class="widget-content-left header-user-info">
 								<div class="widget-heading">
-									{{ auth()->user()->name }}
+									{{ current_user()->name }}
 								</div>
 								<div class="widget-subheading">
 									Struggling
@@ -73,7 +73,7 @@
 									<a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
 									   class="p-0 btn d-flex align-items-center">
 										<img width="42" height="42" class="rounded-circle"
-											 src="@if(current_user()->user_file){{ asset('storage/'.current_user()->user_file) }}@else{{ 'https://ui-avatars.com/api/?background=645bd3&color=fff&name=' . current_user()->name }} @endif"
+											 src="@if(current_user()->user_file){{ asset('storage/'. current_user()->user_file) }}@else{{ 'https://ui-avatars.com/api/?background=645bd3&color=fff&name=' . current_user()->name }} @endif"
 											 alt="">
 										<i class="fal fa-angle-down ml-2 fa-2x"></i>
 									</a>
@@ -233,26 +233,7 @@
 										<i class="fal fa-circle mr-3 fx-6"></i>Transfer Balance
 									</a>
 								</li>
-								{{--                                <li>--}}
-								{{--                                    <a href="{{url('/withdraw-balance')}}"--}}
-								{{--                                       class="{{ Request::path() === 'withdraw-balance' ? 'mm-active' : '' }}">--}}
-								{{--                                        <i class="fal fa-circle mr-3 fx-6"></i>Withdraw Balance--}}
-								{{--                                    </a>--}}
-								{{--                                </li>--}}
-								{{--                                <li>--}}
-								{{--                                    <a href="{{url('/payment-gateways')}}"--}}
-								{{--                                       class="mb-0 {{ Request::path() === 'payment-gateways' ? 'mm-active' : '' }}">--}}
-								{{--                                        <i class="fal fa-circle mr-3 fx-6"></i>Payment Gateway--}}
-								{{--                                    </a>--}}
-								{{--                                </li>--}}
 							</ul>
-						</li>
-						<li>
-							<a href="{{url('/summary')}}"
-							   class="{{ Request::path() === 'summary' ? 'mm-active' : '' }}">
-								<i class="metismenu-icon fal fa-clipboard-list"></i>
-								Summary
-							</a>
 						</li>
 						<li>
 							<a href="{{url('/achievements')}}"
@@ -275,8 +256,8 @@
 									</a>
 								</li>
 								<li>
-									<a href="{{url('/network/network-tree')}}"
-									   class="{{ Request::path() === 'network/network-tree' ? 'mm-active' : '' }}">
+									<a href="{{url('/network/tree')}}"
+									   class="{{ Request::path() === 'network/tree' ? 'mm-active' : '' }}">
 										<i class="fal fa-circle mr-3 fx-6"></i>Network Tree
 									</a>
 								</li>
@@ -288,26 +269,21 @@
 								</li>
 							</ul>
 						</li>
-						<li class="{{ Route::currentRouteNamed( 'user-setting' ) ?  'mm-active' : '' }}">
+						<li class="{{ Request::is('settings*') ?  'mm-active' : '' }}">
 							<a href="#">
 								<i class="metismenu-icon fal fa-cog"></i>Settings
 								<i class="metismenu-state-icon fal fa-angle-right"></i>
 							</a>
 							<ul>
 								<li>
-									<a href="/settings" class="{{ Request::path() === 'settings' ? 'mm-active' : '' }}">
-										<i class="fal fa-circle mr-3 fx-6"></i>Security
-									</a>
-								</li>
-								<li>
-									<a href="/change-password"
-									   class="{{ Request::path() === 'change-password' ? 'mm-active' : '' }}">
+									<a href="/settings/change-password"
+									   class="{{ Request::path() === 'settings/change-password' ? 'mm-active' : '' }}">
 										<i class="fal fa-circle mr-3 fx-6"></i>Change Password
 									</a>
 								</li>
 								<li>
-									<a href="/change-pin"
-									   class="{{ Request::path() === 'change-pin' ? 'mm-active' : '' }}">
+									<a href="/settings/change-pin"
+									   class="{{ Request::path() === 'settings/change-pin' ? 'mm-active' : '' }}">
 										<i class="fal fa-circle mr-3 fx-6"></i>Change Pin
 									</a>
 								</li>

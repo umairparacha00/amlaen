@@ -16,10 +16,10 @@
 			Schema::create('balances', function (Blueprint $table) {
 				$table->id();
 				$table->foreignId('user_id');
-				$table->decimal('main_balance',20, 10)->default(0);
-				$table->decimal('group_balance',20, 10)->default(0);
-				$table->decimal('mall_balance',20, 10)->default(0);
-				$table->decimal('ad_power_balance',20, 10)->default(0);
+				$table->decimal('main_balance',25, 10)->default(0);
+				$table->decimal('group_balance',25, 10)->default(0);
+				$table->decimal('mall_balance',25, 10)->default(0);
+				$table->decimal('ad_power_balance',25, 10)->default(0);
 				$table->timestamps();
 
 				$table->foreign('user_id')

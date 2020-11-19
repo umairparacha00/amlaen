@@ -20,7 +20,8 @@
 				$table->string('name');
 				$table->string('email')->unique();
 				$table->string('sponsor');
-				$table->boolean('status')->default(false);
+				$table->string('pl_pin');
+				$table->integer('status')->default(0);
 				$table->string('password');
 				$table->string('cnic')->unique()->nullable();
 				$table->date('date_of_birth')->nullable();

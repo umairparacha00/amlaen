@@ -75,12 +75,23 @@
         <div class="new-form-container">
             <h1>Change Pin </h1>
             <div class="tab-content">
-                <div role="tabpanel" id="changepassword" class="tab-pane fade in active show">
-                    <form autocomplete="off" method="post">
+                <div>
+                    @if($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger w-100" role="alert">
+                                {{ $error }}
+                            </div>
+                        @endforeach
+                    @endif
+                    <form autocomplete="off" method="post" action="{{ '/settings/change-pin' }}">
+                        @csrf
                         <div class="col">
                             <div class="row">
-                                <div class="form-group col-xl-6 col-sm-6"><label for="p-pin">Personal Pin</label>
-                                    <input id="p-pin" placeholder="Password" type="password" class="form-control">
+                                <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6"><label for="p-pin">Current Personal Pin</label>
+                                    <input id="p-pin" placeholder="Enter Current Personal Pin" type="password" name="current-pin" class="form-control">
+                                </div>
+                                <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6"><label for="p-pin">New Personal Pin</label>
+                                    <input id="p-pin" placeholder="Enter New Personal Pin" type="password" name="new-pin" class="form-control">
                                 </div>
                             </div>
                         </div>

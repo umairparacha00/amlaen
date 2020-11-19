@@ -59,6 +59,7 @@ class RegisterController extends Controller
 			'name' => ['required', 'string', 'max:255' ,'regex:/^[a-zA-Z0-9 ]*$/'],
 			'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
 			'sponsor' => ['required','numeric'],
+			'pl_pin' => ['required', 'min:6', 'numeric'],
 			'password' => ['required', 'string', 'min:8', 'confirmed'],
 		], $message);
     }
@@ -77,6 +78,7 @@ class RegisterController extends Controller
 			'name' => $data['name'],
 			'email' => $data['email'],
 			'sponsor' => $data['sponsor'],
+			'pl_pin' => $data['pl_pin'],
 			'password' => Hash::make($data['password']),
 		]);
 		Balance::create([

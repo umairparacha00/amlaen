@@ -163,11 +163,11 @@
                                     </div>
                                     <div class="referrals-box-user-detail">
                                         <div class="referrals-user-label">User Name:</div>
-                                        <div class="referrals-user-info">{{ $directReferral->name }}</div>
+                                        <div class="referrals-user-info">{{ $directReferral->username }}</div>
                                     </div>
                                     <div class="referrals-box-user-detail">
                                         <div class="referrals-user-label">Membership:</div>
-                                        <div class="referrals-user-info">{{ $directReferral->name }}</div>
+                                        <div class="referrals-user-info">{{ current_user_membership($directReferral->id) }}</div>
                                     </div>
                                     <div class="referrals-box-user-detail">
                                         <div class="referrals-user-label"> Registered On:</div>

@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+		'admin' => [
+			'driver' => 'session',
+			'provider' => 'admins',
+		],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -70,6 +75,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+		'admins' => [
+			'driver' => 'eloquent',
+			'model' => App\Admin::class,
+		],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -112,6 +121,6 @@ return [
     |
     */
 
-    'password_timeout' => 10800,
+    'password_timeout' => 1,
 
 ];

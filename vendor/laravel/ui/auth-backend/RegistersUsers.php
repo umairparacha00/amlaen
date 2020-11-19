@@ -18,7 +18,7 @@ trait RegistersUsers
      */
     public function showRegistrationForm()
     {
-    	$sponsor = request('referral');
+    	$sponsor = request()->referral;
         return view('auth.register', compact('sponsor'));
     }
 
@@ -40,9 +40,7 @@ trait RegistersUsers
             return $response;
         }
 
-        return $request->wantsJson()
-                    ? new Response('', 201)
-                    : redirect($this->redirectPath());
+        return $request->wantsJson() ? new Response('', 201) : redirect($this->redirectPath());
     }
 
     /**
@@ -64,6 +62,6 @@ trait RegistersUsers
      */
     protected function registered(Request $request, $user)
     {
-        //
+
     }
 }

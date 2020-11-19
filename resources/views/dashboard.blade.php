@@ -229,7 +229,7 @@
                             </div>
                         </div>
                         <div class="user-update">
-                            <a href="purchase-membership.html" class="nav-link">Upgrade
+                            <a href="/purchase/membership" class="nav-link">Upgrade
                             </a>
                         </div>
                     </div>

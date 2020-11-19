@@ -16,4 +16,9 @@
 		{
 			return view('network.referral-link', compact('user'));
 		}
+
+		public function treeShow(User $user)
+		{
+			return view('network.tree', compact('user'));
+		}
 	}

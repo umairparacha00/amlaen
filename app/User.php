@@ -7,7 +7,7 @@
 	use Illuminate\Contracts\Auth\MustVerifyEmail;
 	use Illuminate\Foundation\Auth\User as Authenticatable;
 
-	class User extends Authenticatable
+	class User extends Authenticatable implements MustVerifyEmail
 	{
 		use Notifiable, HasRoles;
 
@@ -18,7 +18,7 @@
 		 */
 		protected $fillable = [
 			'account_id', 'username', 'name', 'email', 'sponsor', 'password',
-			'cnic', 'phone', 'date_of_birth', 'gender', 'address',
+			'cnic', 'pl_pin', 'phone', 'date_of_birth', 'gender', 'address',
 			'postalcode', 'country', 'state', 'city', 'user_file',
 			'cnic_file', 'bank_file', 'cnic_file_status', 'bank_file_status',
 		];
@@ -40,7 +40,6 @@
 		protected $casts = [
 			'email_verified_at' => 'datetime',
 		];
-
 
 		public function balance()
 		{

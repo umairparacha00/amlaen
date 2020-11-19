@@ -1,5 +1,6 @@
 <?php
 
+	use Illuminate\Support\Facades\Auth;
 	use Illuminate\Support\Facades\Route;
 
 	/*
@@ -13,34 +14,57 @@
 	|
 	*/
 
-	Auth::routes();
-	Route::middleware('guest')->group(function (){
+	Route::middleware('guest')->group(function () {
 		Route::get('/', 'IndexController@index');
 		Route::get('/about', 'IndexController@about_us');
 		Route::get('/contact', 'IndexController@contact_us');
 		Route::get('/terms_and_conditions', 'IndexController@terms_and_conditions');
+		Route::prefix('admin')->group(function () {
+			Route::get('/login', 'Admin\AdminController@showLoginForm');
+		});
 	});
-	Route::middleware(['auth', 'verified'])->group(function (){
-		Route::get('/dashboard', 'HomeController@index')->name('home');
+	Route::prefix('admin')->namespace('Admin')->group(function () {
+		Route::post('/login', 'AdminController@login');
+		Route::middleware('admin')->group(function () {
+			Route::get('/dashboard', function () {
+				return view('Admin.dashboard');
+			});
+			Route::get('/logout', 'AdminController@logout');
+			Route::any('{query}', function () {
+					return redirect('/admin/dashboard');
+			})->where('query', '.*');
+		});
+	});
+	Auth::routes(['verify' => true]);
+	Route::middleware(['auth', 'verified'])->group(function () {
 		Route::get('/profile', 'ProfileController@show')->name('profile');
 		Route::get('/profile/edit', 'ProfileController@create')->name('profile.edit');
 		Route::get('/profile/documents', 'ProfileController@DocumentsShow')->name('profile.documents');
 		Route::get('/pin/create', 'PinsController@show')->name('pin.create');
-		Route::get('/transactions', 'TransactionsController@index')->name('transactions');
 		Route::get('/share-balance', 'SendBalanceController@create')->name('transactions');
 		Route::get('/transfer-balance', 'TransferGroupBalanceController@create')->name('transactions');
+		Route::get('/dashboard', 'HomeController@index')->name('home');
+		Route::get('/transactions', 'TransactionsController@index')->name('transactions');
 		Route::get('/withdraw-balance', 'TransactionsController@withdrawBalanceShow')->name('transactions');
 		Route::get('/payment-gateways', 'TransactionsController@paymentGatewaysShow')->name('transactions');
 		Route::get('/purchase/ad-pack', 'AdPowerPurchaseController@create');
 		Route::get('/purchase/membership', 'MembershipPurchaseController@create');
-		Route::get('/network/direct-referrals', 'NetworkController@directReferralsIndex');
-		Route::get('/network/referral-link', 'NetworkController@referralLinkShow');
-		Route::get('summary', function () {
-			return view('summary');
+		Route::prefix('/network')->group(function () {
+			Route::get('/direct-referrals', 'NetworkController@directReferralsIndex');
+			Route::get('/referral-link', 'NetworkController@referralLinkShow');
+			Route::get('/tree', 'NetworkController@treeShow');
 		});
-		Route::get('/settings', 'SettingsController@create');
+		Route::prefix('/settings')->group(function () {
+			Route::get('/', 'SettingsController@create');
+			Route::get('/change-password', 'SettingsController@showChangePassword');
+			Route::get('/change-pin', 'SettingsController@showChangePin');
+			Route::post('/change-pin', 'SettingsController@changePin');
+			Route::post('/change-password', 'SettingsController@changePassword');
+		});
+//		Route::get('/settings/change-password', 'changePinAndPasswordController@password_create');
+//		Route::get('/settings/change-pin', 'changePinAndPasswordController@pin_create');
 		Route::post('/purchase/membership', 'MembershipPurchaseController@store');
-		Route::post('/getMembershipPrice','MembershipPurchaseController@getMembershipPrice');
+		Route::post('/getMembershipPrice', 'MembershipPurchaseController@getMembershipPrice');
 		Route::post('/getpinfee', 'PinsController@getpinfee');
 		Route::post('/create-pin/{user}', 'PinsController@store');
 		Route::post('/getShareBalanceFee', 'SendBalanceController@getShareBalanceFee');
