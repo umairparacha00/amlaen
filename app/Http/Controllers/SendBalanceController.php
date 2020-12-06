@@ -3,6 +3,7 @@
 	namespace App\Http\Controllers;
 
 	use App\Balance;
+	use App\Rate;
 	use App\Transaction;
 	use App\User;
 	use Illuminate\Http\Request;
@@ -117,10 +118,12 @@
 			return $currentMainBalance + $transaction_amount;
 		}
 
-		public function getShareBalanceFee(Request $request, User $user, $feePercentage = 2.6)
+		public function getShareBalanceFee(Request $request, User $user, Rate $rate)
 		{
 			$value = $this->validator($request->all())->validate();
 			$userInfo = $user->where('username', $value['username'])->first();
+			$ratePercentage = $rate->where('name', 'balance_sharing')->first();
+
 			if ($userInfo === null) {
 				throw ValidationException::withMessages([
 					'username' => 'Username dose not exists'
@@ -135,8 +138,8 @@
 				$name = $userInfo->name;
 				$ReceiverUsername = $userInfo->username;
 				$amount = $value['amount'];
-				$fee = $amount * $feePercentage / 100;
-				$array = ['fullName' => $name, 'amount' => $amount, 'fee' => $fee, 'ReceiverUsername' => $ReceiverUsername];
+				$totalFee = $amount * $ratePercentage->rate / 100;
+				$array = ['fullName' => $name, 'amount' => $amount, 'fee' => $totalFee, 'ReceiverUsername' => $ReceiverUsername];
 				return response()->json($array);
 			}
 		}

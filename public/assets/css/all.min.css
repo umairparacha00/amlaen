@@ -1,4 +1,4 @@
-/*!
+ /*!
  * Font Awesome Pro 5.13.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Commercial License)
  */
@@ -2401,6 +2401,7 @@
 .fa-external-link-square-alt:before {
     content: "\f360";
 }
+
 .fa-eye:before {
     content: "\f06e";
 }

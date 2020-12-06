@@ -1,6 +1,41 @@
-@extends ('layouts.app')
+@extends ('Admin.layouts.app')
 @section('style')
 <style type="text/css">
+    
+    .new-form-container .tab-content {
+        padding: 36px 30px;
+    }
+    
+    .new-form-container {
+        background-color: #ffffff;
+        -webkit-box-shadow: 8px 5px 17px -7px #ccc;
+        box-shadow: 8px 5px 17px -7px #ccc;
+    }
+    
+    .new-form-container h1 {
+        margin-left: 0;
+        margin-bottom: 0;
+        text-align: center;
+        background-color: #7367F0;
+        color: #fff;
+        font-size: 38px;
+        padding: 16px 0 15px;
+        position: relative;
+        font-family: Lato-Bold, sans-serif;
+    }
+    
+    .new-form-container h1:after {
+        display: block;
+        content: "";
+        height: 6px;
+        background-color: #FF9F43;
+        width: inherit;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 0;
+    }
     .nav.nav-tabs {
         border: none;
         margin-bottom: 1rem;
@@ -73,32 +108,7 @@
         -webkit-box-shadow: 8px 5px 17px -7px #ccc;
         box-shadow: 8px 5px 17px -7px #ccc;
     }
-
-    .amount-heading {
-        background-image: url(assets/images/layer.png);
-        background-repeat: repeat-x;
-        background-position: 0 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: baseline;
-    }
-
-    .purchase-pin-title {
-        padding: 1.3em;
-        color: #fff;
-        font-size: 1.5rem;
-        text-align: center;
-    }
-
-    .purchase-pin-ammount {
-        color: #fff;
-        text-align: center;
-        font-size: 2.125rem;
-        float: right;
-        padding: .95em;
-    }
-
+    
     .new-form-container .nav-tabs.nav {
         padding: 1.5em 1.5em 0 1.5em;
     }
@@ -155,15 +165,6 @@
         color: #fff;
     }
 
-    /* @media (max-width: 576px) and (min-width: 320px) {
-            .new-form-container .nav-tabs a.nav-link {
-                width: 90px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-        } */
-
     @media (max-width: 576px) {
         .amount-heading {
             background-image: url(assets/images/layer.png);
@@ -199,16 +200,13 @@
     <div class="row">
         <div class="col-md-12">
             <div class="new-form-container">
-                <div class="amount-heading">
-                    <h2 class="purchase-pin-title">Transferable Balance:</h2>
-                    <h2 class="purchase-pin-ammount"> {{ number_format(current_user()->balance->group_balance, 2, '.', ',') }} </h2>
-                </div>
+                <h1>Create Points</h1>
                 <ul role="tablist" class="nav nav-tabs">
                     <li class="nav-item">
                         <a href="#transfer-balance" role="tab" data-toggle="tab" class="nav-link active"
                            aria-selected="true">
                             <i class="fal fa-share-square mr-2"></i>
-                            Transfer Balance
+                            Create Points
                         </a>
                     </li>
                     <li class="nav-item">
@@ -219,26 +217,19 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" id="transfer-balance" class="tab-pane fade in active show">
-                        <div class="alert alert-info">
-                            <button type="button" data-dismiss="alert" aria-label="Close" class="close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                            <span>Transfer your Group Points to Main Points
-                            and use them for purchases, sharing and withdrawal.</span>
-                        </div>
-                        <form method="POST" action="{{ '/transfer-group-balance/'. current_user()->id }}"
-                              id="transfer-group-balance-form">
+                        <form method="POST" action="{{ '/transfer-group-balance/'}}"
+                              id="create-points-form">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="amount">Amount:</label>
+                                        <label for="amount">Points</label>
                                         <input type="number" id="amount" name="amount" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <button type="button" id="modal-btn" class="btn btn-default">
-                                Transfer Balance
+                                 Create
                             </button>
                         </form>
                     </div>
@@ -253,13 +244,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($transactions as $transaction)
-                                    <tr>
-                                        <td>{{ $transaction->id }}</td>
-                                        <td>{{ $transaction->transaction_amount }}</td>
-                                        <td>{{ $transaction->trans_date_time }}</td>
-                                    </tr>
-                                @endforeach
+{{--                                @foreach ($transactions as $transaction)--}}
+{{--                                    <tr>--}}
+{{--                                        <td>{{ $transaction->id }}</td>--}}
+{{--                                        <td>{{ $transaction->transaction_amount }}</td>--}}
+{{--                                        <td>{{ $transaction->trans_date_time }}</td>--}}
+{{--                                    </tr>--}}
+{{--                                @endforeach--}}
                                 </tbody>
                             </table>
                         </div>

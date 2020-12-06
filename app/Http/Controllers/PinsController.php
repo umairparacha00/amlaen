@@ -3,7 +3,7 @@
 	namespace App\Http\Controllers;
 
 	use App\Balance;
-	use App\Fee;
+	use App\Rate;
 	use App\Mail\PinCreated;
 	use App\Pin;
 	use App\User;
@@ -57,6 +57,9 @@
 				$this->remainingBalanceAfterPin($data['amount']),
 				'Pin Created by (' . current_user()->id . ')',
 				current_user()->id);
+
+			// Update the user Main Balance
+
 			$user->updateMainBalance(current_user()->id, $this->remainingBalanceAfterPin($data['amount']));
 
 			// Transaction for created pin fee
@@ -68,6 +71,7 @@
 				$this->remainingBalanceAfterPinFee($pinFee),
 				'Pin Fee by (' . current_user()->id . ')',
 				current_user()->id);
+
 			$user->updateMainBalance(current_user()->id, $this->remainingBalanceAfterPinFee($pinFee));
 
 			$pin->createPin($data, $actualPin);
@@ -100,15 +104,15 @@
 
 		/**
 		 * @param Request $request
-		 * @param Fee $fee
+		 * @param Rate $rate
 		 * @return \Illuminate\Http\JsonResponse
 		 */
-		public function getpinfee(Request $request, Fee $fee)
+		public function getpinfee(Request $request, Rate $rate)
 		{
 			$value = $this->validator($request->all())->validate();
-			$pinFeePrice = $fee->where('fee_name', 'pin_creation')->first();
+			$pinFeePrice = $rate->where('name', 'pin_creation')->first();
 			$amount = $value['amount'];
-			$pinfee = $amount * $pinFeePrice['fee'] / 100;
+			$pinfee = $amount * $pinFeePrice['rate'] / 100;
 			$array = ['amount' => $amount, 'fee' => $pinfee];
 			return response()->json($array);
 		}

@@ -29,7 +29,7 @@
 		 */
 		protected $casts = [
 			'id' => 'integer',
-			'user_account_id' => 'integer',
+			'user_id' => 'integer',
 		];
 
 
@@ -38,10 +38,10 @@
 			return $this->belongsTo(User::class);
 		}
 
-		public function createTransaction($actionedBy, $creditOrDebit, $amount, $newBalance, $oldBalance, $transactionsDetails, $balanceField )
+		public function createTransaction($user_id, $creditOrDebit, $amount, $newBalance, $oldBalance, $transactionsDetails, $balanceField )
 		{
 			Transaction::create([
-				'user_id' => $actionedBy,
+				'user_id' => $user_id,
 				'balance_field' => $balanceField,
 				'credit_debit' => $creditOrDebit,
 				'transaction_amount' => $amount,

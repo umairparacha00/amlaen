@@ -2,8 +2,9 @@
 
 	namespace App\Http\Controllers;
 
-	use App\Pin;
+	use App\Events\MembershipPurchased;
 	use App\Membership;
+	use App\Pin;
 	use App\UserMembership;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Facades\Validator;
@@ -21,90 +22,126 @@
 		{
 			$this->validator($request->all())->validate();
 			$pinData = $pin->checkPin($request->pin);
-			$selectedMembershipName = $request->name;
-			$membershipData = Membership::where('name', $request->name)->firstOrFail();
-			$membershipId = $membershipData->id;
-			if (current_user()->membership()->id > $membershipId) {
-				return back()->with('toast_error', 'Cannot purchase' . $request->name . 'Membership');
-			}
-			if ($selectedMembershipName === 'Basic') {
-				$membershipData = Membership::where('name', 'Basic')->first();
-				$id = $membershipData->id;
-				$price = $membershipData->price;
-				if ($pinData->pin_remaining_value >= $price) {
-					$userMembership->upgradeMembership(current_user()->id, $id);
-					$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
-					return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
-				} else {
-					return back()->with('toast_error', 'Pin balance is insufficient');
-				}
+			if ($pinData->user_id == current_user()->id) {
+				$selectedMembershipName = $request->name;
 
-			} elseif ($selectedMembershipName === 'Silver') {
-				$membershipData = Membership::where('name', 'Silver')->first();
-				$id = $membershipData->id;
-				$price = $membershipData->price;
-				if ($pinData->pin_remaining_value >= $price) {
-					$userMembership->upgradeMembership(current_user()->id, $id);
-					$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
-					return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
-				} else {
-					return back()->with('toast_error', 'Pin balance is insufficient');
+				$membershipData = Membership::where('name', $request->name)->firstOrFail();
+
+				$membershipId = $membershipData->id;
+
+				if (current_user()->membership()->id > $membershipId) {
+					return back()->with('toast_error', 'Cannot purchase' . $request->name . 'Membership');
 				}
-			} elseif ($selectedMembershipName === 'Gold') {
-				$membershipData = Membership::where('name', 'Gold')->first();
-				$id = $membershipData->id;
-				$price = $membershipData->price;
-				if ($pinData->pin_remaining_value >= $price) {
-					$userMembership->upgradeMembership(current_user()->id, $id);
-					$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
-					return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
-				} else {
-					return back()->with('toast_error', 'Pin balance is insufficient');
+				if ($selectedMembershipName === 'Basic') {
+
+					$membershipData = Membership::where('name', 'Basic')->first();
+
+					$id = $membershipData->id;
+
+					$price = $membershipData->price;
+
+					if ($pinData->pin_remaining_value >= $price) {
+
+						$userMembership->upgradeMembership(current_user()->id, $id);
+
+						$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
+						event(new MembershipPurchased(current_user()->sponsor, $price));
+
+						return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
+					} else {
+
+						return back()->with('toast_error', 'Pin balance is insufficient');
+					}
+
+				} elseif ($selectedMembershipName === 'Silver') {
+
+					$membershipData = Membership::where('name', 'Silver')->first();
+
+					$id = $membershipData->id;
+
+					$price = $membershipData->price;
+
+					if ($pinData->pin_remaining_value >= $price) {
+
+						$userMembership->upgradeMembership(current_user()->id, $id);
+
+						$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
+						event(new MembershipPurchased(current_user()->sponsor, $price));
+
+						return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
+
+					} else {
+
+						return back()->with('toast_error', 'Pin balance is insufficient');
+					}
+				} elseif ($selectedMembershipName === 'Gold') {
+
+					$membershipData = Membership::where('name', 'Gold')->first();
+
+					$id = $membershipData->id;
+
+					$price = $membershipData->price;
+					if ($pinData->pin_remaining_value >= $price) {
+						$userMembership->upgradeMembership(current_user()->id, $id);
+						$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
+						event(new MembershipPurchased(current_user()->sponsor, $price));
+						return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
+					} else {
+						return back()->with('toast_error', 'Pin balance is insufficient');
+					}
+				} elseif ($selectedMembershipName === 'Emerald') {
+					$membershipData = Membership::where('name', 'Emerald')->first();
+					$id = $membershipData->id;
+					$price = $membershipData->price;
+					if ($pinData->pin_remaining_value >= $price) {
+						$userMembership->upgradeMembership(current_user()->id, $id);
+						$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
+						event(new MembershipPurchased(current_user()->sponsor, $price));
+						return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
+					} else {
+						return back()->with('toast_error', 'Pin balance is insufficient');
+					}
+				} elseif ($selectedMembershipName === 'Sapphire') {
+					$membershipData = Membership::where('name', 'Sapphire')->first();
+					$id = $membershipData->id;
+					$price = $membershipData->price;
+					if ($pinData->pin_remaining_value >= $price) {
+						$userMembership->upgradeMembership(current_user()->id, $id);
+						$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
+						event(new MembershipPurchased(current_user()->sponsor, $price));
+						return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
+					} else {
+						return back()->with('toast_error', 'Pin balance is insufficient');
+					}
+				} elseif ($selectedMembershipName === 'Platinum') {
+					$membershipData = Membership::where('name', 'Platinum')->first();
+					$id = $membershipData->id;
+					$price = $membershipData->price;
+					if ($pinData->pin_remaining_value >= $price) {
+						$userMembership->upgradeMembership(current_user()->id, $id);
+						$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
+						event(new MembershipPurchased(current_user()->sponsor, $price));
+						return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
+					} else {
+						return back()->with('toast_error', 'Pin balance is insufficient');
+					}
+				} elseif ($selectedMembershipName === 'Diamond') {
+					$membershipData = Membership::where('name', 'Diamond')->first();
+					$id = $membershipData->id;
+					$price = $membershipData->price;
+					if ($pinData->pin_remaining_value >= $price) {
+
+						$userMembership->upgradeMembership(current_user()->id, $id);
+						$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
+						event(new MembershipPurchased(current_user()->sponsor, $price));
+						return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
+					} else {
+						return back()->with('toast_error', 'Pin balance is insufficient');
+					}
 				}
-			} elseif ($selectedMembershipName === 'Emerald') {
-				$membershipData = Membership::where('name', 'Emerald')->first();
-				$id = $membershipData->id;
-				$price = $membershipData->price;
-				if ($pinData->pin_remaining_value >= $price) {
-					$userMembership->upgradeMembership(current_user()->id, $id);
-					$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
-					return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
-				} else {
-					return back()->with('toast_error', 'Pin balance is insufficient');
-				}
-			} elseif ($selectedMembershipName === 'Sapphire') {
-				$membershipData = Membership::where('name', 'Sapphire')->first();
-				$id = $membershipData->id;
-				$price = $membershipData->price;
-				if ($pinData->pin_remaining_value >= $price) {
-					$userMembership->upgradeMembership(current_user()->id, $id);
-					$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
-					return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
-				} else {
-					return back()->with('toast_error', 'Pin balance is insufficient');
-				}
-			} elseif ($selectedMembershipName === 'Platinum') {
-				$membershipData = Membership::where('name', 'Platinum')->first();
-				$id = $membershipData->id;
-				$price = $membershipData->price;
-				if ($pinData->pin_remaining_value >= $price) {
-					$userMembership->upgradeMembership(current_user()->id, $id);
-					$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
-					return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
-				} else {
-					return back()->with('toast_error', 'Pin balance is insufficient');
-				}
-			} elseif ($selectedMembershipName === 'Diamond') {
-				$membershipData = Membership::where('name', 'Diamond')->first();
-				$id = $membershipData->id;
-				$price = $membershipData->price;
-				if ($pinData->pin_remaining_value >= $price) {
-					$userMembership->upgradeMembership(current_user()->id, $id);
-					$pin->updatePinRemainingValue($pinData->id, $this->getPinRemainingValue($pinData->pin_remaining_value, $price));
-					return back()->with('toast_success', $selectedMembershipName . ' Purchased Successfully');
-				} else {
-					return back()->with('toast_error', 'Pin balance is insufficient');
-				}
+			}
+			else{
+			    return redirect(route('pin.create'))->with('toast_error', 'This pin belongsTo another User');
 			}
 		}
 

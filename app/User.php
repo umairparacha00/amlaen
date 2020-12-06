@@ -2,6 +2,7 @@
 
 	namespace App;
 
+	use Illuminate\Support\Facades\DB;
 	use Spatie\Permission\Traits\HasRoles;
 	use Illuminate\Notifications\Notifiable;
 	use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -18,7 +19,7 @@
 		 */
 		protected $fillable = [
 			'account_id', 'username', 'name', 'email', 'sponsor', 'password',
-			'cnic', 'pl_pin', 'phone', 'date_of_birth', 'gender', 'address',
+			'cnic', 'pl_pin', 'status', 'phone', 'date_of_birth', 'gender', 'address',
 			'postalcode', 'country', 'state', 'city', 'user_file',
 			'cnic_file', 'bank_file', 'cnic_file_status', 'bank_file_status',
 		];
@@ -46,10 +47,22 @@
 			return $this->hasOne(Balance::class);
 		}
 
+		public function ad_power_balance()
+		{
+			return $this->balance->ad_power_balance;
+		}
+
 		public function updateMainBalance($user, $balance)
 		{
 			$this->balance()->where('user_id', $user)->update([
 				'main_balance' => $balance
+			]);
+		}
+
+		public function updateAdPackBalance($user, $balance)
+		{
+			$this->balance()->where('user_id', $user)->update([
+				'ad_power_balance' => $balance
 			]);
 		}
 
@@ -102,4 +115,13 @@
 			]);
 		}
 
+		public function usersForAdminDashboard()
+		{
+			return User::orderBy('id', 'desc')->paginate(5);
+		}
+
+		public function adPacks()
+		{
+			return $this->hasMany(AdPack::class);
+		}
 	}

@@ -154,8 +154,8 @@
 							</a>
 							<ul>
 								<li>
-									<a href="{{ url('/profile/edit') }}"
-									   class="mb-0 {{ Request::path() === 'profile/edit' ? 'mm-active' : '' }}">
+									<a href="{{ url('/profile') }}"
+									   class="mb-0 {{ Request::path() === 'profile' ? 'mm-active' : '' }}">
 										<i class="fal fa-circle mr-3 fx-6">
 										</i>Profile Info
 									</a>
@@ -267,6 +267,14 @@
 										<i class="fal fa-circle mr-3 fx-6"></i>Referral Link
 									</a>
 								</li>
+								@role('manager')
+								<li>
+									<a href="{{ route('pending.index') }}"
+									   class="mb-0 {{ Request::path() === 'network/pending' ? 'mm-active' : '' }}">
+										<i class="fal fa-circle mr-3 fx-6"></i>Pending
+									</a>
+								</li>
+								@endrole
 							</ul>
 						</li>
 						<li class="{{ Request::is('settings*') ?  'mm-active' : '' }}">
@@ -300,8 +308,8 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="{{ asset('assets/js/main.js')}}"></script>
 <script type="text/javascript" src="{{ asset('js/app.js')}}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/main.js')}}"></script>
 <script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 @yield('page-script')
 @include('sweetalert::alert')

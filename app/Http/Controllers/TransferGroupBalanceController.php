@@ -2,9 +2,9 @@
 
 	namespace App\Http\Controllers;
 
+	use App\User;
 	use App\Balance;
 	use App\Transaction;
-	use App\User;
 	use Illuminate\Http\Request;
 
 	class TransferGroupBalanceController extends Controller
@@ -83,7 +83,7 @@
 
 			// Transaction for debit from group balance fee
 
-			$user->addTransaction('group_balance',
+			$user->addTransaction('group_balance_fee',
 				'Debit',
 				$sharingGroupBalanceFee,
 				$balance->currentGroupBalance(),

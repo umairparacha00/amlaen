@@ -131,7 +131,7 @@
                                 <th>Amount</th>
                                 <th>Old Balance</th>
                                 <th>New Balance</th>
-                                <th style="width: 200px;">Detail</th>
+                                <th style="width: 330px;">Detail</th>
                                 <th>Date</th>
                             </tr>
                             </thead>
@@ -154,6 +154,7 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection
 @section ('page-script')
 @endsection

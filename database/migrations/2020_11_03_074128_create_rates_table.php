@@ -4,7 +4,7 @@
 	use Illuminate\Database\Schema\Blueprint;
 	use Illuminate\Support\Facades\Schema;
 
-	class CreateFeesTable extends Migration
+	class CreateRatesTable extends Migration
 	{
 		/**
 		 * Run the migrations.
@@ -13,10 +13,10 @@
 		 */
 		public function up()
 		{
-			Schema::create('fees', function (Blueprint $table) {
+			Schema::create('rates', function (Blueprint $table) {
 				$table->id();
-				$table->string('fee_name');
-				$table->decimal('fee', 3, 1 );
+				$table->string('name');
+				$table->decimal('rate', 3, 1 );
 				$table->timestamps();
 			});
 		}
@@ -28,6 +28,6 @@
 		 */
 		public function down()
 		{
-			Schema::dropIfExists('fees');
+			Schema::dropIfExists('rates');
 		}
 	}

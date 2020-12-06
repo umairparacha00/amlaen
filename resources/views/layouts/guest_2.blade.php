@@ -164,7 +164,6 @@
     </div>
 </div>
 <script src="{{ asset('assets/js/jquery.js') }}"></script>
-<script src="{{ asset('js/app.js') }}" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
 <script>
     $(window).on("load", function () {
         $(".loader-wrapper").fadeOut(200, function () {

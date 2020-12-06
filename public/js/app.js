@@ -13031,6 +13031,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+// let Turbolinks = require("turbolinks")
+// Turbolinks.start()
 
 /***/ }),
 
@@ -13041,7 +13043,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\amlaen\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\amlaen\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

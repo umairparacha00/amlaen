@@ -24,7 +24,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
 		'sponsor' => 1000000000000,
-		'status' => 0,
+		'status' => 1,
 		'pl_pin' => 123456,
 		'postalcode' => 321405,
 		'city' => $faker->city,

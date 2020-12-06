@@ -1,4 +1,4 @@
-@extends ('layouts.app')
+@extends ('Admin.layouts.app')
 @section('style')
     <style type="text/css">
         .new-form-container .tab-content form .form-control {
@@ -6,17 +6,6 @@
             font-size: 13px;
             border-radius: 0;
         }
-        
-        .btn-primary {
-            border-color: #4839EB !important;
-            background-color: #7367F0 !important;
-            color: #FFF;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
         .new-form-container .tab-content {
             padding: 36px 30px;
         }
@@ -129,9 +118,7 @@
                                 <th>Type</th>
                                 <th>CR/DR</th>
                                 <th>Amount</th>
-                                <th>Old Balance</th>
-                                <th>New Balance</th>
-                                <th style="width: 200px;">Detail</th>
+                                <th>Detail</th>
                                 <th>Date</th>
                             </tr>
                             </thead>
@@ -141,10 +128,7 @@
                                     <td>{{ $transaction->balance_field }}</td>
                                     <td>{{ $transaction->credit_debit }}</td>
                                     <td>{{ number_format($transaction->transaction_amount, 4, '.', ',') }}</td>
-                                    <td>{{ number_format($transaction->old_balance, 4, '.', ',') }}</td>
-                                    <td>{{ number_format($transaction->new_balance, 4, '.', ',') }}</td>
-                                    <td style="width: 100px;">{{ $transaction->transactions_details }}
-                                    </td>
+                                    <td>{{ $transaction->transactions_details }}</td>
                                     <td>{{ $transaction->trans_date_time }}</td>
                                 </tr>
                             @endforeach

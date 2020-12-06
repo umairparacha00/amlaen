@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(UserMembership::class, function (Faker $faker) {
     return [
-        'membership_id' => 1
+        'membership_id' => 2
     ];
 });

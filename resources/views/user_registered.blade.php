@@ -8,6 +8,6 @@
 	<title>Document</title>
 </head>
 <body>
-	<h1>Verify your email address.</h1>
+	<p>Verify your email address.</p>
 </body>
 </html>

@@ -60,7 +60,6 @@
         .c-wraper h2 i {
             color: #7367f0;
             font-weight: 600;
-            font-size: 2.5rem;
         }
 
         .c-wraper p {
@@ -284,7 +283,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-12">
+            <div class="col-lg-4 col-md-12 col-12">
                 <div class="card">
                     <div class="c-wraper">
                         <h2><span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
@@ -293,7 +292,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-12">
+            <div class="col-lg-4 col-md-12 col-12">
                 <div class="card">
                     <div class="c-wraper">
                         <h2><span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
@@ -302,11 +301,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-12">
+            <div class="col-lg-4 col-md-12 col-12">
                 <div class="card">
                     <div class="c-wraper">
-                        <h2><span><i class="fal fa-badge-dollar" style="font-weight: 300;"></i></span>
-                            0</h2>
+                        <h2>
+                            <span>
+                                <i class="fal fa-badge-dollar" style="font-weight: 300;"></i>
+                            </span>
+                            {{ $adPacksValue }}
+                        </h2>
                         <p>Gold Pack</p>
                     </div>
                 </div>

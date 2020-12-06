@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Admin;
+use App\AdPack;
+use App\Balance;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,8 +15,26 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @param Admin $admin
+	 * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+	 */
+	public function index(Admin $admin)
+	{
+		$admins = $admin->orderBy('id', 'desc')->paginate(25);
+		return view('Admin.index', ['admins' => $admins]);
+	}
 
-
+	public function showDashboard(User $user, Balance $balance, AdPack $adPack)
+	{
+		$users = $user->usersForAdminDashboard();
+		$totalMainBalance = $balance->totalMainBalance();
+		$totalGroupBalance = $balance->totalGroupBalance();
+		$totalInvestmentToday = $adPack->totalInvestmentToday();
+		return view('Admin.dashboard', ['users' => $users, 'totalMainBalance' => $totalMainBalance, 'totalGroupBalance' => $totalGroupBalance, 'totalInvestmentToday' => $totalInvestmentToday]);
+	}
 
     public function showLoginForm()
     {

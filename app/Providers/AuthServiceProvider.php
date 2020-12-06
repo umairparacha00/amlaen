@@ -25,6 +25,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+		Gate::define('approve-documents', function ($user) {
+			if ($user->hasPermissionTo('approve documents and open investment')) {
+				return true;
+			}
+			else{
+				return false;
+			}
+		});
     }
 }

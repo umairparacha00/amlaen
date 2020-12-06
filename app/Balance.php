@@ -2,7 +2,9 @@
 
 	namespace App;
 
+	use Carbon\Carbon;
 	use Illuminate\Database\Eloquent\Model;
+	use Illuminate\Support\Facades\DB;
 
 	class Balance extends Model
 	{
@@ -26,13 +28,19 @@
 		 */
 		protected $casts = [
 			'id' => 'integer',
-			'user_account_id' => 'integer',
+			'user_id' => 'integer',
 		];
 
 		public function currentMainBalance()
 		{
 			$freshBalance = current_user()->balance->fresh();
 			return $freshBalance->main_balance;
+		}
+
+		public function currentAdPackBalance()
+		{
+			$freshBalance = current_user()->balance->fresh();
+			return $freshBalance->ad_power_balance;
 		}
 
 		public function currentGroupBalance()
@@ -50,7 +58,7 @@
 		public function updateGroupBalance($id, $amount)
 		{
 			Balance::where('user_id', $id)->update([
-				'balance_balance' => $amount
+				'group_balance' => $amount
 			]);
 		}
 
@@ -66,5 +74,23 @@
 			$this->belongsTo(User::class);
 		}
 
+		public function totalMainBalance()
+		{
+			$mainBalance = Balance::all();
+			return $mainBalance->sum('main_balance');
+		}
 
+
+		public function totalGroupBalance()
+		{
+			$mainBalance = Balance::all();
+			return $mainBalance->sum('group_balance');
+		}
+
+		public function updateAdPackBalance($id, $amount)
+		{
+			Balance::where('user_id', $id)->update([
+				'ad_power_balance' => $amount
+			]);
+		}
 	}

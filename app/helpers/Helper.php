@@ -10,6 +10,13 @@
 		}
 	}
 
+	if (!function_exists('current_admin'))
+	{
+		function current_admin(){
+			return auth('admin')->user();
+		}
+	}
+
 	if (!function_exists('current_user_membership'))
 	{
 		function current_user_membership($id){

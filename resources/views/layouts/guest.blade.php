@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html data-page="e145" data-io-a="1">
+<html lang="en" data-page="e145" data-io-a="1">
 <head>
     <meta charset="utf-8"/>
     @yield('meta-data')
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-{{--    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>--}}
-{{--    <script type="text/javascript">--}}
-{{--        WebFont.load({--}}
-{{--            google: {--}}
-{{--                families: ["Hind Vadodara:300,regular,500,600,700"]--}}
-{{--            }--}}
-{{--        });--}}
-{{--    </script>--}}
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        WebFont.load({
+            google: {
+                families: ["Hind Vadodara:300,regular,500,600,700"]
+            }
+        });
+    </script>
     <script type="text/javascript">
         !function(o, c) {
             var n = c.documentElement
@@ -166,6 +166,6 @@
     </a>
 </div>
 <script src="{{ asset('assets/js/jquery.js') }}"></script>
-<script src="{{ asset('assets/js/guest_main.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/guest_main.js') }}"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 	namespace App\Http\Controllers;
 
+	use App\AdPack;
 	use Illuminate\Http\Request;
 	use Spatie\Permission\Models\Permission;
 	use Spatie\Permission\Models\Role;
@@ -21,10 +22,12 @@
 		/**
 		 * Show the application dashboard.
 		 *
+		 * @param AdPack $adPack
 		 * @return \Illuminate\Contracts\Support\Renderable
 		 */
-		public function index()
+		public function index(AdPack $adPack)
 		{
-			return view('dashboard');
+			$adPacksValue = $adPack->totalAdPacksBalance();
+			return view('dashboard', compact('adPacksValue'));
 		}
 	}

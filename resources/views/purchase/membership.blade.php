@@ -260,7 +260,7 @@
 							Current membership:
 							<span class="m-info">{{ current_user()->membership()->name }}</span></div>
 						<!---->
-						<form method="POST" action="{{ '/purchase/membership' }}" id="membershipPurchaseForm">
+						<form method="POST" action="{{ route('membership.post') }}" id="membershipPurchaseForm">
 							@csrf
 							<div class="row">
 								<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">

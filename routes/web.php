@@ -19,19 +19,27 @@
 		Route::get('/about', 'IndexController@about_us');
 		Route::get('/contact', 'IndexController@contact_us');
 		Route::get('/terms_and_conditions', 'IndexController@terms_and_conditions');
-		Route::prefix('admin')->group(function () {
-			Route::get('/login', 'Admin\AdminController@showLoginForm');
-		});
+		Route::get('/admin/login', 'Admin\AdminController@showLoginForm');
 	});
 	Route::prefix('admin')->namespace('Admin')->group(function () {
 		Route::post('/login', 'AdminController@login');
 		Route::middleware('admin')->group(function () {
-			Route::get('/dashboard', function () {
-				return view('Admin.dashboard');
+			Route::get('/dashboard', 'AdminController@showDashboard');
+			Route::prefix('resources')->group(function () {
+				Route::resource('admins', 'AdminController');
+
+				Route::post('/getUserDetailsForDestroying', 'UserController@getUserDetailsForDestroying');
+				Route::resource('users', 'UserController');
 			});
+			Route::get('/settings/change-password', 'SettingsController@showChangePassword');
+			Route::get('/settings/change-pin', 'SettingsController@showChangePin');
+			Route::get('/transactions', 'TransactionsController@index');
+			Route::get('/create-points', 'TransactionsController@showPointsCreationForm');
+			Route::post('/change-password', 'SettingsController@changePassword');
+			Route::post('/change-pin', 'SettingsController@changePin');
 			Route::get('/logout', 'AdminController@logout');
 			Route::any('{query}', function () {
-					return redirect('/admin/dashboard');
+				return redirect('/admin/dashboard');
 			})->where('query', '.*');
 		});
 	});
@@ -47,12 +55,19 @@
 		Route::get('/transactions', 'TransactionsController@index')->name('transactions');
 		Route::get('/withdraw-balance', 'TransactionsController@withdrawBalanceShow')->name('transactions');
 		Route::get('/payment-gateways', 'TransactionsController@paymentGatewaysShow')->name('transactions');
-		Route::get('/purchase/ad-pack', 'AdPowerPurchaseController@create');
-		Route::get('/purchase/membership', 'MembershipPurchaseController@create');
+		Route::prefix('purchase')->group(function () {
+			Route::get('/ad-pack', 'AdPackPurchaseController@create')->name('ad_packs.create');
+			Route::get('/membership', 'MembershipPurchaseController@create')->name('membership.create');
+			Route::post('/getAdPackValidation', 'AdPackPurchaseController@getAdPackValidation');
+			Route::post('/membership', 'MembershipPurchaseController@store')->name('membership.post');
+			Route::post('/ad-pack', 'AdPackPurchaseController@store')->name('ad_packs.post');
+		});
+
 		Route::prefix('/network')->group(function () {
 			Route::get('/direct-referrals', 'NetworkController@directReferralsIndex');
 			Route::get('/referral-link', 'NetworkController@referralLinkShow');
 			Route::get('/tree', 'NetworkController@treeShow');
+			Route::get('/pending', 'DocumentsApprovingController@showPendingDocuments')->name('pending.index');
 		});
 		Route::prefix('/settings')->group(function () {
 			Route::get('/', 'SettingsController@create');
@@ -63,7 +78,6 @@
 		});
 //		Route::get('/settings/change-password', 'changePinAndPasswordController@password_create');
 //		Route::get('/settings/change-pin', 'changePinAndPasswordController@pin_create');
-		Route::post('/purchase/membership', 'MembershipPurchaseController@store');
 		Route::post('/getMembershipPrice', 'MembershipPurchaseController@getMembershipPrice');
 		Route::post('/getpinfee', 'PinsController@getpinfee');
 		Route::post('/create-pin/{user}', 'PinsController@store');

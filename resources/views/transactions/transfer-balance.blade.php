@@ -256,7 +256,7 @@
                                 @foreach ($transactions as $transaction)
                                     <tr>
                                         <td>{{ $transaction->id }}</td>
-                                        <td>{{ $transaction->transaction_amount }}</td>
+                                        <td>{{ number_format($transaction->transaction_amount, 2, '.', ',') }}</td>
                                         <td>{{ $transaction->trans_date_time }}</td>
                                     </tr>
                                 @endforeach
